@@ -1,0 +1,285 @@
+[14:40:06] opening 'UNLOCK___TOOL__RENT'
+[14:40:06] [inventory-fail] 'UNLOCK___TOOL__RENT': inventory row not found: 'UNLOCK___TOOL__RENT'
+[14:40:06] [all done] total 0
+[14:52:20] opening 'UNLOCK___TOOL__RENT'
+[14:52:22] [scan] [UNLOCK___TOOL__RENT] 39 sold-out row(s)
+[14:52:22] [rotating] [UNLOCK___TOOL__RENT] JUNU@1  UMCVSETRYY -> ZD8DVKJG
+[14:52:24] [ok] [UNLOCK___TOOL__RENT] JUNU@1 rotated
+[14:52:26] [rotating] [UNLOCK___TOOL__RENT] PINFRPTOOL3  UMCVSETRYY -> AJC62HU9
+[14:52:28] [ok] [UNLOCK___TOOL__RENT] PINFRPTOOL3 rotated
+[14:52:30] [rotating] [UNLOCK___TOOL__RENT] LIMMA@7  UMCVSETRYY -> TSZRWD9S
+[14:52:35] [ok] [UNLOCK___TOOL__RENT] LIMMA@7 rotated
+[14:52:37] [stop] break requested
+[14:52:37] [done] [UNLOCK___TOOL__RENT] rotated 3
+[14:52:37] [all done] total 3
+[14:55:25] opening 'Android Multi Tool[AMT]__RENT'
+[14:55:26] [scan] [Android Multi Tool[AMT]__RENT] 12 sold-out row(s)
+[14:55:26] [wait] [Android Multi Tool[AMT]__RENT] pin11frp@gmail.com — sold 0:06:26.646144 ago
+[14:55:28] [wait] [Android Multi Tool[AMT]__RENT] imdad9365000393@gmail.com — sold 0:19:28.151594 ago
+[14:55:29] [wait] [Android Multi Tool[AMT]__RENT] gsmclasssupport@gmail.com — sold 0:28:29.667131 ago
+[14:55:31] [wait] [Android Multi Tool[AMT]__RENT] pin1frp@gmail.com — sold 0:45:31.177661 ago
+[14:55:32] [wait] [Android Multi Tool[AMT]__RENT] pin3frp@gmail.com — sold 0:52:32.695643 ago
+[14:55:34] [rotating] [Android Multi Tool[AMT]__RENT] pin9frp@gmail.com  JYUTHFG -> 4LTVJJ8C
+[14:55:36] [ok] [Android Multi Tool[AMT]__RENT] pin9frp@gmail.com rotated
+[14:55:38] [rotating] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com  JYUTHFG -> TYGV8LZ5
+[14:55:40] [ok] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com rotated
+[14:55:41] [stop] break requested
+[14:55:42] [done] [Android Multi Tool[AMT]__RENT] rotated 2
+[14:55:42] [all done] total 2
+[15:16:23] opening 'Android Multi Tool[AMT]__RENT'
+[15:16:23] [inventory-fail] 'Android Multi Tool[AMT]__RENT': inventory row not found: 'Android Multi Tool[AMT]__RENT'
+[15:16:23] [all done] total 0
+[15:16:45] opening 'Android Multi Tool[AMT]__RENT'
+[15:16:47] [scan] [Android Multi Tool[AMT]__RENT] 13 sold-out row(s)
+[15:16:47] [wait] [Android Multi Tool[AMT]__RENT] txtv444@gmail.com — sold 0:01:47.149384 ago
+[15:16:48] [wait] [Android Multi Tool[AMT]__RENT] amtpinfrp@gmail.com — sold 0:12:48.651760 ago
+[15:16:50] [wait] [Android Multi Tool[AMT]__RENT] teamvieweremail09@gmail.com — sold 0:16:50.156541 ago
+[15:16:51] [wait] [Android Multi Tool[AMT]__RENT] pin11frp@gmail.com — sold 0:27:51.666741 ago
+[15:16:53] [wait] [Android Multi Tool[AMT]__RENT] imdad9365000393@gmail.com — sold 0:40:53.174394 ago
+[15:16:54] [wait] [Android Multi Tool[AMT]__RENT] gsmclasssupport@gmail.com — sold 0:49:54.687348 ago
+[15:16:56] [rotating] [Android Multi Tool[AMT]__RENT] pin1frp@gmail.com  JYUTHFG -> 8WJQ64EA
+[15:16:58] [ok] [Android Multi Tool[AMT]__RENT] pin1frp@gmail.com rotated
+[15:17:00] [rotating] [Android Multi Tool[AMT]__RENT] pin3frp@gmail.com  JYUTHFG -> US23HMWP
+[15:17:02] [ok] [Android Multi Tool[AMT]__RENT] pin3frp@gmail.com rotated
+[15:17:04] [stop] break requested
+[15:17:04] [done] [Android Multi Tool[AMT]__RENT] rotated 2
+[15:17:04] [all done] total 2
+[15:20:23] [DIAG] admin tab url = https://pinfrp.com/admin
+[15:20:23] opening 'Android Multi Tool[AMT]__RENT'
+[15:20:24] [scan] [Android Multi Tool[AMT]__RENT] 12 sold-out row(s) (limit=1, mark_available=False)
+[15:20:24] [wait] [Android Multi Tool[AMT]__RENT] unlocktool0133333@gmail.com — sold 0:01:24.855020 ago
+[15:20:26] [wait] [Android Multi Tool[AMT]__RENT] txtv444@gmail.com — sold 0:05:26.364946 ago
+[15:20:27] [wait] [Android Multi Tool[AMT]__RENT] amtpinfrp@gmail.com — sold 0:16:27.884134 ago
+[15:20:29] [wait] [Android Multi Tool[AMT]__RENT] teamvieweremail09@gmail.com — sold 0:20:29.398174 ago
+[15:20:30] [wait] [Android Multi Tool[AMT]__RENT] pin11frp@gmail.com — sold 0:31:30.904628 ago
+[15:20:32] [wait] [Android Multi Tool[AMT]__RENT] imdad9365000393@gmail.com — sold 0:44:32.419133 ago
+[15:20:33] [wait] [Android Multi Tool[AMT]__RENT] gsmclasssupport@gmail.com — sold 0:53:33.924899 ago
+[15:20:35] [DIAG] inv='Android Multi Tool[AMT]__RENT' is_amt=True vendor_ctx=yes
+[15:20:35] [rotating] [Android Multi Tool[AMT]__RENT] pin7frp@gmail.com  JYUTHFG → YAHGS6SC  (age=1:30:35.430164)
+[15:20:35] [DIAG] entering vendor branch
+[15:20:35] [vendor] opening new tab for pin7frp@gmail.com
+[15:20:35] [vendor] goto https://androidmultitool.com/controller/login
+[15:20:36] [vendor] page loaded, url=https://androidmultitool.com/controller/login
+[15:20:36] [vendor] waiting for Turnstile...
+[15:20:38] [vendor] Turnstile OK
+[15:20:38] [vendor] filling email + password
+[15:20:38] [vendor] calling process_login()
+[15:20:38] [vendor] process_login() invoked via evaluate
+[15:20:38] [vendor] waiting for dashboard...
+[15:20:40] [vendor] login OK: pin7frp@gmail.com
+[15:20:40] [vendor] opening account page
+[15:20:41] [vendor] waiting for account form
+[15:20:41] [vendor] filling new password
+[15:20:43] [vendor] account page Turnstile OK (or not required)
+[15:20:43] [vendor] invoking change_details()
+[15:20:43] [vendor] change_details() invoked
+[15:20:47] [vendor] no explicit success message — check screenshot
+[15:20:47] [vendor] [Android Multi Tool[AMT]__RENT] pin7frp@gmail.com password rotated at vendor
+[15:20:50] [ok] [Android Multi Tool[AMT]__RENT] pin7frp@gmail.com rotated (mark_available=False)
+[15:20:51] [limit] [Android Multi Tool[AMT]__RENT] reached 1 rotation(s) — stopping
+[15:20:51] [done] [Android Multi Tool[AMT]__RENT] rotated 1
+[15:20:51] [all done] total 1
+[16:10:28] [DIAG] admin tab url = https://pinfrp.com/admin
+[16:10:28] opening 'Galaxy Multi Tool'
+[16:10:29] [scan] [Galaxy Multi Tool] 1 sold-out row(s) (limit=1, mark_available=False)
+[16:10:29] [DIAG] inv='Galaxy Multi Tool' is_amt=False vendor_ctx=yes
+[16:10:29] [rotating] [Galaxy Multi Tool] pin5frp@gmail.com  GTYJHYKIIUKUJIK → QTJA2VAJ  (age=1:08:29.309173)
+[16:10:29] [vendor-skip] [Galaxy Multi Tool] pin5frp@gmail.com — no vendor rotation configured
+[16:10:32] [ok] [Galaxy Multi Tool] pin5frp@gmail.com rotated (mark_available=False)
+[16:10:33] [done] [Galaxy Multi Tool] rotated 1
+[16:10:33] [all done] total 1
+[16:11:59] [DIAG] admin tab url = https://pinfrp.com/admin
+[16:11:59] opening 'Galaxy Multi Tool'
+[16:12:01] [scan] [Galaxy Multi Tool] 1 sold-out row(s) (limit=1, mark_available=False)
+[16:12:01] [rotating] [Galaxy Multi Tool] pin5frp@gmail.com  GTYJHYKIIUKUJIK → ZCXUTSPM  (age=1:10:01.069879)
+[16:12:01] [vendor] goto https://galaxyunlock.in/login
+[16:12:01] [vendor] filling email + password
+[16:12:01] [vendor] clicking Login
+[16:12:01] [vendor] waiting for /account...
+[16:12:32] [vendor-fail] [Galaxy Multi Tool] pin5frp@gmail.com: RuntimeError("Galaxy vendor login failed. url='https://galaxyunlock.in/'")
+[16:12:33] [done] [Galaxy Multi Tool] rotated 0
+[16:12:33] [all done] total 0
+[16:15:17] [DIAG] admin tab url = https://galaxyunlock.in/account
+[16:15:17] [state] navigating to Inventory page
+[16:15:42] [DIAG] admin tab url = https://pinfrp.com/admin
+[16:15:42] opening 'Galaxy Multi Tool'
+[16:15:43] [scan] [Galaxy Multi Tool] 1 sold-out row(s) (limit=1, mark_available=False)
+[16:15:43] [rotating] [Galaxy Multi Tool] pin5frp@gmail.com  GTYJHYKIIUKUJIK → TY794X34  (age=1:13:43.944471)
+[16:15:43] [DIAG] vendor login dispatch: kind='galaxy'
+[16:15:43] [vendor] goto https://galaxyunlock.in/login
+[16:15:44] [vendor] loaded, url=https://galaxyunlock.in/login
+[16:15:44] [vendor] filling email + password
+[16:15:44] [vendor] clicking Login
+[16:15:44] [vendor] waiting for post-login state...
+[16:15:46] [vendor] login OK: pin5frp@gmail.com (url now https://galaxyunlock.in/)
+[16:15:46] [DIAG] vendor change dispatch: kind='galaxy'
+[16:15:46] [vendor] navigating to account page
+[16:15:56] [vendor] waiting for Security tab (proves we're logged in)…
+[16:15:56] [vendor] Security tab visible
+[16:15:56] [vendor] clicking Security tab
+[16:15:56] [vendor] clicking Change Password
+[16:15:56] [vendor] filling current + new + confirm
+[16:15:56] [vendor] waiting for Update Password button to enable
+[16:15:56] [vendor] clicking Update Password
+[16:16:00] [vendor] password change submitted
+[16:16:00] [vendor] [Galaxy Multi Tool] pin5frp@gmail.com password rotated at vendor
+[16:16:03] [ok] [Galaxy Multi Tool] pin5frp@gmail.com rotated (mark_available=False)
+[16:16:04] [done] [Galaxy Multi Tool] rotated 1
+[16:16:04] [all done] total 1
+[17:22:12] [state] navigating to Inventory page
+[17:22:13] [inventory-list] found 12 inventories
+[17:22:13] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[17:22:13] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[17:22:13] [inventory-list]   - EFT-PRO
+[17:22:13] [inventory-list]   - EME TOOL RENT
+[17:22:13] [inventory-list]   - Galaxy Multi Tool
+[17:22:13] [inventory-list]   - Galaxy Multi ToolDEMO
+[17:22:13] [inventory-list]   - REALME OTP
+[17:22:13] [inventory-list]   - SINGMA KEY___30MNT
+[17:22:13] [inventory-list]   - TSM TOOL
+[17:22:13] [inventory-list]   - UAT PRO
+[17:22:13] [inventory-list]   - UNLOCK___TOOL__RENT
+[17:22:13] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[17:22:23] [DIAG] admin tab url = https://pinfrp.com/admin
+[17:22:23] [plan] 1 inventory/inventories to process
+[17:22:23] opening 'Android Multi Tool[AMT]__RENTDEMO'
+[17:22:24] [scan] [Android Multi Tool[AMT]__RENTDEMO] 0 sold-out row(s) (limit=unlimited, mark_available=True)
+[17:22:24] [done] [Android Multi Tool[AMT]__RENTDEMO] rotated 0
+[17:22:24] [all done] total 0
+[17:22:59] [DIAG] admin tab url = https://pinfrp.com/admin
+[17:22:59] [plan] 1 inventory/inventories to process
+[17:22:59] opening 'Android Multi Tool[AMT]__RENTDEMO'
+[17:23:01] [scan] [Android Multi Tool[AMT]__RENTDEMO] 1 sold-out row(s) (limit=unlimited, mark_available=True)
+[17:23:01] [rotating] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com  old password = FPBGRVD8  ->  new password = P49FVL67  (age=0:01:01.102017)
+[17:23:01] [DIAG] vendor login dispatch: kind='amt'
+[17:23:01] [vendor] goto https://androidmultitool.com/controller/login
+[17:23:05] [vendor] Turnstile OK
+[17:23:06] [vendor] login OK: pinfrp0011@gmail.com
+[17:23:07] [vendor] waiting for account-page Turnstile token
+[17:23:10] [vendor] account-page Turnstile OK
+[17:23:10] [vendor] clicking Save Changes button
+[17:23:10] [vendor] Save clicked via 'button.btn.btn-icon.btn-success:has-text("Save Changes")'
+[17:23:15] [vendor-pass] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com  ->  VENDOR password set to: P49FVL67
+[17:23:17] [admin-pass] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com  ->  ADMIN code set to: 🆔 pinfrp0011@gmail.com 🔑 P49FVL67
+[17:23:17] [ok] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com rotated (mark_available=True)
+[17:23:19] [done] [Android Multi Tool[AMT]__RENTDEMO] rotated 1
+[17:23:19] [all done] total 1
+[17:23:33] [DIAG] admin tab url = https://pinfrp.com/admin
+[17:23:33] [plan] 1 inventory/inventories to process
+[17:23:33] opening 'Galaxy Multi ToolDEMO'
+[17:23:34] [scan] [Galaxy Multi ToolDEMO] 1 sold-out row(s) (limit=unlimited, mark_available=True)
+[17:23:34] [rotating] [Galaxy Multi ToolDEMO] txtv444@gmail.com  old password = JF42KQ9D  ->  new password = YFRTT7RW  (age=0:01:34.686509)
+[17:23:34] [DIAG] vendor login dispatch: kind='galaxy'
+[17:23:34] [vendor] goto https://galaxyunlock.in/login
+[17:23:37] [vendor] login OK: txtv444@gmail.com
+[17:23:37] [vendor] navigating to account page
+[17:23:48] [vendor] waiting for Security tab
+[17:23:48] [vendor] clicking Security tab
+[17:23:48] [vendor] clicking Change Password
+[17:23:48] [vendor] filling form
+[17:23:48] [vendor] waiting for Update Password to enable
+[17:23:48] [vendor] submitting
+[17:23:52] [vendor-pass] [Galaxy Multi ToolDEMO] txtv444@gmail.com  ->  VENDOR password set to: YFRTT7RW
+[17:23:54] [admin-pass] [Galaxy Multi ToolDEMO] txtv444@gmail.com  ->  ADMIN code set to: 🆔 txtv444@gmail.com 🔑 YFRTT7RW
+[17:23:54] [ok] [Galaxy Multi ToolDEMO] txtv444@gmail.com rotated (mark_available=True)
+[17:23:56] [done] [Galaxy Multi ToolDEMO] rotated 1
+[17:23:56] [all done] total 1
+[17:27:38] [inventory-list] found 12 inventories
+[17:27:38] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[17:27:38] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[17:27:38] [inventory-list]   - EFT-PRO
+[17:27:38] [inventory-list]   - EME TOOL RENT
+[17:27:38] [inventory-list]   - Galaxy Multi Tool
+[17:27:38] [inventory-list]   - Galaxy Multi ToolDEMO
+[17:27:38] [inventory-list]   - REALME OTP
+[17:27:38] [inventory-list]   - SINGMA KEY___30MNT
+[17:27:38] [inventory-list]   - TSM TOOL
+[17:27:38] [inventory-list]   - UAT PRO
+[17:27:38] [inventory-list]   - UNLOCK___TOOL__RENT
+[17:27:38] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[17:28:16] [DIAG] admin tab url = https://pinfrp.com/admin
+[17:28:16] [plan] 1 inventory/inventories to process
+[17:28:16] opening 'Android Multi Tool[AMT]__RENTDEMO'
+[17:28:17] [scan] [Android Multi Tool[AMT]__RENTDEMO] 1 sold-out row(s) (limit=1, mark_available=True)
+[17:28:17] [rotating] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com  old password = P49FVL67  ->  new password = 7847XCKE  (age=0:04:17.295969)
+[17:28:17] [DIAG] vendor login dispatch: kind='amt'
+[17:28:17] [vendor] goto https://androidmultitool.com/controller/login
+[17:28:20] [vendor] Turnstile OK
+[17:28:21] [vendor] login OK: pinfrp0011@gmail.com
+[17:28:22] [vendor] waiting for account-page Turnstile token
+[17:28:25] [vendor] account-page Turnstile OK
+[17:28:25] [vendor] clicking Save Changes button
+[17:28:25] [vendor] Save clicked via 'button.btn.btn-icon.btn-success:has-text("Save Changes")'
+[17:28:30] [vendor-pass] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com  ->  VENDOR password set to: 7847XCKE
+[17:28:33] [admin-pass] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com  ->  ADMIN code set to: 🆔 pinfrp0011@gmail.com 🔑 7847XCKE
+[17:28:33] [ok] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com rotated (mark_available=True)
+[17:28:34] [done] [Android Multi Tool[AMT]__RENTDEMO] rotated 1
+[17:28:34] [all done] total 1
+[17:29:16] [DIAG] admin tab url = https://pinfrp.com/admin
+[17:29:16] [plan] 1 inventory/inventories to process
+[17:29:16] opening 'Galaxy Multi ToolDEMO'
+[17:29:17] [scan] [Galaxy Multi ToolDEMO] 1 sold-out row(s) (limit=1, mark_available=True)
+[17:29:17] [rotating] [Galaxy Multi ToolDEMO] txtv444@gmail.com  old password = YFRTT7RW  ->  new password = 456W79NP  (age=0:05:17.964879)
+[17:29:17] [DIAG] vendor login dispatch: kind='galaxy'
+[17:29:18] [vendor] goto https://galaxyunlock.in/login
+[17:29:20] [vendor] login OK: txtv444@gmail.com
+[17:29:20] [vendor] navigating to account page
+[17:29:30] [vendor] waiting for Security tab
+[17:29:30] [vendor] clicking Security tab
+[17:29:30] [vendor] clicking Change Password
+[17:29:30] [vendor] filling form
+[17:29:30] [vendor] waiting for Update Password to enable
+[17:29:30] [vendor] submitting
+[17:29:35] [vendor-pass] [Galaxy Multi ToolDEMO] txtv444@gmail.com  ->  VENDOR password set to: 456W79NP
+[17:29:37] [admin-pass] [Galaxy Multi ToolDEMO] txtv444@gmail.com  ->  ADMIN code set to: 🆔 txtv444@gmail.com 🔑 456W79NP
+[17:29:37] [ok] [Galaxy Multi ToolDEMO] txtv444@gmail.com rotated (mark_available=True)
+[17:29:39] [done] [Galaxy Multi ToolDEMO] rotated 1
+[17:29:39] [all done] total 1
+[17:33:07] [DIAG] admin tab url = https://pinfrp.com/admin
+[17:33:07] [plan] 1 inventory/inventories to process
+[17:33:07] opening 'UNLOCK___TOOL__RENTDEMO'
+[17:33:09] [scan] [UNLOCK___TOOL__RENTDEMO] 1 sold-out row(s) (limit=1, mark_available=False)
+[17:33:09] [rotating] [UNLOCK___TOOL__RENTDEMO] LIMMA@1  old password = UMCVSETRYZ  ->  new password = G8KQMK6B  (age=0:46:09.116476)
+[17:33:09] [DIAG] vendor login dispatch: kind='unlocktool'
+[17:33:09] [vendor] goto https://unlocktool.net/post-in/
+[17:33:09] [vendor] waiting for Turnstile token
+[17:33:12] [vendor] Turnstile OK
+[17:33:12] [vendor] clicking Login
+[17:33:13] [vendor] waiting for dashboard (navbar user menu)
+[17:33:13] [vendor] login OK: LIMMA@1
+[17:33:13] [vendor] opening user dropdown
+[17:33:13] [vendor] clicking Change password link
+[17:33:15] [vendor] waiting for password form
+[17:33:15] [vendor] filling form
+[17:33:15] [vendor] clicking Change password button
+[17:33:16] [vendor] submit clicked via 'button[type="submit"]:has-text("Change password")'
+[17:33:20] [vendor] page confirms password change
+[17:33:20] [vendor-pass] [UNLOCK___TOOL__RENTDEMO] LIMMA@1  ->  VENDOR password set to: G8KQMK6B
+[17:33:22] [admin-pass] [UNLOCK___TOOL__RENTDEMO] LIMMA@1  ->  ADMIN code set to: 🆔 LIMMA@1 🔑 G8KQMK6B
+[17:33:22] [ok] [UNLOCK___TOOL__RENTDEMO] LIMMA@1 rotated (mark_available=False)
+[17:33:24] [done] [UNLOCK___TOOL__RENTDEMO] rotated 1
+[17:33:24] [all done] total 1
+[17:37:09] [DIAG] admin tab url = https://pinfrp.com/admin
+[17:37:09] [plan] 1 inventory/inventories to process
+[17:37:09] opening 'UNLOCK___TOOL__RENTDEMO'
+[17:37:10] [scan] [UNLOCK___TOOL__RENTDEMO] 1 sold-out row(s) (limit=1, mark_available=False)
+[17:37:10] [rotating] [UNLOCK___TOOL__RENTDEMO] LIMMA@1  old password = G8KQMK6A  ->  new password = 83QWFVC3  (age=0:50:10.788124)
+[17:37:10] [DIAG] vendor login dispatch: kind='unlocktool'
+[17:37:10] [vendor] goto https://unlocktool.net/post-in/
+[17:37:11] [vendor] waiting for Turnstile token
+[17:37:14] [vendor] Turnstile OK
+[17:37:14] [vendor] clicking Login
+[17:37:14] [vendor] waiting for dashboard (navbar user menu)
+[17:37:15] [vendor] login OK: LIMMA@1
+[17:37:15] [vendor] opening user dropdown
+[17:37:15] [vendor] clicking Change password link
+[17:37:16] [vendor] waiting for password form
+[17:37:16] [vendor] filling form
+[17:37:16] [vendor] clicking Change password button
+[17:37:17] [vendor] submit clicked via 'button[type="submit"]:has-text("Change password")'
+[17:37:21] [vendor] page confirms password change
+[17:37:21] [vendor-pass] [UNLOCK___TOOL__RENTDEMO] LIMMA@1  ->  VENDOR password set to: 83QWFVC3
+[17:37:24] [admin-pass] [UNLOCK___TOOL__RENTDEMO] LIMMA@1  ->  ADMIN code set to: 🆔 LIMMA@1 🔑 83QWFVC3
+[17:37:24] [ok] [UNLOCK___TOOL__RENTDEMO] LIMMA@1 rotated (mark_available=False)
+[17:37:25] [done] [UNLOCK___TOOL__RENTDEMO] rotated 1
+[17:37:25] [all done] total 1

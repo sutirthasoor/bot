@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rotation Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#f6f7f9; --surface:#ffffff; --line:#e5e7eb; --line-soft:#f1f3f5;
+    --fg:#111827; --fg-soft:#374151; --muted:#6b7280; --muted-2:#9ca3af;
+    --accent:#2563eb; --accent-hi:#1d4ed8; --accent-soft:#eff6ff;
+    --ok:#059669; --ok-soft:#ecfdf5; --warn:#d97706; --warn-soft:#fffbeb;
+    --err:#dc2626; --err-soft:#fef2f2;
+    --shadow-sm:0 1px 2px rgba(16,24,40,0.04);
+    --radius:10px; --radius-lg:14px;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin:0; font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--bg); color:var(--fg); font-size:14px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .app { display:grid; grid-template-columns:460px 1fr; gap:20px;
+         max-width:1560px; margin:0 auto; padding:24px; min-height:100vh; }
+  @media (max-width:960px) { .app { grid-template-columns:1fr; } }
+  .col-left, .col-right { display:flex; flex-direction:column; gap:16px; }
+
+  .app-header { grid-column:1/-1; display:flex; align-items:center; justify-content:space-between; padding:0 4px 4px 4px; }
+  .brand { display:flex; align-items:center; gap:12px; }
+  .brand-mark { width:36px; height:36px; border-radius:9px;
+    background:linear-gradient(135deg,#2563eb 0%,#1e40af 100%);
+    display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:16px;
+    box-shadow:0 2px 6px rgba(37,99,235,0.25); }
+  .brand-text h1 { margin:0; font-size:16px; font-weight:700; letter-spacing:-0.01em; }
+  .brand-text p  { margin:0; font-size:12.5px; color:var(--muted); }
+
+  .card { background:var(--surface); border:1px solid var(--line);
+          border-radius:var(--radius-lg); box-shadow:var(--shadow-sm); overflow:hidden; }
+  .card-head { display:flex; align-items:center; justify-content:space-between;
+               padding:14px 18px; border-bottom:1px solid var(--line-soft); }
+  .card-title { font-size:13px; font-weight:600; color:var(--fg);
+                display:flex; align-items:center; gap:8px; }
+  .card-title .dot { width:6px; height:6px; border-radius:50%; background:var(--accent); }
+  .card-body { padding:16px 18px; }
+
+  .fetch-bar { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .fetch-bar button {
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:inherit; font-size:13px; font-weight:500;
+    padding:8px 14px; border-radius:8px; border:1px solid var(--line);
+    background:white; color:var(--fg-soft); cursor:pointer;
+    transition:all 0.15s ease;
+  }
+  .fetch-bar button:hover:not(:disabled) { background:#f9fafb; border-color:#d1d5db; }
+  .fetch-bar button:disabled { opacity:0.5; cursor:not-allowed; }
+  .fetch-bar .status { font-size:12.5px; color:var(--muted); }
+  .fetch-bar .status.ok { color:var(--ok); }
+  .fetch-bar .status.err { color:var(--err); }
+
+  .inv-block {
+    border:1px solid var(--line-soft); border-radius:10px;
+    padding:12px 14px; margin-bottom:10px; background:#fbfcfd;
+    transition:background 0.15s ease;
+  }
+  .inv-block:last-child { margin-bottom:0; }
+  .inv-block.active { background:var(--accent-soft); border-color:#bfdbfe; }
+
+  .inv-top { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .inv-name { flex:1; font-weight:600; font-size:13.5px; color:var(--fg-soft); word-break:break-word; }
+  .inv-block.active .inv-name { color:var(--accent-hi); }
+  .inv-tag { font-size:10.5px; padding:1px 6px; border-radius:4px; background:var(--line-soft);
+             color:var(--muted); font-weight:500; text-transform:uppercase; letter-spacing:0.05em; }
+  .inv-tag.known { background:var(--ok-soft); color:var(--ok); }
+
+  .chk { appearance:none; -webkit-appearance:none; width:18px; height:18px;
+         border:1.5px solid #d1d5db; border-radius:5px; background:white;
+         cursor:pointer; position:relative; transition:all 0.15s ease; flex-shrink:0; }
+  .chk:hover { border-color:var(--accent); }
+  .chk:checked { background:var(--accent); border-color:var(--accent); }
+  .chk:checked::after {
+    content:""; position:absolute; left:5px; top:1px; width:5px; height:10px;
+    border:solid white; border-width:0 2px 2px 0; transform:rotate(45deg);
+  }
+
+  .inv-controls { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .ctrl { display:flex; flex-direction:column; gap:4px; }
+  .ctrl label { font-size:11px; font-weight:500; color:var(--muted);
+                text-transform:uppercase; letter-spacing:0.04em; }
+  .ctrl input[type="number"] {
+    padding:7px 9px; font-size:13px; font-family:inherit;
+    border:1px solid var(--line); border-radius:7px; background:white; color:var(--fg);
+    outline:none; transition:all 0.15s ease; font-variant-numeric:tabular-nums; width:100%;
+  }
+  .ctrl input[type="number"]:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+
+  .hold-row { display:flex; gap:8px; }
+  .hold-row input[type="number"] { flex:1; }
+  .unit-select {
+    padding:7px 10px; font-size:13px; font-family:inherit;
+    border:1px solid var(--line); border-radius:7px; background:white;
+    color:var(--fg); outline:none; transition:all 0.15s ease;
+    cursor:pointer;
+  }
+  .unit-select:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+
+  .toggle-wrap { display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--fg-soft);
+                 cursor:pointer; user-select:none; }
+  .switch { position:relative; width:34px; height:20px; background:#d1d5db;
+            border-radius:999px; transition:background 0.2s ease; flex-shrink:0; }
+  .switch::after { content:""; position:absolute; top:2px; left:2px;
+                   width:16px; height:16px; background:white; border-radius:50%;
+                   box-shadow:0 1px 2px rgba(0,0,0,0.15); transition:transform 0.2s ease; }
+  input[type="checkbox"].switch-input { display:none; }
+  input[type="checkbox"].switch-input:checked + .switch { background:var(--accent); }
+  input[type="checkbox"].switch-input:checked + .switch::after { transform:translateX(14px); }
+
+  .btn-row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  .btn { display:inline-flex; align-items:center; gap:6px; font-family:inherit;
+         font-size:13px; font-weight:500; padding:9px 14px; border-radius:8px;
+         border:1px solid transparent; cursor:pointer; transition:all 0.15s ease; white-space:nowrap; }
+  .btn:disabled { opacity:0.45; cursor:not-allowed; }
+  .btn-primary { background:var(--accent); color:white; box-shadow:0 1px 2px rgba(37,99,235,0.25); }
+  .btn-primary:hover:not(:disabled) { background:var(--accent-hi); }
+  .btn-secondary { background:white; color:var(--fg-soft); border-color:var(--line); }
+  .btn-secondary:hover:not(:disabled) { background:#f9fafb; border-color:#d1d5db; }
+  .btn-danger { background:white; color:var(--err); border-color:#fecaca; }
+  .btn-danger:hover:not(:disabled) { background:var(--err-soft); border-color:#fca5a5; }
+
+  .status-pill { display:inline-flex; align-items:center; gap:7px;
+                 padding:6px 12px; border-radius:999px; font-size:12.5px; font-weight:600;
+                 background:var(--line-soft); color:var(--fg-soft); }
+  .status-pill .dot { width:7px; height:7px; border-radius:50%; background:var(--muted-2); }
+  .status-pill.running { background:var(--ok-soft); color:var(--ok); }
+  .status-pill.running .dot { background:var(--ok); box-shadow:0 0 0 0 rgba(5,150,105,0.5); animation:pulse 1.6s infinite; }
+  .status-pill.stopping { background:var(--warn-soft); color:var(--warn); }
+  .status-pill.stopping .dot { background:var(--warn); }
+  @keyframes pulse {
+    0% { box-shadow:0 0 0 0 rgba(5,150,105,0.45); }
+    70% { box-shadow:0 0 0 8px rgba(5,150,105,0); }
+    100% { box-shadow:0 0 0 0 rgba(5,150,105,0); }
+  }
+
+  .interval-row { display:flex; align-items:center; gap:10px; padding-top:14px; margin-top:16px;
+                  border-top:1px solid var(--line-soft); font-size:13px; color:var(--muted); }
+  .interval-row label { font-weight:500; }
+  .interval-row input { width:64px; padding:6px 8px; font-size:13px; font-family:inherit;
+                        text-align:right; border:1px solid var(--line); border-radius:7px;
+                        background:#fafbfc; color:var(--fg); outline:none; transition:all 0.15s ease;
+                        font-variant-numeric:tabular-nums; }
+  .interval-row input:focus { border-color:var(--accent); background:white; box-shadow:0 0 0 3px var(--accent-soft); }
+
+  .stats { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+  .stat { background:#fafbfc; border:1px solid var(--line-soft);
+          border-radius:10px; padding:12px 14px; }
+  .stat-label { font-size:11.5px; font-weight:500; color:var(--muted);
+                text-transform:uppercase; letter-spacing:0.04em; margin-bottom:4px; }
+  .stat-value { font-size:20px; font-weight:700; color:var(--fg); font-variant-numeric:tabular-nums; }
+  .stat-value.small { font-size:14px; font-weight:600; }
+
+  .log-wrap {
+    background:#fbfcfd; border-top:1px solid var(--line-soft);
+    height:560px; overflow:auto; padding:14px 18px;
+    font-family:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+    font-size:12.5px; line-height:1.65; white-space:pre-wrap; word-break:break-word;
+  }
+  .log-wrap::-webkit-scrollbar { width:8px; }
+  .log-wrap::-webkit-scrollbar-track { background:transparent; }
+  .log-wrap::-webkit-scrollbar-thumb { background:#d1d5db; border-radius:4px; }
+  .log-wrap::-webkit-scrollbar-thumb:hover { background:#9ca3af; }
+
+  .log-line { padding:2px 0; color:var(--fg-soft); }
+  .log-line .ts { color:var(--muted-2); margin-right:8px; user-select:none; }
+  .log-line.ok { color:var(--ok); }
+  .log-line.warn { color:var(--warn); }
+  .log-line.err { color:var(--err); }
+  .log-line.muted { color:var(--muted); }
+  .log-line.info { color:var(--fg-soft); }
+
+  /* highlight the two important lines */
+  .log-line.vendor-pass {
+    color:#0f766e;
+    background:#f0fdfa;
+    font-weight:700;
+    padding-left:6px;
+    border-left:3px solid #14b8a6;
+    border-radius:3px;
+  }
+  .log-line.admin-pass {
+    color:#1e40af;
+    background:#eff6ff;
+    font-weight:700;
+    padding-left:6px;
+    border-left:3px solid #3b82f6;
+    border-radius:3px;
+  }
+
+  .badge { display:inline-block; padding:1px 7px; border-radius:5px;
+           font-size:11px; font-weight:600; margin-right:8px; vertical-align:1px; }
+  .badge-ok   { background:var(--ok-soft);   color:var(--ok); }
+  .badge-warn { background:var(--warn-soft); color:var(--warn); }
+  .badge-err  { background:var(--err-soft);  color:var(--err); }
+  .badge-info { background:var(--accent-soft); color:var(--accent); }
+  .badge-mute { background:var(--line-soft); color:var(--muted); }
+
+  .empty { color:var(--muted-2); font-style:italic; font-family:'Inter',sans-serif;
+           font-size:13px; padding:20px 0; text-align:center; }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-mark">R</div>
+      <div class="brand-text">
+        <h1>Rotation Panel</h1>
+        <p>Automated FRP tool credential rotation</p>
+      </div>
+    </div>
+    <div id="status-pill" class="status-pill">
+      <span class="dot"></span>
+      <span id="status-text">Idle</span>
+    </div>
+  </header>
+
+  <div class="col-left">
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title"><span class="dot"></span>Inventories</div>
+        <span id="inv-count" class="inv-tag">—</span>
+      </div>
+      <div class="card-body">
+        <div class="fetch-bar">
+          <button id="fetch-inv">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
+            Fetch inventory list
+          </button>
+          <span id="fetch-status" class="status">Click to load from admin panel</span>
+        </div>
+
+        <div id="inv-list">
+          <div class="empty">No inventories loaded yet</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title"><span class="dot"></span>Controls</div>
+      </div>
+      <div class="card-body">
+        <div class="btn-row">
+          <button id="run-once" class="btn btn-primary">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            Run Once
+          </button>
+          <button id="start-loop" class="btn btn-secondary">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+            Start Loop
+          </button>
+          <button id="stop" class="btn btn-danger" disabled>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="1.5"/></svg>
+            Stop
+          </button>
+        </div>
+
+        <div class="interval-row">
+          <label for="interval">Repeat every</label>
+          <input type="number" id="interval" value="5" min="1" step="1">
+          <span>minutes</span>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-label">Total rotated</div>
+            <div class="stat-value" id="total">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Last run</div>
+            <div class="stat-value small" id="last-run">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-right">
+    <div class="card" style="flex:1; display:flex; flex-direction:column;">
+      <div class="card-head">
+        <div class="card-title"><span class="dot"></span>Live Activity</div>
+        <button id="clear-log" class="btn btn-secondary" style="padding:5px 10px; font-size:12px;">Clear</button>
+      </div>
+      <div class="log-wrap" id="log">
+        <div class="empty">Waiting for activity…</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* Defaults per known inventory. */
+const KNOWN_DEFAULTS = {
+  "Android Multi Tool[AMT]__RENT":     { hold_val: 2, hold_unit: "hr", limit: 0, mark_available: true, on: true  },
+  "Android Multi Tool[AMT]__RENTDEMO": { hold_val: 2, hold_unit: "hr", limit: 0, mark_available: true, on: false },
+  "Galaxy Multi Tool":                 { hold_val: 6, hold_unit: "hr", limit: 0, mark_available: true, on: true  },
+  "Galaxy Multi ToolDEMO":             { hold_val: 6, hold_unit: "hr", limit: 0, mark_available: true, on: false },
+};
+const DEFAULT_ROW = { hold_val: 2, hold_unit: "hr", limit: 0, mark_available: true, on: false };
+
+const savedSettings = {};
+
+function defaultsFor(name) {
+  return savedSettings[name] || KNOWN_DEFAULTS[name] || DEFAULT_ROW;
+}
+
+/* ---------------- DOM refs ---------------- */
+const logEl        = document.getElementById("log");
+const statusPill   = document.getElementById("status-pill");
+const statusText   = document.getElementById("status-text");
+const btnOnce      = document.getElementById("run-once");
+const btnStart     = document.getElementById("start-loop");
+const btnStop      = document.getElementById("stop");
+const btnClear     = document.getElementById("clear-log");
+const totalEl      = document.getElementById("total");
+const lastRunEl    = document.getElementById("last-run");
+const invListEl    = document.getElementById("inv-list");
+const invCountEl   = document.getElementById("inv-count");
+const fetchBtn     = document.getElementById("fetch-inv");
+const fetchStatus  = document.getElementById("fetch-status");
+
+/* ============================================================
+   Render inventory blocks
+   ============================================================ */
+function renderInventories(names) {
+  invListEl.innerHTML = "";
+  if (!names.length) {
+    invListEl.innerHTML = `<div class="empty">No inventories found on the page.</div>`;
+    invCountEl.textContent = "0";
+    return;
+  }
+
+  names.forEach((name, i) => {
+    const d = defaultsFor(name);
+    const known = !!KNOWN_DEFAULTS[name];
+    const block = document.createElement("div");
+    block.className = "inv-block" + (d.on ? " active" : "");
+    block.dataset.name = name;
+    block.innerHTML = `
+      <div class="inv-top">
+        <input type="checkbox" class="chk" id="chk-${i}" ${d.on ? "checked" : ""}>
+        <label class="inv-name" for="chk-${i}">${name}</label>
+        ${known ? '<span class="inv-tag known">vendor ready</span>' : '<span class="inv-tag">admin only</span>'}
+      </div>
+      <div class="inv-controls">
+        <div class="ctrl" style="grid-column: 1 / -1;">
+          <label for="hrs-${i}">Hold duration</label>
+          <div class="hold-row">
+            <input type="number" id="hrs-${i}" value="${d.hold_val ?? 2}" min="0" step="1">
+            <select id="unit-${i}" class="unit-select">
+              <option value="min" ${d.hold_unit === "min" ? "selected" : ""}>minutes</option>
+              <option value="hr"  ${!d.hold_unit || d.hold_unit === "hr" ? "selected" : ""}>hours</option>
+            </select>
+          </div>
+        </div>
+        <div class="ctrl">
+          <label for="lim-${i}">Rotate at most (0 = all)</label>
+          <input type="number" id="lim-${i}" value="${d.limit}" min="0" step="1">
+        </div>
+        <div class="ctrl">
+          <label>&nbsp;</label>
+          <label class="toggle-wrap">
+            <input type="checkbox" class="switch-input" id="ma-${i}" ${d.mark_available ? "checked" : ""}>
+            <span class="switch"></span>
+            <span>Mark code as Available</span>
+          </label>
+        </div>
+      </div>
+    `;
+    invListEl.appendChild(block);
+
+    document.getElementById(`chk-${i}`).addEventListener("change", (e) => {
+      block.classList.toggle("active", e.target.checked);
+      saveSettings(name);
+    });
+    document.getElementById(`hrs-${i}`).addEventListener("change", () => saveSettings(name));
+    document.getElementById(`unit-${i}`).addEventListener("change", () => saveSettings(name));
+    document.getElementById(`lim-${i}`).addEventListener("change", () => saveSettings(name));
+    document.getElementById(`ma-${i}`).addEventListener ("change", () => saveSettings(name));
+  });
+
+  invCountEl.textContent = `${names.length} loaded`;
+}
+
+function saveSettings(name) {
+  const block = [...document.querySelectorAll(".inv-block")].find(b => b.dataset.name === name);
+  if (!block) return;
+  const i = block.querySelector(".chk").id.split("-")[1];
+  savedSettings[name] = {
+    on:              document.getElementById(`chk-${i}`).checked,
+    hold_val:        parseFloat(document.getElementById(`hrs-${i}`).value) || 0,
+    hold_unit:       document.getElementById(`unit-${i}`).value,
+    limit:           parseInt(  document.getElementById(`lim-${i}`).value) || 0,
+    mark_available:  document.getElementById(`ma-${i}`).checked,
+  };
+}
+
+function getTargets() {
+  const out = [];
+  document.querySelectorAll(".inv-block").forEach(block => {
+    const name = block.dataset.name;
+    const i    = block.querySelector(".chk").id.split("-")[1];
+    if (!document.getElementById(`chk-${i}`).checked) return;
+
+    const valInput  = document.getElementById(`hrs-${i}`);
+    const unitInput = document.getElementById(`unit-${i}`);
+
+    const val  = parseFloat(valInput?.value) || 0;
+    const unit = (unitInput?.value || "hr").toLowerCase();
+
+    let hours;
+    if (unit.startsWith("m")) hours = val / 60;
+    else                      hours = val;
+    if (hours <= 0) return;
+
+    const target = {
+      name,
+      hours,
+      limit:          parseInt(document.getElementById(`lim-${i}`).value) || 0,
+      mark_available: document.getElementById(`ma-${i}`).checked,
+    };
+    console.log("[getTargets]", name, "-> hours =", hours, "(raw:", val, unit + ")");
+    out.push(target);
+  });
+  console.log("[getTargets] final payload:", JSON.stringify(out));
+  return out;
+}
+
+async function fetchInventories() {
+  fetchBtn.disabled = true;
+  fetchStatus.className = "status";
+  fetchStatus.textContent = "Fetching…";
+  try {
+    const r = await fetch("/inventories");
+    const j = await r.json();
+    if (j.ok) {
+      renderInventories(j.inventories);
+      fetchStatus.className = "status ok";
+      fetchStatus.textContent = `Loaded ${j.inventories.length} inventories`;
+    } else {
+      fetchStatus.className = "status err";
+      fetchStatus.textContent = j.error || "fetch failed";
+    }
+  } catch (e) {
+    fetchStatus.className = "status err";
+    fetchStatus.textContent = "network error: " + e.message;
+  } finally {
+    fetchBtn.disabled = false;
+  }
+}
+fetchBtn.addEventListener("click", fetchInventories);
+
+/* ============================================================
+   Log rendering
+   ============================================================ */
+function classify(line) {
+  const body = line.replace(/^\[\d{2}:\d{2}:\d{2}\]\s*/, "");
+  if (/\[vendor-pass\]/.test(body)) return "vendor-pass";
+  if (/\[admin-pass\]/.test(body))  return "admin-pass";
+  if (/\[ok\]/.test(body)) return "ok";
+  if (/\[fail\]|\[inventory-fail\]|\[loop-error\]|\[fatal\]|\[vendor-fail\]/.test(body)) return "err";
+  if (/\[wait\]|\[skip\]|\[stop\]|\[stopping\]|\[limit\]|\[vendor-skip\]/.test(body)) return "warn";
+  if (/\[scan\]|\[state\]|\[done\]|\[all done\]|\[loop\]|\[start\]|\[inventory-list\]|\[plan\]/.test(body)) return "muted";
+  return "info";
+}
+
+function badgeFor(kind, body) {
+  const m = body.match(/\[(ok|fail|wait|scan|done|all done|inventory-fail|skip|stop|state|rotating|loop|start|vendor|vendor-fail|vendor-skip|limit|inventory-list|plan|vendor-pass|admin-pass)\]/);
+  if (!m) return "";
+  const tag = m[1];
+  let cls = "badge-mute";
+  if (tag === "ok" || tag === "vendor-pass" || tag === "admin-pass") cls = "badge-ok";
+  else if (tag === "wait" || tag === "skip" || tag === "stop" || tag === "limit" || tag === "vendor-skip") cls = "badge-warn";
+  else if (tag === "fail" || tag === "inventory-fail" || tag === "vendor-fail") cls = "badge-err";
+  else if (tag === "scan" || tag === "state" || tag === "start" || tag === "rotating" || tag === "vendor" || tag === "inventory-list" || tag === "plan") cls = "badge-info";
+  return `<span class="badge ${cls}">${tag}</span>`;
+}
+
+function escapeHtml(s) {
+  return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function appendLog(line) {
+  const empty = logEl.querySelector(".empty");
+  if (empty) empty.remove();
+  const div = document.createElement("div");
+  const kind = classify(line);
+  div.className = "log-line " + kind;
+  const tsMatch = line.match(/^(\[\d{2}:\d{2}:\d{2}\])\s*(.*)$/);
+  if (tsMatch) {
+    const [, ts, body] = tsMatch;
+    div.innerHTML = `<span class="ts">${ts}</span>${badgeFor(kind, body)}${escapeHtml(body)}`;
+  } else {
+    div.innerHTML = `${badgeFor(kind, line)}${escapeHtml(line)}`;
+  }
+  logEl.appendChild(div);
+  logEl.scrollTop = logEl.scrollHeight;
+  while (logEl.childNodes.length > 900) logEl.removeChild(logEl.firstChild);
+}
+
+/* ============================================================
+   Status + buttons
+   ============================================================ */
+function setRunning(running) {
+  btnOnce.disabled  = running;
+  btnStart.disabled = running;
+  btnStop.disabled  = !running;
+  if (running) {
+    statusPill.className = "status-pill running";
+    statusText.textContent = "Running";
+  } else {
+    statusPill.className = "status-pill";
+    statusText.textContent = "Idle";
+  }
+}
+async function refreshStatus() {
+  try {
+    const r = await fetch("/status");
+    const s = await r.json();
+    totalEl.textContent   = s.total_rotated ?? 0;
+    lastRunEl.textContent = s.last_run ? new Date(s.last_run).toLocaleTimeString() : "—";
+    if (s.status === "stopping") {
+      statusPill.className = "status-pill stopping";
+      statusText.textContent = "Stopping";
+    } else if (s.status === "running") {
+      setRunning(true);
+    } else {
+      setRunning(false);
+    }
+  } catch (e) {}
+}
+
+btnOnce.addEventListener("click", async () => {
+  const targets = getTargets();
+  if (!targets.length) { appendLog("[ui] no inventories selected"); return; }
+  setRunning(true);
+  await fetch("/run-once", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ targets })
+  });
+});
+btnStart.addEventListener("click", async () => {
+  const targets = getTargets();
+  const interval_min = parseFloat(document.getElementById("interval").value) || 5;
+  if (!targets.length) { appendLog("[ui] no inventories selected"); return; }
+  setRunning(true);
+  const r = await fetch("/start-loop", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ targets, interval_min })
+  });
+  const j = await r.json();
+  if (!j.ok) { appendLog("[ui] " + j.message); setRunning(false); }
+});
+btnStop.addEventListener("click", async () => { await fetch("/stop", { method: "POST" }); });
+btnClear.addEventListener("click", () => {
+  logEl.innerHTML = `<div class="empty">Waiting for activity…</div>`;
+});
+
+/* ============================================================
+   SSE stream
+   ============================================================ */
+function connectStream() {
+  const es = new EventSource("/stream");
+  es.onmessage = (e) => { try { appendLog(JSON.parse(e.data)); } catch (_) {} };
+  es.onerror = () => { es.close(); setTimeout(connectStream, 2000); };
+}
+connectStream();
+setInterval(refreshStatus, 2000);
+refreshStatus();
+
+setTimeout(fetchInventories, 400);
+</script>
+
+</body>
+</html>
