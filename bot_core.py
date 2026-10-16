@@ -52,6 +52,23 @@ VENDOR_CONFIGS = {
 }
 
 
+# ============================================================
+# REMOTE SERVICE MAPPING
+# Maps each inventory name → the exact remote service title
+# (from the table cell text) that must be connected when the
+# inventory runs out of available codes.
+# ============================================================
+REMOTE_SERVICE_MAP = {
+    "Android Multi Tool[AMT]__RENT":     "AMT ( Android Multi Tool ) 2 Hours ❇️ Fast (24x7)",
+    "Android Multi Tool[AMT]__RENTDEMO": "AMT ( Android Multi Tool ) 2 Hours ❇️ Fast (24x7)",
+    "Galaxy Multi Tool":                 "Galaxy Multi Tool-{RENT 2 Hours}",
+    "Galaxy Multi ToolDEMO":             "Galaxy Multi Tool-{RENT 2 Hours}",
+    "UNLOCK___TOOL__RENT":               "UNLOCKTOOL LOGIN - 6hrs",
+    "UNLOCK___TOOL__RENTDEMO":           "UNLOCKTOOL LOGIN - 6hrs",
+    "EFT-PRO":                           "EFT-PRO__RENT{30-45MNT}",
+}
+
+
 def gen_password() -> str:
     alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
     return "".join(secrets.choice(alphabet) for _ in range(8))
@@ -157,6 +174,155 @@ class Rotator:
 
         await form.locator('button[type="submit"]').click()
         await admin_page.wait_for_selector("#viewCode.show", state="detached", timeout=10000)
+
+    # ============================================================
+    # Remote service re-connect (when an inventory runs out of codes)
+    # ============================================================
+
+    async def _ensure_remote_connected(self, admin_page, inv: str,
+                                       hold: dt.timedelta) -> bool:
+        """
+        If `inv` has 0 available codes but has at least one sold-out row
+        whose age >= hold, trigger the Remote Services re-connect flow.
+        """
+        # ---- 1. Check available count ----
+        await self._open_inventory(admin_page, inv)
+        try:
+            avail_txt = await admin_page.locator(
+                "#viewInventoryContent #availableCount"
+            ).inner_text(timeout=5000)
+        except Exception:
+            avail_txt = ""
+        m = re.search(r"(\d+)", avail_txt or "")
+        avail_num = int(m.group(1)) if m else -1
+
+        if avail_num != 0:
+            await self._close_modal(admin_page)
+            if avail_num < 0:
+                self.log(f"[connect] [{inv}] could not read available count — skipping")
+            return False
+
+        # ---- 2. Look for expired sold-out rows ----
+        try:
+            await self._open_sold_out_tab(admin_page)
+            rows = await self._read_rows(admin_page, inv)
+        except Exception:
+            rows = []
+        finally:
+            await self._close_modal(admin_page)
+
+        if not rows:
+            self.log(f"[connect] [{inv}] available=0 but no sold-out rows — nothing to do")
+            return False
+
+        now = dt.datetime.now(TZ)
+        expired = 0
+        for r in rows:
+            try:
+                age = now - parse_ts(r["sold_out_at"])
+            except Exception:
+                continue
+            if age >= hold:
+                expired += 1
+
+        if expired == 0:
+            self.log(f"[connect] [{inv}] available=0 but no expired sold-out rows — nothing to do")
+            return False
+
+        # ---- 3. Trigger the Remote Services re-connect ----
+        self.log(f"[connect] [{inv}] available=0 + {expired} expired row(s) — "
+                 f"triggering remote service re-connect")
+
+        remote_title = REMOTE_SERVICE_MAP.get(inv)
+        if not remote_title:
+            self.log(f"[connect] [{inv}] no remote service mapping — skipping")
+            return False
+
+        # 3a. Navigate to Services List → Remote
+        self.log("[connect] navigating to Services List -> Remote")
+        try:
+            await admin_page.click('.pc-link:has-text("Services List")', timeout=5000)
+        except Exception:
+            pass
+        await admin_page.click('.pc-link[data-dom="load-remote-service"]')
+        await admin_page.wait_for_selector("#service_list_table tbody tr", timeout=15000)
+
+        # 3b. Click the <td> that contains the remote service NAME.
+        #     This opens the offcanvas panel on the right.
+        self.log(f"[connect] clicking remote service name cell: {remote_title!r}")
+        td = admin_page.locator(
+            f'#service_list_table tbody td.text-left:text-is("{remote_title}")'
+        ).first
+        if await td.count() == 0:
+            short = remote_title.split("❇")[0].strip()
+            self.log(f"[connect] exact match failed — trying contains: {short!r}")
+            td = admin_page.locator(
+                f'#service_list_table tbody td.text-left:has-text("{short}")'
+            ).first
+        if await td.count() == 0:
+            raise RuntimeError(f"remote service row not found for {remote_title!r}")
+
+        await td.scroll_into_view_if_needed()
+        await td.click()
+
+        # Wait for the offcanvas detail panel to appear
+        await admin_page.wait_for_selector('button[data-section="connect"]', timeout=15000)
+        self.log("[connect] offcanvas opened")
+
+        # 3c. Click the "Connect" section button
+        self.log("[connect] clicking Connect section button")
+        await admin_page.click('button[data-section="connect"]', timeout=10000)
+
+        # 3d. Ensure "Connect Inventory" tab is active
+        self.log("[connect] opening Connect Inventory tab")
+        try:
+            await admin_page.click('button#inventory-tab', timeout=5000)
+        except Exception:
+            pass  # already active
+
+        # 3e. Open the Choose Inventory dropdown and pick the matching inventory
+        self.log(f"[connect] choosing inventory in dropdown: {inv}")
+        try:
+            await admin_page.click('#select2-inventory-id-container', timeout=8000)
+        except Exception:
+            await admin_page.click(
+                'span.select2-selection__rendered:has-text("Choose Inventory")',
+                timeout=5000,
+            )
+        await admin_page.wait_for_selector('input.select2-search__field', timeout=5000)
+        await admin_page.fill('input.select2-search__field', inv)
+        await asyncio.sleep(0.5)
+        await admin_page.press('input.select2-search__field', 'Enter')
+        self.log(f"[connect] inventory '{inv}' chosen")
+
+        # 3f. Click the final "Connect" button
+        self.log("[connect] clicking final Connect button")
+        await admin_page.click('button#add-custom-price-button', timeout=10000)
+        self.log(f"[connect] remote service re-connected for [{inv}]")
+
+        # 3g. Close the offcanvas — click the X close button
+        self.log("[connect] closing offcanvas")
+        try:
+            await admin_page.click(
+                'button.btn-close[data-bs-dismiss="offcanvas"]',
+                timeout=8000,
+            )
+            # wait for the offcanvas to animate out
+            await asyncio.sleep(0.5)
+            self.log("[connect] offcanvas closed")
+        except Exception as e:
+            self.log(f"[connect] close button click failed (non-fatal): {e!r}")
+            # try pressing Escape as a fallback
+            try:
+                await admin_page.keyboard.press("Escape")
+            except Exception:
+                pass
+
+        # 3h. Navigate back to Inventory
+        self.log("[connect] navigating back to Inventory")
+        await admin_page.click('.pc-link[data-dom="load-inventory"]')
+        await admin_page.wait_for_selector("#inventory_table tbody tr", timeout=15000)
+        return True
 
     # ============================================================
     # Vendor dispatcher
@@ -408,7 +574,6 @@ class Rotator:
         self.log("[vendor] submitting password change")
         await page.click('button[type="submit"]:has-text("Update Password")')
         await asyncio.sleep(4)
-
         try:
             await page.screenshot(path=f"galaxy_after_save_{new_pw}.png")
         except Exception:
@@ -417,25 +582,21 @@ class Rotator:
         # ---- Log out of the Galaxy vendor site before returning to admin ----
         self.log("[vendor] logging out of Galaxy vendor")
         try:
-            # 1. click the user avatar circle (top-right, contains the initial letter)
             avatar_sel = 'header button[aria-haspopup="menu"]'
             try:
                 await page.wait_for_selector(avatar_sel, timeout=8000)
                 await page.click(avatar_sel)
             except Exception:
-                # Fallback: match the span with the initial letter directly
                 fallback = 'header span.flex.h-full.w-full.items-center.justify-center.rounded-full'
                 await page.wait_for_selector(fallback, timeout=5000)
                 await page.click(fallback)
             self.log("[vendor] avatar clicked")
 
-            # 2. wait for the menu and click "Log out"
             logout_sel = 'div[role="menuitem"]:has-text("Log out")'
             await page.wait_for_selector(logout_sel, timeout=8000)
             await page.click(logout_sel)
             self.log("[vendor] Log out clicked")
 
-            # 3. confirm we're back on a login page (or somewhere else)
             try:
                 await page.wait_for_url("**/login**", timeout=10000)
                 self.log("[vendor] logout OK — on login page")
@@ -491,7 +652,6 @@ class Rotator:
             raise
 
     async def _vendor_change_unlocktool(self, page, cfg, old_pw, new_pw):
-        # ---- Open user dropdown → Change password link ----
         self.log("[vendor] opening user dropdown")
         try:
             await page.click('a#navbarDropdown', timeout=10000)
@@ -502,7 +662,6 @@ class Rotator:
             self.log(f"[vendor] dropdown click failed ({e}) — navigating directly")
             await page.goto(cfg["account_url"], wait_until="domcontentloaded", timeout=30000)
 
-        # ---- Fill the Django password form ----
         self.log("[vendor] waiting for password form")
         await page.wait_for_selector('input[name="old_password"]',    timeout=20000)
         await page.wait_for_selector('input[name="new_password1"]',   timeout=20000)
@@ -513,7 +672,6 @@ class Rotator:
         await page.fill('input[name="new_password1"]', new_pw)
         await page.fill('input[name="new_password2"]', new_pw)
 
-        # Wait for Turnstile on the change page, if present
         try:
             await page.wait_for_function(
                 """() => {
@@ -525,7 +683,6 @@ class Rotator:
         except PWTimeout:
             pass
 
-        # ---- Submit ----
         self.log("[vendor] clicking Change password button")
         clicked = False
         for sel in [
@@ -551,7 +708,6 @@ class Rotator:
         except Exception:
             pass
 
-        # ---- Look for Django messages ----
         try:
             body = (await page.locator("body").inner_text(timeout=3000)).lower()
             if any(w in body for w in ("password changed", "successfully",
@@ -563,29 +719,23 @@ class Rotator:
         except Exception:
             pass
 
-        # ---- NEW: log out of UNLOCK Tool before returning to admin ----
+        # ---- Log out of UNLOCK Tool before returning to admin ----
         self.log("[vendor] logging out of UNLOCK Tool")
         try:
-            # 1. Go to the site root so the navbar is present
             try:
                 await page.goto("https://unlocktool.net/",
                                 wait_until="domcontentloaded", timeout=15000)
             except Exception:
                 pass
 
-            # 2. Click the navbar user dropdown (contains the avatar img + username)
-            dropdown_sel = 'a#navbarDropdown'
-            await page.wait_for_selector(dropdown_sel, timeout=8000)
-            await page.click(dropdown_sel)
+            await page.wait_for_selector('a#navbarDropdown', timeout=8000)
+            await page.click('a#navbarDropdown')
             self.log("[vendor] dropdown clicked")
 
-            # 3. Click the "Log out" item
-            logout_sel = 'a.dropdown-item[href="/logout/"]'
-            await page.wait_for_selector(logout_sel, timeout=8000)
-            await page.click(logout_sel)
+            await page.wait_for_selector('a.dropdown-item[href="/logout/"]', timeout=8000)
+            await page.click('a.dropdown-item[href="/logout/"]')
             self.log("[vendor] Log out clicked")
 
-            # 4. Confirm we're logged out — wait for URL or login link presence
             try:
                 await page.wait_for_selector('a[href="/post-in/"]', timeout=10000)
                 self.log("[vendor] logout OK — login link present")
@@ -653,6 +803,17 @@ class Rotator:
                                  hold: dt.timedelta, limit: int,
                                  mark_available: bool) -> int:
         rotated = 0
+
+        # ---- NEW: ensure remote service is connected if inventory ran dry ----
+        try:
+            reconnected = await self._ensure_remote_connected(admin_page, inv, hold)
+            if reconnected:
+                self.log(f"[connect] [{inv}] re-connected — waiting 10s for codes to refresh")
+                await asyncio.sleep(10)
+        except Exception as e:
+            self.log(f"[connect-fail] [{inv}] {e!r}")
+
+        # ---- Existing rotation flow ----
         await self._open_inventory(admin_page, inv)
         try:
             await self._open_sold_out_tab(admin_page)

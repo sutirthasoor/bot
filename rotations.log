@@ -679,3 +679,237 @@
 [14:40:10] [ok] [UNLOCK___TOOL__RENTDEMO] soor rotated (mark_available=False)
 [14:40:12] [done] [UNLOCK___TOOL__RENTDEMO] rotated 1
 [14:40:12] [all done] total 1
+[15:11:23] [inventory-list] found 12 inventories
+[15:11:23] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[15:11:23] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[15:11:23] [inventory-list]   - EFT-PRO
+[15:11:23] [inventory-list]   - EME TOOL RENT
+[15:11:23] [inventory-list]   - Galaxy Multi Tool
+[15:11:23] [inventory-list]   - Galaxy Multi ToolDEMO
+[15:11:23] [inventory-list]   - REALME OTP
+[15:11:23] [inventory-list]   - SINGMA KEY___30MNT
+[15:11:23] [inventory-list]   - TSM TOOL
+[15:11:23] [inventory-list]   - UAT PRO
+[15:11:23] [inventory-list]   - UNLOCK___TOOL__RENT
+[15:11:23] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[15:11:24] [inventory-list] found 12 inventories
+[15:11:24] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[15:11:24] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[15:11:24] [inventory-list]   - EFT-PRO
+[15:11:24] [inventory-list]   - EME TOOL RENT
+[15:11:24] [inventory-list]   - Galaxy Multi Tool
+[15:11:24] [inventory-list]   - Galaxy Multi ToolDEMO
+[15:11:24] [inventory-list]   - REALME OTP
+[15:11:24] [inventory-list]   - SINGMA KEY___30MNT
+[15:11:24] [inventory-list]   - TSM TOOL
+[15:11:24] [inventory-list]   - UAT PRO
+[15:11:24] [inventory-list]   - UNLOCK___TOOL__RENT
+[15:11:24] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[15:11:48] [DIAG] admin tab url = https://pinfrp.com/admin
+[15:11:48] [plan] 1 inventory/inventories to process
+[15:11:48] opening 'UNLOCK___TOOL__RENTDEMO'
+[15:11:49] [connect] [UNLOCK___TOOL__RENTDEMO] available=0 + 1 expired row(s) — triggering remote service re-connect
+[15:11:49] [connect] navigating to Services List → Remote
+[15:11:50] [connect] locating remote service row: 'UNLOCKTOOL LOGIN - 6hrs'
+[15:11:50] [connect] remote service row selected
+[15:11:50] [connect] clicking Connect section button
+[15:12:00] [connect] opening Connect Inventory tab
+[15:12:00] [connect] choosing inventory in dropdown: UNLOCK___TOOL__RENTDEMO
+[15:12:00] [connect] inventory 'UNLOCK___TOOL__RENTDEMO' chosen
+[15:12:00] [connect] clicking final Connect button
+[15:12:00] [connect] remote service re-connected for [UNLOCK___TOOL__RENTDEMO]
+[15:12:11] [connect] [UNLOCK___TOOL__RENTDEMO] re-connected — waiting 10s for codes to refresh
+[15:12:21] opening 'UNLOCK___TOOL__RENTDEMO'
+[15:12:22] [scan] [UNLOCK___TOOL__RENTDEMO] 1 sold-out row(s) (limit=1, mark_available=True)
+[15:12:22] [stop] break requested
+[15:12:22] [done] [UNLOCK___TOOL__RENTDEMO] rotated 0
+[15:12:22] [all done] total 0
+[15:21:17] [state] navigating to Inventory page
+[15:21:18] [inventory-list] found 12 inventories
+[15:21:18] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[15:21:18] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[15:21:18] [inventory-list]   - EFT-PRO
+[15:21:18] [inventory-list]   - EME TOOL RENT
+[15:21:18] [inventory-list]   - Galaxy Multi Tool
+[15:21:18] [inventory-list]   - Galaxy Multi ToolDEMO
+[15:21:18] [inventory-list]   - REALME OTP
+[15:21:18] [inventory-list]   - SINGMA KEY___30MNT
+[15:21:18] [inventory-list]   - TSM TOOL
+[15:21:18] [inventory-list]   - UAT PRO
+[15:21:18] [inventory-list]   - UNLOCK___TOOL__RENT
+[15:21:18] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[15:21:19] [inventory-list] found 12 inventories
+[15:21:19] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[15:21:19] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[15:21:19] [inventory-list]   - EFT-PRO
+[15:21:19] [inventory-list]   - EME TOOL RENT
+[15:21:19] [inventory-list]   - Galaxy Multi Tool
+[15:21:19] [inventory-list]   - Galaxy Multi ToolDEMO
+[15:21:19] [inventory-list]   - REALME OTP
+[15:21:19] [inventory-list]   - SINGMA KEY___30MNT
+[15:21:19] [inventory-list]   - TSM TOOL
+[15:21:19] [inventory-list]   - UAT PRO
+[15:21:19] [inventory-list]   - UNLOCK___TOOL__RENT
+[15:21:19] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[15:21:32] [DIAG] admin tab url = https://pinfrp.com/admin
+[15:21:32] [plan] 1 inventory/inventories to process
+[15:21:32] opening 'UNLOCK___TOOL__RENTDEMO'
+[15:21:33] [connect] [UNLOCK___TOOL__RENTDEMO] available=0 + 1 expired row(s) — triggering remote service re-connect
+[15:21:33] [connect] navigating to Services List -> Remote
+[15:21:34] [connect] clicking remote service name cell: 'UNLOCKTOOL LOGIN - 6hrs'
+[15:21:35] [connect] offcanvas opened
+[15:21:35] [connect] clicking Connect section button
+[15:21:35] [connect] opening Connect Inventory tab
+[15:21:35] [connect] choosing inventory in dropdown: UNLOCK___TOOL__RENTDEMO
+[15:21:36] [connect] inventory 'UNLOCK___TOOL__RENTDEMO' chosen
+[15:21:36] [connect] clicking final Connect button
+[15:21:36] [connect] remote service re-connected for [UNLOCK___TOOL__RENTDEMO]
+[15:21:36] [connect] closing offcanvas
+[15:21:37] [connect] offcanvas closed
+[15:21:37] [connect] navigating back to Inventory
+[15:21:37] [connect] [UNLOCK___TOOL__RENTDEMO] re-connected — waiting 10s for codes to refresh
+[15:21:47] opening 'UNLOCK___TOOL__RENTDEMO'
+[15:21:49] [scan] [UNLOCK___TOOL__RENTDEMO] 1 sold-out row(s) (limit=1, mark_available=False)
+[15:21:49] [rotating] [UNLOCK___TOOL__RENTDEMO] soor  old password = FHGVE8MK  ->  new password = 94KTCZTC  (age=22:34:49.092000)
+[15:21:49] [DIAG] vendor login dispatch: kind='unlocktool'
+[15:21:49] [vendor] goto https://unlocktool.net/post-in/
+[15:21:49] [vendor] waiting for Turnstile token
+[15:22:09] [vendor-fail] [UNLOCK___TOOL__RENTDEMO] soor: Exception('Page.wait_for_function: Connection closed while reading from the driver')
+[15:22:32] [inventory-list] found 12 inventories
+[15:22:32] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[15:22:32] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[15:22:32] [inventory-list]   - EFT-PRO
+[15:22:32] [inventory-list]   - EME TOOL RENT
+[15:22:32] [inventory-list]   - Galaxy Multi Tool
+[15:22:32] [inventory-list]   - Galaxy Multi ToolDEMO
+[15:22:32] [inventory-list]   - REALME OTP
+[15:22:32] [inventory-list]   - SINGMA KEY___30MNT
+[15:22:32] [inventory-list]   - TSM TOOL
+[15:22:32] [inventory-list]   - UAT PRO
+[15:22:32] [inventory-list]   - UNLOCK___TOOL__RENT
+[15:22:32] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[15:22:34] [inventory-list] found 12 inventories
+[15:22:34] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[15:22:34] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[15:22:34] [inventory-list]   - EFT-PRO
+[15:22:34] [inventory-list]   - EME TOOL RENT
+[15:22:34] [inventory-list]   - Galaxy Multi Tool
+[15:22:34] [inventory-list]   - Galaxy Multi ToolDEMO
+[15:22:34] [inventory-list]   - REALME OTP
+[15:22:34] [inventory-list]   - SINGMA KEY___30MNT
+[15:22:34] [inventory-list]   - TSM TOOL
+[15:22:34] [inventory-list]   - UAT PRO
+[15:22:34] [inventory-list]   - UNLOCK___TOOL__RENT
+[15:22:34] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[15:22:43] [DIAG] admin tab url = https://pinfrp.com/admin
+[15:22:43] [plan] 1 inventory/inventories to process
+[15:22:43] opening 'UNLOCK___TOOL__RENTDEMO'
+[15:22:44] [connect] [UNLOCK___TOOL__RENTDEMO] available=0 + 1 expired row(s) — triggering remote service re-connect
+[15:22:44] [connect] navigating to Services List -> Remote
+[15:22:46] [connect] clicking remote service name cell: 'UNLOCKTOOL LOGIN - 6hrs'
+[15:22:46] [connect] offcanvas opened
+[15:22:46] [connect] clicking Connect section button
+[15:22:46] [connect] opening Connect Inventory tab
+[15:22:47] [connect] choosing inventory in dropdown: UNLOCK___TOOL__RENTDEMO
+[15:22:47] [connect] inventory 'UNLOCK___TOOL__RENTDEMO' chosen
+[15:22:47] [connect] clicking final Connect button
+[15:22:47] [connect] remote service re-connected for [UNLOCK___TOOL__RENTDEMO]
+[15:22:47] [connect] closing offcanvas
+[15:22:48] [connect] offcanvas closed
+[15:22:48] [connect] navigating back to Inventory
+[15:22:49] [connect] [UNLOCK___TOOL__RENTDEMO] re-connected — waiting 10s for codes to refresh
+[15:22:59] opening 'UNLOCK___TOOL__RENTDEMO'
+[15:23:00] [scan] [UNLOCK___TOOL__RENTDEMO] 1 sold-out row(s) (limit=1, mark_available=False)
+[15:23:00] [rotating] [UNLOCK___TOOL__RENTDEMO] soor  old password = FHGVE8MK  ->  new password = 28UJELLM  (age=22:36:00.207790)
+[15:23:00] [DIAG] vendor login dispatch: kind='unlocktool'
+[15:23:00] [vendor] goto https://unlocktool.net/post-in/
+[15:23:00] [vendor] waiting for Turnstile token
+[15:23:03] [vendor] Turnstile OK
+[15:23:03] [vendor] clicking Login
+[15:23:04] [vendor] waiting for dashboard (navbar user menu)
+[15:23:04] [vendor] login OK: soor
+[15:23:04] [vendor] opening user dropdown
+[15:23:04] [vendor] clicking Change password link
+[15:23:05] [vendor] waiting for password form
+[15:23:05] [vendor] filling form
+[15:23:05] [vendor] clicking Change password button
+[15:23:06] [vendor] submit clicked via 'button[type="submit"]:has-text("Change password")'
+[15:23:10] [vendor] page confirms password change
+[15:23:10] [vendor] logging out of UNLOCK Tool
+[15:23:11] [vendor] dropdown clicked
+[15:23:12] [vendor] Log out clicked
+[15:23:12] [vendor] logout OK — login link present
+[15:23:12] [vendor-pass] [UNLOCK___TOOL__RENTDEMO] soor  ->  VENDOR password set to: 28UJELLM
+[15:23:14] [admin-pass] [UNLOCK___TOOL__RENTDEMO] soor  ->  ADMIN code set to: 🆔 soor 🔑 28UJELLM
+[15:23:14] [ok] [UNLOCK___TOOL__RENTDEMO] soor rotated (mark_available=False)
+[15:23:16] [done] [UNLOCK___TOOL__RENTDEMO] rotated 1
+[15:23:16] [all done] total 1
+[15:29:38] [inventory-list] found 12 inventories
+[15:29:38] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[15:29:38] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[15:29:38] [inventory-list]   - EFT-PRO
+[15:29:38] [inventory-list]   - EME TOOL RENT
+[15:29:38] [inventory-list]   - Galaxy Multi Tool
+[15:29:38] [inventory-list]   - Galaxy Multi ToolDEMO
+[15:29:38] [inventory-list]   - REALME OTP
+[15:29:38] [inventory-list]   - SINGMA KEY___30MNT
+[15:29:38] [inventory-list]   - TSM TOOL
+[15:29:38] [inventory-list]   - UAT PRO
+[15:29:38] [inventory-list]   - UNLOCK___TOOL__RENT
+[15:29:38] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[15:29:38] [inventory-list] found 12 inventories
+[15:29:38] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[15:29:38] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[15:29:38] [inventory-list]   - EFT-PRO
+[15:29:38] [inventory-list]   - EME TOOL RENT
+[15:29:38] [inventory-list]   - Galaxy Multi Tool
+[15:29:38] [inventory-list]   - Galaxy Multi ToolDEMO
+[15:29:38] [inventory-list]   - REALME OTP
+[15:29:38] [inventory-list]   - SINGMA KEY___30MNT
+[15:29:38] [inventory-list]   - TSM TOOL
+[15:29:38] [inventory-list]   - UAT PRO
+[15:29:38] [inventory-list]   - UNLOCK___TOOL__RENT
+[15:29:38] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[15:29:51] [DIAG] admin tab url = https://pinfrp.com/admin
+[15:29:51] [plan] 1 inventory/inventories to process
+[15:29:51] opening 'UNLOCK___TOOL__RENTDEMO'
+[15:29:52] [connect] [UNLOCK___TOOL__RENTDEMO] available=0 + 1 expired row(s) — triggering remote service re-connect
+[15:29:52] [connect] navigating to Services List -> Remote
+[15:29:53] [connect] clicking remote service name cell: 'UNLOCKTOOL LOGIN - 6hrs'
+[15:29:54] [connect] offcanvas opened
+[15:29:54] [connect] clicking Connect section button
+[15:29:54] [connect] opening Connect Inventory tab
+[15:29:54] [connect] choosing inventory in dropdown: UNLOCK___TOOL__RENTDEMO
+[15:29:55] [connect] inventory 'UNLOCK___TOOL__RENTDEMO' chosen
+[15:29:55] [connect] clicking final Connect button
+[15:29:55] [connect] remote service re-connected for [UNLOCK___TOOL__RENTDEMO]
+[15:29:55] [connect] closing offcanvas
+[15:29:56] [connect] offcanvas closed
+[15:29:56] [connect] navigating back to Inventory
+[15:29:57] [connect] [UNLOCK___TOOL__RENTDEMO] re-connected — waiting 10s for codes to refresh
+[15:30:07] opening 'UNLOCK___TOOL__RENTDEMO'
+[15:30:08] [scan] [UNLOCK___TOOL__RENTDEMO] 1 sold-out row(s) (limit=1, mark_available=False)
+[15:30:08] [rotating] [UNLOCK___TOOL__RENTDEMO] soor  old password = 28UJELLM  ->  new password = L2HFPPR5  (age=22:43:08.257755)
+[15:30:08] [DIAG] vendor login dispatch: kind='unlocktool'
+[15:30:08] [vendor] goto https://unlocktool.net/post-in/
+[15:30:08] [vendor] waiting for Turnstile token
+[15:30:11] [vendor] Turnstile OK
+[15:30:11] [vendor] clicking Login
+[15:30:12] [vendor] waiting for dashboard (navbar user menu)
+[15:30:12] [vendor] login OK: soor
+[15:30:12] [vendor] opening user dropdown
+[15:30:12] [vendor] clicking Change password link
+[15:30:13] [vendor] waiting for password form
+[15:30:13] [vendor] filling form
+[15:30:13] [vendor] clicking Change password button
+[15:30:14] [vendor] submit clicked via 'button[type="submit"]:has-text("Change password")'
+[15:30:18] [vendor] page confirms password change
+[15:30:18] [vendor] logging out of UNLOCK Tool
+[15:30:19] [vendor] dropdown clicked
+[15:30:20] [vendor] Log out clicked
+[15:30:20] [vendor] logout OK — login link present
+[15:30:20] [vendor-pass] [UNLOCK___TOOL__RENTDEMO] soor  ->  VENDOR password set to: L2HFPPR5
+[15:30:23] [admin-pass] [UNLOCK___TOOL__RENTDEMO] soor  ->  ADMIN code set to: 🆔 soor 🔑 L2HFPPR5
+[15:30:23] [ok] [UNLOCK___TOOL__RENTDEMO] soor rotated (mark_available=False)
+[15:30:24] [done] [UNLOCK___TOOL__RENTDEMO] rotated 1
+[15:30:24] [all done] total 1
