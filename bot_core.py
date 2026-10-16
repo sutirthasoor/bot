@@ -405,13 +405,44 @@ class Rotator:
                 timeout=8000,
             )
 
-        self.log("[vendor] submitting")
+        self.log("[vendor] submitting password change")
         await page.click('button[type="submit"]:has-text("Update Password")')
         await asyncio.sleep(4)
+
         try:
             await page.screenshot(path=f"galaxy_after_save_{new_pw}.png")
         except Exception:
             pass
+
+        # ---- Log out of the Galaxy vendor site before returning to admin ----
+        self.log("[vendor] logging out of Galaxy vendor")
+        try:
+            # 1. click the user avatar circle (top-right, contains the initial letter)
+            avatar_sel = 'header button[aria-haspopup="menu"]'
+            try:
+                await page.wait_for_selector(avatar_sel, timeout=8000)
+                await page.click(avatar_sel)
+            except Exception:
+                # Fallback: match the span with the initial letter directly
+                fallback = 'header span.flex.h-full.w-full.items-center.justify-center.rounded-full'
+                await page.wait_for_selector(fallback, timeout=5000)
+                await page.click(fallback)
+            self.log("[vendor] avatar clicked")
+
+            # 2. wait for the menu and click "Log out"
+            logout_sel = 'div[role="menuitem"]:has-text("Log out")'
+            await page.wait_for_selector(logout_sel, timeout=8000)
+            await page.click(logout_sel)
+            self.log("[vendor] Log out clicked")
+
+            # 3. confirm we're back on a login page (or somewhere else)
+            try:
+                await page.wait_for_url("**/login**", timeout=10000)
+                self.log("[vendor] logout OK — on login page")
+            except PWTimeout:
+                self.log(f"[vendor] logout — current url: {page.url}")
+        except Exception as e:
+            self.log(f"[vendor] logout step failed (non-fatal): {e!r}")
 
     # ---------------- UNLOCK Tool ----------------
 
@@ -422,7 +453,6 @@ class Rotator:
             self.log(f"[vendor] goto {cfg['login_url']}")
             await page.goto(cfg["login_url"], wait_until="domcontentloaded", timeout=30000)
 
-            # Wait for Cloudflare Turnstile token
             self.log("[vendor] waiting for Turnstile token")
             try:
                 await page.wait_for_function(
@@ -436,14 +466,12 @@ class Rotator:
             except PWTimeout:
                 self.log("[vendor] Turnstile not detected — continuing")
 
-            # UNLOCK Tool login uses name= attributes, not id=
             await page.fill('input[name="username"]', email)
             await page.fill('input[name="password"]', password)
 
             self.log("[vendor] clicking Login")
             await page.click('button[type="submit"]:has-text("Login")')
 
-            # Success = the navbar user dropdown appears
             self.log("[vendor] waiting for dashboard (navbar user menu)")
             try:
                 await page.wait_for_selector(
@@ -463,7 +491,7 @@ class Rotator:
             raise
 
     async def _vendor_change_unlocktool(self, page, cfg, old_pw, new_pw):
-        # Click the navbar dropdown, then the Change password link
+        # ---- Open user dropdown → Change password link ----
         self.log("[vendor] opening user dropdown")
         try:
             await page.click('a#navbarDropdown', timeout=10000)
@@ -474,7 +502,7 @@ class Rotator:
             self.log(f"[vendor] dropdown click failed ({e}) — navigating directly")
             await page.goto(cfg["account_url"], wait_until="domcontentloaded", timeout=30000)
 
-        # Wait for the Django password form fields
+        # ---- Fill the Django password form ----
         self.log("[vendor] waiting for password form")
         await page.wait_for_selector('input[name="old_password"]',    timeout=20000)
         await page.wait_for_selector('input[name="new_password1"]',   timeout=20000)
@@ -497,6 +525,7 @@ class Rotator:
         except PWTimeout:
             pass
 
+        # ---- Submit ----
         self.log("[vendor] clicking Change password button")
         clicked = False
         for sel in [
@@ -522,7 +551,7 @@ class Rotator:
         except Exception:
             pass
 
-        # Look for Django messages
+        # ---- Look for Django messages ----
         try:
             body = (await page.locator("body").inner_text(timeout=3000)).lower()
             if any(w in body for w in ("password changed", "successfully",
@@ -533,6 +562,37 @@ class Rotator:
                 self.log("[vendor] page mentions error — check screenshot")
         except Exception:
             pass
+
+        # ---- NEW: log out of UNLOCK Tool before returning to admin ----
+        self.log("[vendor] logging out of UNLOCK Tool")
+        try:
+            # 1. Go to the site root so the navbar is present
+            try:
+                await page.goto("https://unlocktool.net/",
+                                wait_until="domcontentloaded", timeout=15000)
+            except Exception:
+                pass
+
+            # 2. Click the navbar user dropdown (contains the avatar img + username)
+            dropdown_sel = 'a#navbarDropdown'
+            await page.wait_for_selector(dropdown_sel, timeout=8000)
+            await page.click(dropdown_sel)
+            self.log("[vendor] dropdown clicked")
+
+            # 3. Click the "Log out" item
+            logout_sel = 'a.dropdown-item[href="/logout/"]'
+            await page.wait_for_selector(logout_sel, timeout=8000)
+            await page.click(logout_sel)
+            self.log("[vendor] Log out clicked")
+
+            # 4. Confirm we're logged out — wait for URL or login link presence
+            try:
+                await page.wait_for_selector('a[href="/post-in/"]', timeout=10000)
+                self.log("[vendor] logout OK — login link present")
+            except PWTimeout:
+                self.log(f"[vendor] logout — current url: {page.url}")
+        except Exception as e:
+            self.log(f"[vendor] logout step failed (non-fatal): {e!r}")
 
     # ============================================================
     # Orchestration

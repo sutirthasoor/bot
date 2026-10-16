@@ -283,3 +283,399 @@
 [17:37:24] [ok] [UNLOCK___TOOL__RENTDEMO] LIMMA@1 rotated (mark_available=False)
 [17:37:25] [done] [UNLOCK___TOOL__RENTDEMO] rotated 1
 [17:37:25] [all done] total 1
+[17:39:05] [DIAG] admin tab url = https://pinfrp.com/admin
+[17:39:05] [plan] 1 inventory/inventories to process
+[17:39:05] opening 'Android Multi Tool[AMT]__RENTDEMO'
+[17:39:06] [scan] [Android Multi Tool[AMT]__RENTDEMO] 1 sold-out row(s) (limit=1, mark_available=False)
+[17:39:06] [rotating] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com  old password = 7847XCKE  ->  new password = 3GVXH5KD  (age=0:11:06.534484)
+[17:39:06] [DIAG] vendor login dispatch: kind='amt'
+[17:39:06] [vendor] goto https://androidmultitool.com/controller/login
+[17:39:10] [vendor] Turnstile OK
+[17:39:12] [vendor] login OK: pinfrp0011@gmail.com
+[17:39:12] [vendor] waiting for account-page Turnstile token
+[17:39:15] [vendor] account-page Turnstile OK
+[17:39:15] [vendor] clicking Save Changes button
+[17:39:15] [vendor] Save clicked via 'button.btn.btn-icon.btn-success:has-text("Save Changes")'
+[17:39:20] [vendor-pass] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com  ->  VENDOR password set to: 3GVXH5KD
+[17:39:23] [admin-pass] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com  ->  ADMIN code set to: 🆔 pinfrp0011@gmail.com 🔑 3GVXH5KD
+[17:39:23] [ok] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com rotated (mark_available=False)
+[17:39:24] [done] [Android Multi Tool[AMT]__RENTDEMO] rotated 1
+[17:39:24] [all done] total 1
+[17:39:38] [DIAG] admin tab url = https://pinfrp.com/admin
+[17:39:38] [plan] 1 inventory/inventories to process
+[17:39:38] opening 'Galaxy Multi ToolDEMO'
+[17:39:39] [scan] [Galaxy Multi ToolDEMO] 1 sold-out row(s) (limit=1, mark_available=False)
+[17:39:39] [rotating] [Galaxy Multi ToolDEMO] txtv444@gmail.com  old password = 456W79NP  ->  new password = DGN4WAP9  (age=0:07:39.781816)
+[17:39:39] [DIAG] vendor login dispatch: kind='galaxy'
+[17:39:39] [vendor] goto https://galaxyunlock.in/login
+[17:39:43] [vendor] login OK: txtv444@gmail.com
+[17:39:43] [vendor] navigating to account page
+[17:39:53] [vendor] waiting for Security tab
+[17:39:53] [vendor] clicking Security tab
+[17:39:53] [vendor] clicking Change Password
+[17:39:54] [vendor] filling form
+[17:39:54] [vendor] waiting for Update Password to enable
+[17:39:54] [vendor] submitting
+[17:39:58] [vendor-pass] [Galaxy Multi ToolDEMO] txtv444@gmail.com  ->  VENDOR password set to: DGN4WAP9
+[17:40:00] [admin-pass] [Galaxy Multi ToolDEMO] txtv444@gmail.com  ->  ADMIN code set to: 🆔 txtv444@gmail.com 🔑 DGN4WAP9
+[17:40:00] [ok] [Galaxy Multi ToolDEMO] txtv444@gmail.com rotated (mark_available=False)
+[17:40:02] [done] [Galaxy Multi ToolDEMO] rotated 1
+[17:40:02] [all done] total 1
+[17:44:35] [state] navigating to Inventory page
+[17:44:49] [state] navigating to Inventory page
+[17:44:57] [inventory-list] found 12 inventories
+[17:44:57] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[17:44:57] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[17:44:57] [inventory-list]   - EFT-PRO
+[17:44:57] [inventory-list]   - EME TOOL RENT
+[17:44:57] [inventory-list]   - Galaxy Multi Tool
+[17:44:57] [inventory-list]   - Galaxy Multi ToolDEMO
+[17:44:57] [inventory-list]   - REALME OTP
+[17:44:57] [inventory-list]   - SINGMA KEY___30MNT
+[17:44:57] [inventory-list]   - TSM TOOL
+[17:44:57] [inventory-list]   - UAT PRO
+[17:44:57] [inventory-list]   - UNLOCK___TOOL__RENT
+[17:44:57] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[17:45:07] [DIAG] admin tab url = https://pinfrp.com/admin
+[17:45:07] [plan] 1 inventory/inventories to process
+[17:45:07] opening 'Android Multi Tool[AMT]__RENTDEMO'
+[17:45:08] [scan] [Android Multi Tool[AMT]__RENTDEMO] 0 sold-out row(s) (limit=1, mark_available=False)
+[17:45:08] [done] [Android Multi Tool[AMT]__RENTDEMO] rotated 0
+[17:45:08] [all done] total 0
+[17:45:29] [DIAG] admin tab url = https://pinfrp.com/admin
+[17:45:29] [plan] 1 inventory/inventories to process
+[17:45:29] opening 'Android Multi Tool[AMT]__RENTDEMO'
+[17:45:30] [scan] [Android Multi Tool[AMT]__RENTDEMO] 1 sold-out row(s) (limit=1, mark_available=False)
+[17:45:30] [rotating] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com  old password = 3GVXH5KD  ->  new password = M77F7QLP  (age=0:17:30.351480)
+[17:45:30] [DIAG] vendor login dispatch: kind='amt'
+[17:45:30] [vendor] goto https://androidmultitool.com/controller/login
+[17:45:33] [vendor] Turnstile OK
+[17:45:35] [vendor] login OK: pinfrp0011@gmail.com
+[17:45:35] [vendor] waiting for account-page Turnstile token
+[17:45:38] [vendor] account-page Turnstile OK
+[17:45:38] [vendor] clicking Save Changes button
+[17:45:38] [vendor] Save clicked via 'button.btn.btn-icon.btn-success:has-text("Save Changes")'
+[17:45:43] [vendor-pass] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com  ->  VENDOR password set to: M77F7QLP
+[17:45:46] [admin-pass] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com  ->  ADMIN code set to: 🆔 pinfrp0011@gmail.com 🔑 M77F7QLP
+[17:45:46] [ok] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com rotated (mark_available=False)
+[17:45:47] [done] [Android Multi Tool[AMT]__RENTDEMO] rotated 1
+[17:45:47] [all done] total 1
+[13:26:09] [inventory-list] found 12 inventories
+[13:26:09] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[13:26:09] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[13:26:09] [inventory-list]   - EFT-PRO
+[13:26:09] [inventory-list]   - EME TOOL RENT
+[13:26:09] [inventory-list]   - Galaxy Multi Tool
+[13:26:09] [inventory-list]   - Galaxy Multi ToolDEMO
+[13:26:09] [inventory-list]   - REALME OTP
+[13:26:09] [inventory-list]   - SINGMA KEY___30MNT
+[13:26:09] [inventory-list]   - TSM TOOL
+[13:26:09] [inventory-list]   - UAT PRO
+[13:26:09] [inventory-list]   - UNLOCK___TOOL__RENT
+[13:26:09] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[13:26:19] [DIAG] admin tab url = https://pinfrp.com/admin
+[13:26:19] [plan] 1 inventory/inventories to process
+[13:26:19] opening 'Galaxy Multi ToolDEMO'
+[13:26:20] [scan] [Galaxy Multi ToolDEMO] 1 sold-out row(s) (limit=unlimited, mark_available=True)
+[13:26:20] [rotating] [Galaxy Multi ToolDEMO] txtv444@gmail.com  old password = DGN4WAP9  ->  new password = WGRH8UEN  (age=19:54:20.271221)
+[13:26:20] [DIAG] vendor login dispatch: kind='galaxy'
+[13:26:20] [vendor] goto https://galaxyunlock.in/login
+[13:26:23] [vendor] login OK: txtv444@gmail.com
+[13:26:23] [vendor] navigating to account page
+[13:26:33] [vendor] waiting for Security tab
+[13:26:33] [vendor] clicking Security tab
+[13:26:33] [vendor] clicking Change Password
+[13:26:33] [vendor] filling form
+[13:26:33] [vendor] waiting for Update Password to enable
+[13:26:34] [vendor] submitting password change
+[13:26:38] [vendor] logging out of Galaxy vendor
+[13:26:38] [vendor] avatar clicked
+[13:26:38] [vendor] Log out clicked
+[13:26:39] [vendor] logout OK — on login page
+[13:26:39] [vendor-pass] [Galaxy Multi ToolDEMO] txtv444@gmail.com  ->  VENDOR password set to: WGRH8UEN
+[13:26:41] [admin-pass] [Galaxy Multi ToolDEMO] txtv444@gmail.com  ->  ADMIN code set to: 🆔 txtv444@gmail.com 🔑 WGRH8UEN
+[13:26:41] [ok] [Galaxy Multi ToolDEMO] txtv444@gmail.com rotated (mark_available=True)
+[13:26:43] [done] [Galaxy Multi ToolDEMO] rotated 1
+[13:26:43] [all done] total 1
+[13:27:01] [DIAG] admin tab url = https://pinfrp.com/admin
+[13:27:01] [plan] 2 inventory/inventories to process
+[13:27:01] opening 'Galaxy Multi ToolDEMO'
+[13:27:03] [scan] [Galaxy Multi ToolDEMO] 1 sold-out row(s) (limit=unlimited, mark_available=True)
+[13:27:03] [rotating] [Galaxy Multi ToolDEMO] txtv444@gmail.com  old password = WGRH8UEN  ->  new password = MQQ8C3JW  (age=0:01:03.095702)
+[13:27:03] [DIAG] vendor login dispatch: kind='galaxy'
+[13:27:03] [vendor] goto https://galaxyunlock.in/login
+[13:27:05] [vendor] login OK: txtv444@gmail.com
+[13:27:05] [vendor] navigating to account page
+[13:27:15] [vendor] waiting for Security tab
+[13:27:15] [vendor] clicking Security tab
+[13:27:15] [vendor] clicking Change Password
+[13:27:15] [vendor] filling form
+[13:27:15] [vendor] waiting for Update Password to enable
+[13:27:15] [vendor] submitting password change
+[13:27:19] [vendor] logging out of Galaxy vendor
+[13:27:19] [vendor] avatar clicked
+[13:27:20] [vendor] Log out clicked
+[13:27:20] [vendor] logout OK — on login page
+[13:27:20] [vendor-pass] [Galaxy Multi ToolDEMO] txtv444@gmail.com  ->  VENDOR password set to: MQQ8C3JW
+[13:27:23] [admin-pass] [Galaxy Multi ToolDEMO] txtv444@gmail.com  ->  ADMIN code set to: 🆔 txtv444@gmail.com 🔑 MQQ8C3JW
+[13:27:23] [ok] [Galaxy Multi ToolDEMO] txtv444@gmail.com rotated (mark_available=True)
+[13:27:24] [done] [Galaxy Multi ToolDEMO] rotated 1
+[13:27:24] [all done] total 1
+[13:32:34] [DIAG] admin tab url = https://pinfrp.com/admin
+[13:32:34] [plan] 1 inventory/inventories to process
+[13:32:34] opening 'UNLOCK___TOOL__RENT'
+[13:32:36] [scan] [UNLOCK___TOOL__RENT] 49 sold-out row(s) (limit=unlimited, mark_available=False)
+[13:32:36] [rotating] [UNLOCK___TOOL__RENT] LIMMA@5  old password = JUNFGERRDFF  ->  new password = 44U4UZPY  (age=0:07:36.368725)
+[13:32:36] [DIAG] vendor login dispatch: kind='unlocktool'
+[13:32:36] [vendor] goto https://unlocktool.net/post-in/
+[13:32:36] [vendor] waiting for Turnstile token
+[13:32:39] [vendor] Turnstile OK
+[13:32:39] [vendor] clicking Login
+[13:32:40] [vendor] waiting for dashboard (navbar user menu)
+[13:32:40] [vendor] login OK: LIMMA@5
+[13:32:40] [vendor] opening user dropdown
+[13:32:40] [vendor] clicking Change password link
+[13:32:41] [vendor] waiting for password form
+[13:32:41] [vendor] filling form
+[13:32:41] [vendor] clicking Change password button
+[13:32:42] [vendor] submit clicked via 'button[type="submit"]:has-text("Change password")'
+[13:32:46] [vendor] page confirms password change
+[13:32:46] [vendor-pass] [UNLOCK___TOOL__RENT] LIMMA@5  ->  VENDOR password set to: 44U4UZPY
+[13:32:49] [admin-pass] [UNLOCK___TOOL__RENT] LIMMA@5  ->  ADMIN code set to: 🆔 LIMMA@5 🔑 44U4UZPY
+[13:32:49] [ok] [UNLOCK___TOOL__RENT] LIMMA@5 rotated (mark_available=False)
+[13:32:50] [rotating] [UNLOCK___TOOL__RENT] PINFRPTOOL9  old password = JUNFGERRDFF  ->  new password = 9PFNEGTB  (age=0:15:50.814452)
+[13:32:50] [DIAG] vendor login dispatch: kind='unlocktool'
+[13:32:50] [vendor] goto https://unlocktool.net/post-in/
+[13:32:51] [vendor] waiting for Turnstile token
+[13:32:54] [vendor] Turnstile OK
+[13:32:54] [vendor] clicking Login
+[13:32:54] [vendor] waiting for dashboard (navbar user menu)
+[13:32:54] [vendor] login OK: PINFRPTOOL9
+[13:32:54] [vendor] opening user dropdown
+[13:32:55] [vendor] clicking Change password link
+[13:32:56] [vendor] waiting for password form
+[13:32:56] [vendor] filling form
+[13:32:56] [vendor] clicking Change password button
+[13:32:57] [vendor] submit clicked via 'button[type="submit"]:has-text("Change password")'
+[13:33:01] [vendor] page confirms password change
+[13:33:01] [vendor-pass] [UNLOCK___TOOL__RENT] PINFRPTOOL9  ->  VENDOR password set to: 9PFNEGTB
+[13:33:03] [admin-pass] [UNLOCK___TOOL__RENT] PINFRPTOOL9  ->  ADMIN code set to: 🆔 PINFRPTOOL9 🔑 9PFNEGTB
+[13:33:03] [ok] [UNLOCK___TOOL__RENT] PINFRPTOOL9 rotated (mark_available=False)
+[13:33:05] [stop] break requested
+[13:33:05] [done] [UNLOCK___TOOL__RENT] rotated 2
+[13:33:05] [all done] total 2
+[13:33:19] [inventory-list] found 12 inventories
+[13:33:19] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[13:33:19] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[13:33:19] [inventory-list]   - EFT-PRO
+[13:33:19] [inventory-list]   - EME TOOL RENT
+[13:33:19] [inventory-list]   - Galaxy Multi Tool
+[13:33:19] [inventory-list]   - Galaxy Multi ToolDEMO
+[13:33:19] [inventory-list]   - REALME OTP
+[13:33:19] [inventory-list]   - SINGMA KEY___30MNT
+[13:33:19] [inventory-list]   - TSM TOOL
+[13:33:19] [inventory-list]   - UAT PRO
+[13:33:19] [inventory-list]   - UNLOCK___TOOL__RENT
+[13:33:19] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[13:33:32] [DIAG] admin tab url = https://pinfrp.com/admin
+[13:33:32] [plan] 1 inventory/inventories to process
+[13:33:32] opening 'UNLOCK___TOOL__RENTDEMO'
+[13:33:33] [scan] [UNLOCK___TOOL__RENTDEMO] 1 sold-out row(s) (limit=1, mark_available=False)
+[13:33:33] [rotating] [UNLOCK___TOOL__RENTDEMO] soor  old password = MQQ8C3JW  ->  new password = 7W5ZWX24  (age=20:46:33.423942)
+[13:33:33] [DIAG] vendor login dispatch: kind='unlocktool'
+[13:33:33] [vendor] goto https://unlocktool.net/post-in/
+[13:33:33] [vendor] waiting for Turnstile token
+[13:33:36] [vendor] Turnstile OK
+[13:33:36] [vendor] clicking Login
+[13:33:37] [vendor] waiting for dashboard (navbar user menu)
+[13:33:37] [vendor] login OK: soor
+[13:33:37] [vendor] opening user dropdown
+[13:33:37] [vendor] clicking Change password link
+[13:33:38] [vendor] waiting for password form
+[13:33:38] [vendor] filling form
+[13:33:38] [vendor] clicking Change password button
+[13:33:39] [vendor] submit clicked via 'button[type="submit"]:has-text("Change password")'
+[13:33:43] [vendor] page confirms password change
+[13:33:43] [vendor-pass] [UNLOCK___TOOL__RENTDEMO] soor  ->  VENDOR password set to: 7W5ZWX24
+[13:33:46] [admin-pass] [UNLOCK___TOOL__RENTDEMO] soor  ->  ADMIN code set to: 🆔 soor 🔑 7W5ZWX24
+[13:33:46] [ok] [UNLOCK___TOOL__RENTDEMO] soor rotated (mark_available=False)
+[13:33:47] [done] [UNLOCK___TOOL__RENTDEMO] rotated 1
+[13:33:47] [all done] total 1
+[13:35:15] [inventory-list] found 12 inventories
+[13:35:15] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[13:35:15] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[13:35:15] [inventory-list]   - EFT-PRO
+[13:35:15] [inventory-list]   - EME TOOL RENT
+[13:35:15] [inventory-list]   - Galaxy Multi Tool
+[13:35:15] [inventory-list]   - Galaxy Multi ToolDEMO
+[13:35:15] [inventory-list]   - REALME OTP
+[13:35:15] [inventory-list]   - SINGMA KEY___30MNT
+[13:35:15] [inventory-list]   - TSM TOOL
+[13:35:15] [inventory-list]   - UAT PRO
+[13:35:15] [inventory-list]   - UNLOCK___TOOL__RENT
+[13:35:15] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[13:35:29] [DIAG] admin tab url = https://pinfrp.com/admin
+[13:35:29] [plan] 1 inventory/inventories to process
+[13:35:29] opening 'UNLOCK___TOOL__RENTDEMO'
+[13:35:30] [scan] [UNLOCK___TOOL__RENTDEMO] 1 sold-out row(s) (limit=1, mark_available=False)
+[13:35:30] [rotating] [UNLOCK___TOOL__RENTDEMO] soor  old password = 7W5ZWX24  ->  new password = Y22MH2NS  (age=20:48:30.975935)
+[13:35:30] [DIAG] vendor login dispatch: kind='unlocktool'
+[13:35:31] [vendor] goto https://unlocktool.net/post-in/
+[13:35:31] [vendor] waiting for Turnstile token
+[13:35:34] [vendor] Turnstile OK
+[13:35:34] [vendor] clicking Login
+[13:35:34] [vendor] waiting for dashboard (navbar user menu)
+[13:35:35] [vendor] login OK: soor
+[13:35:35] [vendor] opening user dropdown
+[13:35:35] [vendor] clicking Change password link
+[13:35:36] [vendor] waiting for password form
+[13:35:36] [vendor] filling form
+[13:35:36] [vendor] clicking Change password button
+[13:35:37] [vendor] submit clicked via 'button[type="submit"]:has-text("Change password")'
+[13:35:41] [vendor] page confirms password change
+[13:35:41] [vendor] logging out of UNLOCK Tool
+[13:35:42] [vendor] dropdown clicked
+[13:35:43] [vendor] Log out clicked
+[13:35:43] [vendor] logout OK — login link present
+[13:35:43] [vendor-pass] [UNLOCK___TOOL__RENTDEMO] soor  ->  VENDOR password set to: Y22MH2NS
+[13:35:45] [admin-pass] [UNLOCK___TOOL__RENTDEMO] soor  ->  ADMIN code set to: 🆔 soor 🔑 Y22MH2NS
+[13:35:45] [ok] [UNLOCK___TOOL__RENTDEMO] soor rotated (mark_available=False)
+[13:35:47] [done] [UNLOCK___TOOL__RENTDEMO] rotated 1
+[13:35:47] [all done] total 1
+[13:36:03] [DIAG] admin tab url = https://pinfrp.com/admin
+[13:36:04] [plan] 1 inventory/inventories to process
+[13:36:04] opening 'Android Multi Tool[AMT]__RENTDEMO'
+[13:36:05] [scan] [Android Multi Tool[AMT]__RENTDEMO] 1 sold-out row(s) (limit=1, mark_available=False)
+[13:36:05] [rotating] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com  old password = M77F7QLP  ->  new password = HPNSEZ66  (age=20:08:05.609257)
+[13:36:05] [DIAG] vendor login dispatch: kind='amt'
+[13:36:05] [vendor] goto https://androidmultitool.com/controller/login
+[13:36:08] [vendor] Turnstile OK
+[13:36:10] [vendor] login OK: pinfrp0011@gmail.com
+[13:36:11] [vendor] waiting for account-page Turnstile token
+[13:36:13] [vendor] account-page Turnstile OK
+[13:36:13] [vendor] clicking Save Changes button
+[13:36:13] [vendor] Save clicked via 'button.btn.btn-icon.btn-success:has-text("Save Changes")'
+[13:36:19] [vendor-pass] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com  ->  VENDOR password set to: HPNSEZ66
+[13:36:21] [admin-pass] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com  ->  ADMIN code set to: 🆔 pinfrp0011@gmail.com 🔑 HPNSEZ66
+[13:36:21] [ok] [Android Multi Tool[AMT]__RENTDEMO] pinfrp0011@gmail.com rotated (mark_available=False)
+[13:36:23] [done] [Android Multi Tool[AMT]__RENTDEMO] rotated 1
+[13:36:23] [all done] total 1
+[14:11:28] [inventory-list] found 12 inventories
+[14:11:28] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[14:11:28] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[14:11:28] [inventory-list]   - EFT-PRO
+[14:11:28] [inventory-list]   - EME TOOL RENT
+[14:11:28] [inventory-list]   - Galaxy Multi Tool
+[14:11:28] [inventory-list]   - Galaxy Multi ToolDEMO
+[14:11:28] [inventory-list]   - REALME OTP
+[14:11:28] [inventory-list]   - SINGMA KEY___30MNT
+[14:11:28] [inventory-list]   - TSM TOOL
+[14:11:28] [inventory-list]   - UAT PRO
+[14:11:28] [inventory-list]   - UNLOCK___TOOL__RENT
+[14:11:28] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[14:11:38] [inventory-list] found 12 inventories
+[14:11:38] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[14:11:38] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[14:11:38] [inventory-list]   - EFT-PRO
+[14:11:38] [inventory-list]   - EME TOOL RENT
+[14:11:38] [inventory-list]   - Galaxy Multi Tool
+[14:11:38] [inventory-list]   - Galaxy Multi ToolDEMO
+[14:11:38] [inventory-list]   - REALME OTP
+[14:11:38] [inventory-list]   - SINGMA KEY___30MNT
+[14:11:38] [inventory-list]   - TSM TOOL
+[14:11:38] [inventory-list]   - UAT PRO
+[14:11:38] [inventory-list]   - UNLOCK___TOOL__RENT
+[14:11:38] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[14:34:20] [inventory-list] found 12 inventories
+[14:34:20] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[14:34:20] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[14:34:20] [inventory-list]   - EFT-PRO
+[14:34:20] [inventory-list]   - EME TOOL RENT
+[14:34:20] [inventory-list]   - Galaxy Multi Tool
+[14:34:20] [inventory-list]   - Galaxy Multi ToolDEMO
+[14:34:20] [inventory-list]   - REALME OTP
+[14:34:20] [inventory-list]   - SINGMA KEY___30MNT
+[14:34:20] [inventory-list]   - TSM TOOL
+[14:34:20] [inventory-list]   - UAT PRO
+[14:34:20] [inventory-list]   - UNLOCK___TOOL__RENT
+[14:34:20] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[14:38:34] [inventory-list] found 12 inventories
+[14:38:34] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[14:38:34] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[14:38:34] [inventory-list]   - EFT-PRO
+[14:38:34] [inventory-list]   - EME TOOL RENT
+[14:38:34] [inventory-list]   - Galaxy Multi Tool
+[14:38:34] [inventory-list]   - Galaxy Multi ToolDEMO
+[14:38:34] [inventory-list]   - REALME OTP
+[14:38:34] [inventory-list]   - SINGMA KEY___30MNT
+[14:38:34] [inventory-list]   - TSM TOOL
+[14:38:34] [inventory-list]   - UAT PRO
+[14:38:34] [inventory-list]   - UNLOCK___TOOL__RENT
+[14:38:34] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[14:38:54] [inventory-list] found 12 inventories
+[14:38:54] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[14:38:54] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[14:38:54] [inventory-list]   - EFT-PRO
+[14:38:54] [inventory-list]   - EME TOOL RENT
+[14:38:54] [inventory-list]   - Galaxy Multi Tool
+[14:38:54] [inventory-list]   - Galaxy Multi ToolDEMO
+[14:38:54] [inventory-list]   - REALME OTP
+[14:38:54] [inventory-list]   - SINGMA KEY___30MNT
+[14:38:54] [inventory-list]   - TSM TOOL
+[14:38:54] [inventory-list]   - UAT PRO
+[14:38:54] [inventory-list]   - UNLOCK___TOOL__RENT
+[14:38:54] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[14:38:55] [inventory-list] found 12 inventories
+[14:38:55] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[14:38:55] [inventory-list]   - Android Multi Tool[AMT]__RENTDEMO
+[14:38:55] [inventory-list]   - EFT-PRO
+[14:38:55] [inventory-list]   - EME TOOL RENT
+[14:38:55] [inventory-list]   - Galaxy Multi Tool
+[14:38:55] [inventory-list]   - Galaxy Multi ToolDEMO
+[14:38:55] [inventory-list]   - REALME OTP
+[14:38:55] [inventory-list]   - SINGMA KEY___30MNT
+[14:38:55] [inventory-list]   - TSM TOOL
+[14:38:55] [inventory-list]   - UAT PRO
+[14:38:55] [inventory-list]   - UNLOCK___TOOL__RENT
+[14:38:55] [inventory-list]   - UNLOCK___TOOL__RENTDEMO
+[14:39:08] [DIAG] admin tab url = https://pinfrp.com/admin
+[14:39:08] [plan] 1 inventory/inventories to process
+[14:39:08] opening 'UNLOCK___TOOL__RENT'
+[14:39:10] [scan] [UNLOCK___TOOL__RENT] 56 sold-out row(s) (limit=1, mark_available=False)
+[14:39:10] [rotating] [UNLOCK___TOOL__RENT] PINFRP05  old password = JUNFGERRDFF  ->  new password = GTUPMVYF  (age=0:42:10.525961)
+[14:39:10] [DIAG] vendor login dispatch: kind='unlocktool'
+[14:39:10] [vendor] goto https://unlocktool.net/post-in/
+[14:39:10] [vendor] waiting for Turnstile token
+[14:39:30] [vendor] Turnstile not detected — continuing
+[14:39:36] [vendor-fail] [UNLOCK___TOOL__RENT] PINFRP05: TargetClosedError('Page.fill: Target page, context or browser has been closed\nCall log:\n  - waiting for locator("input[name=\\"username\\"]")\n')
+[14:39:38] [stop] break requested
+[14:39:38] [done] [UNLOCK___TOOL__RENT] rotated 0
+[14:39:38] [all done] total 0
+[14:39:55] [DIAG] admin tab url = https://pinfrp.com/admin
+[14:39:55] [plan] 1 inventory/inventories to process
+[14:39:55] opening 'UNLOCK___TOOL__RENTDEMO'
+[14:39:56] [scan] [UNLOCK___TOOL__RENTDEMO] 1 sold-out row(s) (limit=1, mark_available=False)
+[14:39:56] [rotating] [UNLOCK___TOOL__RENTDEMO] soor  old password = Y22MH2NS  ->  new password = FHGVE8MK  (age=21:52:56.630586)
+[14:39:56] [DIAG] vendor login dispatch: kind='unlocktool'
+[14:39:56] [vendor] goto https://unlocktool.net/post-in/
+[14:39:56] [vendor] waiting for Turnstile token
+[14:39:59] [vendor] Turnstile OK
+[14:39:59] [vendor] clicking Login
+[14:39:59] [vendor] waiting for dashboard (navbar user menu)
+[14:40:00] [vendor] login OK: soor
+[14:40:00] [vendor] opening user dropdown
+[14:40:00] [vendor] clicking Change password link
+[14:40:01] [vendor] waiting for password form
+[14:40:01] [vendor] filling form
+[14:40:01] [vendor] clicking Change password button
+[14:40:02] [vendor] submit clicked via 'button[type="submit"]:has-text("Change password")'
+[14:40:06] [vendor] page confirms password change
+[14:40:06] [vendor] logging out of UNLOCK Tool
+[14:40:06] [vendor] dropdown clicked
+[14:40:08] [vendor] Log out clicked
+[14:40:08] [vendor] logout OK — login link present
+[14:40:08] [vendor-pass] [UNLOCK___TOOL__RENTDEMO] soor  ->  VENDOR password set to: FHGVE8MK
+[14:40:10] [admin-pass] [UNLOCK___TOOL__RENTDEMO] soor  ->  ADMIN code set to: 🆔 soor 🔑 FHGVE8MK
+[14:40:10] [ok] [UNLOCK___TOOL__RENTDEMO] soor rotated (mark_available=False)
+[14:40:12] [done] [UNLOCK___TOOL__RENTDEMO] rotated 1
+[14:40:12] [all done] total 1

@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --bg:#f6f7f9; --surface:#ffffff; --line:#e5e7eb; --line-soft:#f1f3f5;
@@ -24,17 +25,81 @@
     background:var(--bg); color:var(--fg); font-size:14px; line-height:1.5;
     -webkit-font-smoothing:antialiased;
   }
-  .app { display:grid; grid-template-columns:460px 1fr; gap:20px;
-         max-width:1560px; margin:0 auto; padding:24px; min-height:100vh; }
+
+  /* ============ Login overlay ============ */
+  #login-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+  }
+  #login-card {
+    width: 380px; max-width: 92vw;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 28px 24px;
+  }
+  #login-card .brand-mark {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: linear-gradient(135deg,#2563eb 0%,#1e40af 100%);
+    display:flex; align-items:center; justify-content:center;
+    color: white; font-weight: 700; font-size: 18px;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.25);
+    margin: 0 auto 14px;
+  }
+  #login-card h1 {
+    font-size: 18px; font-weight: 700; margin: 0 0 4px 0;
+    text-align: center; letter-spacing: -0.01em;
+  }
+  #login-card p.sub {
+    font-size: 13px; color: var(--muted); margin: 0 0 20px 0;
+    text-align: center;
+  }
+  #login-card input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--fg);
+    outline: none;
+    transition: all 0.15s ease;
+    background: #fafbfc;
+  }
+  #login-card input:focus {
+    border-color: var(--accent);
+    background: white;
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  #login-form { display:flex; flex-direction:column; gap: 12px; }
+  #login-error {
+    color: var(--err); font-size: 12.5px;
+    min-height: 16px; text-align: center;
+  }
+  #login-submit {
+    width: 100%; justify-content: center;
+    padding: 11px 14px; font-size: 14px;
+  }
+
+  /* ============ Main app ============ */
+  .app {
+    display:grid; grid-template-columns:460px 1fr; gap:20px;
+    max-width:1560px; margin:0 auto; padding:24px; min-height:100vh;
+  }
   @media (max-width:960px) { .app { grid-template-columns:1fr; } }
   .col-left, .col-right { display:flex; flex-direction:column; gap:16px; }
 
   .app-header { grid-column:1/-1; display:flex; align-items:center; justify-content:space-between; padding:0 4px 4px 4px; }
   .brand { display:flex; align-items:center; gap:12px; }
-  .brand-mark { width:36px; height:36px; border-radius:9px;
+  .brand-mark {
+    width:36px; height:36px; border-radius:9px;
     background:linear-gradient(135deg,#2563eb 0%,#1e40af 100%);
-    display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:16px;
-    box-shadow:0 2px 6px rgba(37,99,235,0.25); }
+    display:flex; align-items:center; justify-content:center;
+    color:white; font-weight:700; font-size:16px;
+    box-shadow:0 2px 6px rgba(37,99,235,0.25);
+  }
   .brand-text h1 { margin:0; font-size:16px; font-weight:700; letter-spacing:-0.01em; }
   .brand-text p  { margin:0; font-size:12.5px; color:var(--muted); }
 
@@ -180,7 +245,6 @@
   .log-line.muted { color:var(--muted); }
   .log-line.info { color:var(--fg-soft); }
 
-  /* highlight the two important lines */
   .log-line.vendor-pass {
     color:#0f766e;
     background:#f0fdfa;
@@ -212,7 +276,29 @@
 </head>
 <body>
 
-<div class="app">
+<!-- ============================================================ -->
+<!-- LOGIN OVERLAY                                                -->
+<!-- ============================================================ -->
+<div id="login-overlay">
+  <div id="login-card">
+    <div class="brand-mark">R</div>
+    <h1>Rotation Panel</h1>
+    <p class="sub">Sign in to continue</p>
+    <form id="login-form">
+      <input id="login-email"    type="email"    placeholder="Email"    required autocomplete="email">
+      <input id="login-password" type="password" placeholder="Password" required autocomplete="current-password">
+      <button type="submit" id="login-submit" class="btn btn-primary">
+        Sign in
+      </button>
+      <div id="login-error"></div>
+    </form>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MAIN APP                                                     -->
+<!-- ============================================================ -->
+<div class="app" id="main-app" style="display:none;">
 
   <header class="app-header">
     <div class="brand">
@@ -222,9 +308,13 @@
         <p>Automated FRP tool credential rotation</p>
       </div>
     </div>
-    <div id="status-pill" class="status-pill">
-      <span class="dot"></span>
-      <span id="status-text">Idle</span>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <span id="user-email" style="font-size:12.5px; color:#6b7280;"></span>
+      <button id="logout-btn" class="btn btn-secondary" style="padding:6px 10px; font-size:12px;">Log out</button>
+      <div id="status-pill" class="status-pill">
+        <span class="dot"></span>
+        <span id="status-text">Idle</span>
+      </div>
     </div>
   </header>
 
@@ -306,12 +396,136 @@
 </div>
 
 <script>
-/* Defaults per known inventory. */
+/* ============================================================
+   Auth — everything goes through the auth service on Render.
+   No Firebase config, no Firebase SDK, no firebase.* calls.
+   ============================================================ */
+const AUTH_BASE = "https://bot-sec-0xv1.onrender.com";
+
+let idToken      = null;
+let refreshToken = null;
+
+// Wrap fetch so every backend call carries the ID token automatically.
+const _originalFetch = window.fetch.bind(window);
+window.fetch = async (url, opts = {}) => {
+  opts.headers = opts.headers || {};
+  if (idToken) opts.headers["Authorization"] = `Bearer ${idToken}`;
+  return _originalFetch(url, opts);
+};
+
+function showLogin() {
+  document.getElementById("login-overlay").style.display = "flex";
+  document.getElementById("main-app").style.display = "none";
+}
+function showApp(user) {
+  document.getElementById("login-overlay").style.display = "none";
+  document.getElementById("main-app").style.display = "grid";
+  document.getElementById("user-email").textContent = user.email || "";
+}
+
+async function doLogin(email, password) {
+  const r = await _originalFetch(`${AUTH_BASE}/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password }),
+  });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.detail || "Login failed");
+
+  idToken      = j.idToken;
+  refreshToken = j.refreshToken;
+  sessionStorage.setItem("rt",  refreshToken);
+  sessionStorage.setItem("em",  j.user.email);
+
+  showApp(j.user);
+  fetchInventories();
+}
+
+async function doRefresh() {
+  const rt = refreshToken || sessionStorage.getItem("rt");
+  if (!rt) throw new Error("No refresh token");
+
+  const r = await _originalFetch(`${AUTH_BASE}/refresh`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ refresh_token: rt }),
+  });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.detail || "Refresh failed");
+
+  idToken      = j.idToken;
+  refreshToken = j.refreshToken;
+  sessionStorage.setItem("rt", refreshToken);
+  return j;
+}
+
+async function tryRestore() {
+  const rt = sessionStorage.getItem("rt");
+  const em = sessionStorage.getItem("em");
+  if (!rt) { showLogin(); return; }
+
+  try {
+    await doRefresh();
+    showApp({ email: em });
+    fetchInventories();
+  } catch (_) {
+    sessionStorage.clear();
+    idToken = refreshToken = null;
+    showLogin();
+  }
+}
+
+// Refresh ID token every 55 minutes.
+setInterval(async () => {
+  if (!sessionStorage.getItem("rt")) return;
+  try { await doRefresh(); } catch (_) {
+    // If refresh fails (e.g. suspended), drop back to login.
+    sessionStorage.clear();
+    idToken = refreshToken = null;
+    showLogin();
+  }
+}, 55 * 60 * 1000);
+
+/* ---------- Login form ---------- */
+document.getElementById("login-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = document.getElementById("login-email").value.trim();
+  const pw    = document.getElementById("login-password").value;
+  const errEl = document.getElementById("login-error");
+  const btn   = document.getElementById("login-submit");
+
+  errEl.textContent = "";
+  btn.disabled = true;
+  btn.textContent = "Signing in…";
+
+  try {
+    await doLogin(email, pw);
+  } catch (err) {
+    errEl.textContent = err.message || "Login failed";
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Sign in";
+  }
+});
+
+/* ---------- Logout ---------- */
+document.getElementById("logout-btn").addEventListener("click", () => {
+  sessionStorage.clear();
+  idToken = refreshToken = null;
+  showLogin();
+});
+
+
+/* ============================================================
+   Panel logic
+   ============================================================ */
 const KNOWN_DEFAULTS = {
   "Android Multi Tool[AMT]__RENT":     { hold_val: 2, hold_unit: "hr", limit: 0, mark_available: true, on: true  },
   "Android Multi Tool[AMT]__RENTDEMO": { hold_val: 2, hold_unit: "hr", limit: 0, mark_available: true, on: false },
   "Galaxy Multi Tool":                 { hold_val: 6, hold_unit: "hr", limit: 0, mark_available: true, on: true  },
   "Galaxy Multi ToolDEMO":             { hold_val: 6, hold_unit: "hr", limit: 0, mark_available: true, on: false },
+  "UNLOCK___TOOL__RENT":               { hold_val: 2, hold_unit: "hr", limit: 0, mark_available: true, on: true  },
+  "UNLOCK___TOOL__RENTDEMO":           { hold_val: 2, hold_unit: "hr", limit: 0, mark_available: true, on: false },
 };
 const DEFAULT_ROW = { hold_val: 2, hold_unit: "hr", limit: 0, mark_available: true, on: false };
 
@@ -430,25 +644,34 @@ function getTargets() {
     else                      hours = val;
     if (hours <= 0) return;
 
-    const target = {
+    out.push({
       name,
       hours,
       limit:          parseInt(document.getElementById(`lim-${i}`).value) || 0,
       mark_available: document.getElementById(`ma-${i}`).checked,
-    };
-    console.log("[getTargets]", name, "-> hours =", hours, "(raw:", val, unit + ")");
-    out.push(target);
+    });
   });
-  console.log("[getTargets] final payload:", JSON.stringify(out));
   return out;
 }
 
+/* ============================================================
+   Fetch inventory list
+   ============================================================ */
 async function fetchInventories() {
   fetchBtn.disabled = true;
   fetchStatus.className = "status";
   fetchStatus.textContent = "Fetching…";
   try {
     const r = await fetch("/inventories");
+    if (r.status === 403) {
+      fetchStatus.className = "status err";
+      fetchStatus.textContent = "Access suspended — contact the administrator";
+      // Force logout
+      sessionStorage.clear();
+      idToken = refreshToken = null;
+      showLogin();
+      return;
+    }
     const j = await r.json();
     if (j.ok) {
       renderInventories(j.inventories);
@@ -530,7 +753,9 @@ function setRunning(running) {
     statusText.textContent = "Idle";
   }
 }
+
 async function refreshStatus() {
+  if (!idToken) return;
   try {
     const r = await fetch("/status");
     const s = await r.json();
@@ -583,9 +808,9 @@ function connectStream() {
 }
 connectStream();
 setInterval(refreshStatus, 2000);
-refreshStatus();
 
-setTimeout(fetchInventories, 400);
+/* ---------- Kick off ---------- */
+tryRestore();
 </script>
 
 </body>
