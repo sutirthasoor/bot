@@ -157,63 +157,76 @@ class Rotator:
             out.append({"id": id_, "code": code, "sold_out_at": ts})
         return out
 
-    async def _write_new_code_in_admin(self, admin_page, code_id: str,
+    async def _write_new_code_in_admin(self, admin_page, inv_name: str, code_id: str,
                                        new_code: str, mark_available: bool):
         """
-        Robustly open the edit modal, fill in the new code, and submit.
-        Retries up to 3 times with a Sold Out tab refresh between attempts
-        in case the row was removed by an auto-refresh.
+        Refresh the admin panel page, navigate to Inventory, find the row, and update it.
         """
+        self.log(f"[admin] hard-refreshing panel to clear state before updating id={code_id}")
+        
+        # 1. Reload the page
+        await admin_page.reload(wait_until="domcontentloaded", timeout=30000)
+        
+        # 2. WAIT FOR SIDEBAR: This ensures the site's JS is fully loaded before we click
+        self.log("[admin] waiting for sidebar to render...")
+        await admin_page.wait_for_selector(".pc-sidebar", timeout=15000)
+        await asyncio.sleep(2) # Extra buffer for event listeners
+        
+        # 3. Navigate to Inventory by clicking the sidebar link directly
+        self.log("[state] navigating to Inventory page via sidebar")
+        await admin_page.click('.pc-link[data-dom="load-inventory"]')
+        
+        # 4. Wait for the inventory table to fully load
+        await admin_page.wait_for_selector("#inventory_table tbody tr", timeout=15000)
+        await asyncio.sleep(1.5) # Let DataTables finish rendering
+        
+        # 5. Open the specific inventory modal
+        await self._open_inventory(admin_page, inv_name)
+        
+        # 6. Go to Sold Out tab
+        await self._open_sold_out_tab(admin_page)
+        await asyncio.sleep(1)
+        
+        # 7. Find the row and click edit
         max_attempts = 3
         last_exc = None
 
         for attempt in range(1, max_attempts + 1):
             try:
-                # Force-close any lingering modal so the next one can open cleanly.
-                try:
-                    if await admin_page.locator("#viewCode.show").count():
-                        await admin_page.keyboard.press("Escape")
-                        await asyncio.sleep(0.5)
-                except Exception:
-                    pass
-
                 btn = admin_page.locator(
                     f'#soldOutCodeTable button#editCode[data-id="{code_id}"]'
                 )
                 if await btn.count() == 0:
-                    # Row might have disappeared due to an auto-refresh.
-                    # Re-open the Sold Out tab and look again.
-                    self.log(f"[admin-retry] row id={code_id} not found — refreshing Sold Out tab")
-                    await self._open_sold_out_tab(admin_page)
-                    btn = admin_page.locator(
-                        f'#soldOutCodeTable button#editCode[data-id="{code_id}"]'
-                    )
+                    self.log(f"[admin-retry] row id={code_id} not found — refreshing table")
+                    await asyncio.sleep(2)
                     if await btn.count() == 0:
-                        raise RuntimeError(f"row id={code_id} not present after refresh")
+                        raise RuntimeError(f"row id={code_id} not present in Sold Out tab")
 
                 await btn.scroll_into_view_if_needed()
                 await btn.click(timeout=5000)
 
-                # Wait up to 8s for the modal — retry if it doesn't appear.
+                # Wait for the modal to appear
                 await admin_page.wait_for_selector("#viewCode.show", timeout=8000)
+                await asyncio.sleep(1)
 
                 form = admin_page.locator("#viewCodeContent #updateCodeForm")
                 await form.locator('input[name="code"]').fill(new_code)
                 if mark_available:
                     await form.locator('select[name="markas"]').select_option("Available")
 
+                self.log(f"[admin] waiting 2s before clicking submit for id={code_id}")
+                await asyncio.sleep(2)
+
                 await form.locator('button[type="submit"]').click()
-                await admin_page.wait_for_selector(
-                    "#viewCode.show", state="detached", timeout=10000
-                )
+                await admin_page.wait_for_selector("#viewCode.show", state="detached", timeout=10000)
+                
+                self.log(f"[admin] Successfully updated id={code_id}")
                 return  # success
 
             except Exception as e:
                 last_exc = e
-                self.log(
-                    f"[admin-retry] id={code_id} attempt {attempt}/{max_attempts} failed: {e!r}"
-                )
-                await asyncio.sleep(1.5)
+                self.log(f"[admin-retry] id={code_id} attempt {attempt}/{max_attempts} failed: {e!r}")
+                await asyncio.sleep(2)
 
         raise RuntimeError(
             f"admin panel update failed after {max_attempts} attempts "
@@ -868,7 +881,7 @@ class Rotator:
 
         # ---- Admin panel update (with retry + loud sync-fail logging) ----
         try:
-            await self._write_new_code_in_admin(admin_page, row["id"], new_code, mark_available)
+            await self._write_new_code_in_admin(admin_page, inv, row["id"], new_code, mark_available)
         except Exception as e:
             self.log(f"[SYNC-FAIL] [{inv}] {user} — vendor password is {new_pw} "
                      f"but ADMIN panel was NOT updated")
