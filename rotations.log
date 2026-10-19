@@ -1054,3 +1054,77 @@
 [15:15:47] [inventory-list]   - TSM TOOL
 [15:15:47] [inventory-list]   - UAT PRO
 [15:15:47] [inventory-list]   - UNLOCK___TOOL__RENT
+[14:17:29] [inventory-list] found 9 inventories
+[14:17:29] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[14:17:29] [inventory-list]   - EFT-PRO
+[14:17:29] [inventory-list]   - EME TOOL RENT
+[14:17:29] [inventory-list]   - Galaxy Multi Tool
+[14:17:29] [inventory-list]   - REALME OTP
+[14:17:29] [inventory-list]   - SINGMA KEY___30MNT
+[14:17:29] [inventory-list]   - TSM TOOL
+[14:17:29] [inventory-list]   - UAT PRO
+[14:17:29] [inventory-list]   - UNLOCK___TOOL__RENT
+[14:19:42] [DIAG] admin tab url = https://pinfrp.com/admin
+[14:19:43] [plan] 1 inventory/inventories to process
+[14:19:43] opening 'Android Multi Tool[AMT]__RENT'
+[14:19:44] opening 'Android Multi Tool[AMT]__RENT'
+[14:19:46] [scan] [Android Multi Tool[AMT]__RENT] 20 sold-out row(s) (limit=1, mark_available=True)
+[14:19:46] [wait] [Android Multi Tool[AMT]__RENT] pin6frp@gmail.com — sold 0:07:46.162868 ago
+[14:19:47] [wait] [Android Multi Tool[AMT]__RENT] pin13frp@gmail.com — sold 0:07:47.674237 ago
+[14:19:49] [wait] [Android Multi Tool[AMT]__RENT] txtv444@gmail.com — sold 0:11:49.181842 ago
+[14:19:50] [wait] [Android Multi Tool[AMT]__RENT] anayalimma@gmail.com — sold 0:13:50.686257 ago
+[14:19:52] [wait] [Android Multi Tool[AMT]__RENT] pin15frp@gmail.com — sold 0:26:52.195099 ago
+[14:19:53] [wait] [Android Multi Tool[AMT]__RENT] teamvieweremail09@gmail.com — sold 0:28:53.707761 ago
+[14:19:55] [wait] [Android Multi Tool[AMT]__RENT] borneo6665@gmail.com — sold 0:28:55.222188 ago
+[14:19:56] [wait] [Android Multi Tool[AMT]__RENT] pin3frp@gmail.com — sold 0:36:56.734162 ago
+[14:19:58] [wait] [Android Multi Tool[AMT]__RENT] pin12frp@gmail.com — sold 0:36:58.243098 ago
+[14:19:59] [wait] [Android Multi Tool[AMT]__RENT] unlocktool0133333@gmail.com — sold 0:41:59.748468 ago
+[14:20:01] [wait] [Android Multi Tool[AMT]__RENT] pin8frp@gmail.com — sold 0:54:01.263282 ago
+[14:20:02] [wait] [Android Multi Tool[AMT]__RENT] pin1frp@gmail.com — sold 0:57:02.780217 ago
+[14:20:04] [wait] [Android Multi Tool[AMT]__RENT] pin9frp@gmail.com — sold 1:22:04.285253 ago
+[14:20:05] [wait] [Android Multi Tool[AMT]__RENT] drive0011drive@gmail.com — sold 1:29:05.796155 ago
+[14:20:07] [wait] [Android Multi Tool[AMT]__RENT] pinfrp0011@gmail.com — sold 1:31:07.309754 ago
+[14:20:08] [wait] [Android Multi Tool[AMT]__RENT] pin16frp@gmail.com — sold 1:38:08.818020 ago
+[14:20:10] [wait] [Android Multi Tool[AMT]__RENT] pin7frp@gmail.com — sold 1:40:10.328410 ago
+[14:20:11] [wait] [Android Multi Tool[AMT]__RENT] gsmclasssupport@gmail.com — sold 1:41:11.840201 ago
+[14:20:13] [wait] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com — sold 1:59:13.350338 ago
+[14:20:14] [rotating] [Android Multi Tool[AMT]__RENT] pin5frp@gmail.com  old password = DAEG8GMD  ->  new password = WZNGY49D  (age=2:01:14.853343)
+[14:20:14] [DIAG] vendor login dispatch: kind='amt'
+[14:20:14] [vendor] goto https://androidmultitool.com/controller/login
+[14:20:19] [vendor] Turnstile OK
+[14:20:40] [vendor-fail] [Android Multi Tool[AMT]__RENT] pin5frp@gmail.com: TimeoutError('Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator("a[href=\'https://androidmultitool.com/controller/account/\']") to be visible\n')
+[14:20:42] [done] [Android Multi Tool[AMT]__RENT] rotated 0
+[14:20:42] [all done] total 0
+[14:33:04] [DIAG] admin tab url = https://pinfrp.com/admin
+[14:33:04] [plan] 1 inventory/inventories to process
+[14:33:04] opening 'Android Multi Tool[AMT]__RENT'
+[14:33:05] opening 'Android Multi Tool[AMT]__RENT'
+[14:33:07] [scan] [Android Multi Tool[AMT]__RENT] 21 sold-out row(s) (limit=1, mark_available=False)
+[14:33:07] [wait] [Android Multi Tool[AMT]__RENT] tctctc12312333@gmail.com — sold 0:01:07.112268 ago
+[14:33:08] [wait] [Android Multi Tool[AMT]__RENT] pin14frp@gmail.com — sold 0:06:08.617270 ago
+[14:33:10] [wait] [Android Multi Tool[AMT]__RENT] pin10frp@gmail.com — sold 0:12:10.127191 ago
+[14:33:11] [wait] [Android Multi Tool[AMT]__RENT] pin6frp@gmail.com — sold 0:21:11.642330 ago
+[14:33:13] [wait] [Android Multi Tool[AMT]__RENT] pin13frp@gmail.com — sold 0:21:13.151593 ago
+[14:33:14] [wait] [Android Multi Tool[AMT]__RENT] txtv444@gmail.com — sold 0:25:14.658721 ago
+[14:33:16] [wait] [Android Multi Tool[AMT]__RENT] anayalimma@gmail.com — sold 0:27:16.163341 ago
+[14:33:17] [wait] [Android Multi Tool[AMT]__RENT] pin15frp@gmail.com — sold 0:40:17.682120 ago
+[14:33:19] [wait] [Android Multi Tool[AMT]__RENT] teamvieweremail09@gmail.com — sold 0:42:19.195141 ago
+[14:33:20] [wait] [Android Multi Tool[AMT]__RENT] borneo6665@gmail.com — sold 0:42:20.710993 ago
+[14:33:22] [wait] [Android Multi Tool[AMT]__RENT] pin3frp@gmail.com — sold 0:50:22.216412 ago
+[14:33:23] [wait] [Android Multi Tool[AMT]__RENT] pin12frp@gmail.com — sold 0:50:23.719594 ago
+[14:33:25] [wait] [Android Multi Tool[AMT]__RENT] unlocktool0133333@gmail.com — sold 0:55:25.236079 ago
+[14:33:26] [rotating] [Android Multi Tool[AMT]__RENT] pin8frp@gmail.com  old password = PDJTPR4G  ->  new password = P5Q54HR3  (age=1:07:26.747489)
+[14:33:26] [DIAG] vendor login dispatch: kind='amt'
+[14:33:26] [vendor] goto https://androidmultitool.com/controller/login
+[14:33:29] [vendor] Turnstile OK
+[14:33:31] [vendor] login OK: pin8frp@gmail.com
+[14:33:31] [vendor] waiting for account-page Turnstile token
+[14:33:34] [vendor] account-page Turnstile OK
+[14:33:34] [vendor] clicking Save Changes button
+[14:33:34] [vendor] Save clicked via 'button.btn.btn-icon.btn-success:has-text("Save Changes")'
+[14:33:40] [vendor-pass] [Android Multi Tool[AMT]__RENT] pin8frp@gmail.com  ->  VENDOR password set to: P5Q54HR3
+[14:33:42] [admin-pass] [Android Multi Tool[AMT]__RENT] pin8frp@gmail.com  ->  ADMIN code set to: 🆔 pin8frp@gmail.com 🔑 P5Q54HR3
+[14:33:42] [ok] [Android Multi Tool[AMT]__RENT] pin8frp@gmail.com rotated (mark_available=False)
+[14:33:44] [limit] [Android Multi Tool[AMT]__RENT] reached 1 rotation(s)
+[14:33:44] [done] [Android Multi Tool[AMT]__RENT] rotated 1
+[14:33:44] [all done] total 1

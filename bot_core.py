@@ -159,30 +159,85 @@ class Rotator:
 
     async def _write_new_code_in_admin(self, admin_page, code_id: str,
                                        new_code: str, mark_available: bool):
-        btn = admin_page.locator(f'#soldOutCodeTable button#editCode[data-id="{code_id}"]')
-        await btn.scroll_into_view_if_needed()
-        await btn.click()
-        await admin_page.wait_for_selector("#viewCode.show", timeout=10000)
+        """
+        Robustly open the edit modal, fill in the new code, and submit.
+        Retries up to 3 times with a Sold Out tab refresh between attempts
+        in case the row was removed by an auto-refresh.
+        """
+        max_attempts = 3
+        last_exc = None
 
-        form = admin_page.locator("#viewCodeContent #updateCodeForm")
-        await form.locator('input[name="code"]').fill(new_code)
-        if mark_available:
-            await form.locator('select[name="markas"]').select_option("Available")
+        for attempt in range(1, max_attempts + 1):
+            try:
+                # Force-close any lingering modal so the next one can open cleanly.
+                try:
+                    if await admin_page.locator("#viewCode.show").count():
+                        await admin_page.keyboard.press("Escape")
+                        await asyncio.sleep(0.5)
+                except Exception:
+                    pass
 
-        await form.locator('button[type="submit"]').click()
-        await admin_page.wait_for_selector("#viewCode.show", state="detached", timeout=10000)
+                btn = admin_page.locator(
+                    f'#soldOutCodeTable button#editCode[data-id="{code_id}"]'
+                )
+                if await btn.count() == 0:
+                    # Row might have disappeared due to an auto-refresh.
+                    # Re-open the Sold Out tab and look again.
+                    self.log(f"[admin-retry] row id={code_id} not found — refreshing Sold Out tab")
+                    await self._open_sold_out_tab(admin_page)
+                    btn = admin_page.locator(
+                        f'#soldOutCodeTable button#editCode[data-id="{code_id}"]'
+                    )
+                    if await btn.count() == 0:
+                        raise RuntimeError(f"row id={code_id} not present after refresh")
+
+                await btn.scroll_into_view_if_needed()
+                await btn.click(timeout=5000)
+
+                # Wait up to 8s for the modal — retry if it doesn't appear.
+                await admin_page.wait_for_selector("#viewCode.show", timeout=8000)
+
+                form = admin_page.locator("#viewCodeContent #updateCodeForm")
+                await form.locator('input[name="code"]').fill(new_code)
+                if mark_available:
+                    await form.locator('select[name="markas"]').select_option("Available")
+
+                await form.locator('button[type="submit"]').click()
+                await admin_page.wait_for_selector(
+                    "#viewCode.show", state="detached", timeout=10000
+                )
+                return  # success
+
+            except Exception as e:
+                last_exc = e
+                self.log(
+                    f"[admin-retry] id={code_id} attempt {attempt}/{max_attempts} failed: {e!r}"
+                )
+                await asyncio.sleep(1.5)
+
+        raise RuntimeError(
+            f"admin panel update failed after {max_attempts} attempts "
+            f"for id={code_id}: {last_exc!r}"
+        )
 
     # ============================================================
-    # Remote service re-connect (when an inventory runs out of codes)
+    # Remote service re-connect (runs AFTER rotation)
     # ============================================================
 
     async def _ensure_remote_connected(self, admin_page, inv: str,
-                                       hold: dt.timedelta) -> bool:
-        """If `inv` has 0 available codes but has expired sold-out rows, reconnect."""
+                                       rotated_this_run: int) -> bool:
+        """
+        Re-connect the remote service to this inventory IF:
+          - we just rotated at least one row this run (evidence of demand), AND
+          - the inventory still has 0 available codes.
+        """
         if self.stop_flag:
             return False
 
-        # ---- 1. Check available count ----
+        if rotated_this_run == 0:
+            return False
+
+        # ---- Check available count ----
         await self._open_inventory(admin_page, inv)
         if self.stop_flag:
             await self._close_modal(admin_page)
@@ -193,47 +248,19 @@ class Rotator:
             ).inner_text(timeout=5000)
         except Exception:
             avail_txt = ""
+        await self._close_modal(admin_page)
+
         m = re.search(r"(\d+)", avail_txt or "")
         avail_num = int(m.group(1)) if m else -1
 
         if avail_num != 0:
-            await self._close_modal(admin_page)
             if avail_num < 0:
                 self.log(f"[connect] [{inv}] could not read available count — skipping")
+            else:
+                self.log(f"[connect] [{inv}] available={avail_num} after rotation — no need to reconnect")
             return False
 
-        # ---- 2. Look for expired sold-out rows ----
-        try:
-            await self._open_sold_out_tab(admin_page)
-            rows = await self._read_rows(admin_page, inv)
-        except Exception:
-            rows = []
-        finally:
-            await self._close_modal(admin_page)
-
-        if self.stop_flag:
-            return False
-
-        if not rows:
-            self.log(f"[connect] [{inv}] available=0 but no sold-out rows — nothing to do")
-            return False
-
-        now = dt.datetime.now(TZ)
-        expired = 0
-        for r in rows:
-            try:
-                age = now - parse_ts(r["sold_out_at"])
-            except Exception:
-                continue
-            if age >= hold:
-                expired += 1
-
-        if expired == 0:
-            self.log(f"[connect] [{inv}] available=0 but no expired sold-out rows — nothing to do")
-            return False
-
-        # ---- 3. Trigger the Remote Services re-connect ----
-        self.log(f"[connect] [{inv}] available=0 + {expired} expired row(s) — "
+        self.log(f"[connect] [{inv}] available=0 and rotated {rotated_this_run} row(s) — "
                  f"triggering remote service re-connect")
 
         remote_title = REMOTE_SERVICE_MAP.get(inv)
@@ -607,12 +634,6 @@ class Rotator:
     # ---------------- UNLOCK Tool ----------------
 
     async def _vendor_login_unlocktool(self, ctx, cfg, email, password):
-        """
-        Two-phase login with manual Cloudflare handling.
-        Phase 1: open login page, wait INDEFINITELY for Turnstile to pass
-                 (user must click the checkbox if it doesn't auto-solve).
-        Phase 2: fill credentials, submit, wait for dashboard.
-        """
         page = await ctx.new_page()
         page.set_default_timeout(30000)
         try:
@@ -629,8 +650,6 @@ class Rotator:
             self.log("[vendor] The bot is waiting — no time limit.")
             self.log("=" * 60)
 
-            # Wait indefinitely for the Turnstile token.
-            # We check every 2 seconds forever until it appears.
             waited = 0
             token_present = False
             while not self.stop_flag:
@@ -642,7 +661,6 @@ class Rotator:
                         }"""
                     )
                 except Exception:
-                    # Page might have navigated or closed — retry
                     token_present = False
 
                 if token_present:
@@ -659,7 +677,6 @@ class Rotator:
                 self.log("[vendor] stop requested during Cloudflare wait — aborting")
                 raise RuntimeError("Stopped during Cloudflare wait")
 
-            # Fill credentials and submit
             await page.fill('input[name="username"]', email)
             await page.fill('input[name="password"]', password)
 
@@ -849,7 +866,18 @@ class Rotator:
             self.current_user = None
             return False
 
-        await self._write_new_code_in_admin(admin_page, row["id"], new_code, mark_available)
+        # ---- Admin panel update (with retry + loud sync-fail logging) ----
+        try:
+            await self._write_new_code_in_admin(admin_page, row["id"], new_code, mark_available)
+        except Exception as e:
+            self.log(f"[SYNC-FAIL] [{inv}] {user} — vendor password is {new_pw} "
+                     f"but ADMIN panel was NOT updated")
+            self.log(f"[SYNC-FAIL] [{inv}] {user} — reason: {e!r}")
+            self.log(f"[SYNC-FAIL] [{inv}] {user} — MANUAL FIX REQUIRED: update admin "
+                     f"code to 🆔 {user} 🔑 {new_pw}")
+            self.current_user = None
+            return False
+
         self.log(f"[admin-pass] [{inv}] {user}  ->  "
                  f"ADMIN code set to: {new_code}")
         self.log(f"[ok] [{inv}] {user} rotated (mark_available={mark_available})")
@@ -861,14 +889,7 @@ class Rotator:
                                  mark_available: bool) -> int:
         rotated = 0
 
-        try:
-            reconnected = await self._ensure_remote_connected(admin_page, inv, hold)
-            if reconnected:
-                self.log(f"[connect] [{inv}] re-connected — waiting 10s for codes to refresh")
-                await asyncio.sleep(10)
-        except Exception as e:
-            self.log(f"[connect-fail] [{inv}] {e!r}")
-
+        # ---- 1. ROTATE FIRST ----
         await self._open_inventory(admin_page, inv)
         try:
             await self._open_sold_out_tab(admin_page)
@@ -892,6 +913,16 @@ class Rotator:
                 await asyncio.sleep(1.5)
         finally:
             await self._close_modal(admin_page)
+
+        # ---- 2. THEN check if a remote re-connect is needed ----
+        try:
+            reconnected = await self._ensure_remote_connected(admin_page, inv, rotated)
+            if reconnected:
+                self.log(f"[connect] [{inv}] re-connected — waiting 10s for codes to refresh")
+                await asyncio.sleep(10)
+        except Exception as e:
+            self.log(f"[connect-fail] [{inv}] {e!r}")
+
         return rotated
 
     async def run_once(self, targets: Iterable) -> int:
