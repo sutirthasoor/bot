@@ -913,3 +913,144 @@
 [15:30:23] [ok] [UNLOCK___TOOL__RENTDEMO] soor rotated (mark_available=False)
 [15:30:24] [done] [UNLOCK___TOOL__RENTDEMO] rotated 1
 [15:30:24] [all done] total 1
+[15:00:27] [inventory-list] found 9 inventories
+[15:00:27] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[15:00:27] [inventory-list]   - EFT-PRO
+[15:00:27] [inventory-list]   - EME TOOL RENT
+[15:00:27] [inventory-list]   - Galaxy Multi Tool
+[15:00:27] [inventory-list]   - REALME OTP
+[15:00:27] [inventory-list]   - SINGMA KEY___30MNT
+[15:00:27] [inventory-list]   - TSM TOOL
+[15:00:27] [inventory-list]   - UAT PRO
+[15:00:27] [inventory-list]   - UNLOCK___TOOL__RENT
+[15:09:58] [inventory-list] found 9 inventories
+[15:09:58] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[15:09:58] [inventory-list]   - EFT-PRO
+[15:09:58] [inventory-list]   - EME TOOL RENT
+[15:09:58] [inventory-list]   - Galaxy Multi Tool
+[15:09:58] [inventory-list]   - REALME OTP
+[15:09:58] [inventory-list]   - SINGMA KEY___30MNT
+[15:09:58] [inventory-list]   - TSM TOOL
+[15:09:58] [inventory-list]   - UAT PRO
+[15:09:58] [inventory-list]   - UNLOCK___TOOL__RENT
+[15:10:11] [DIAG] admin tab url = https://pinfrp.com/admin
+[15:10:11] [plan] 1 inventory/inventories to process
+[15:10:11] opening 'UNLOCK___TOOL__RENT'
+[15:10:13] [connect] [UNLOCK___TOOL__RENT] available=0 + 49 expired row(s) — triggering remote service re-connect
+[15:10:13] [connect] navigating to Services List -> Remote
+[15:10:14] [connect] clicking remote service name cell: 'UNLOCKTOOL LOGIN - 6hrs'
+[15:10:15] [connect] offcanvas opened
+[15:10:15] [connect] clicking Connect section button
+[15:10:15] [connect] opening Connect Inventory tab
+[15:10:15] [connect] choosing inventory in dropdown: UNLOCK___TOOL__RENT
+[15:10:16] [connect] inventory 'UNLOCK___TOOL__RENT' chosen
+[15:10:16] [connect] clicking final Connect button
+[15:10:16] [connect] remote service re-connected for [UNLOCK___TOOL__RENT]
+[15:10:16] [connect] closing offcanvas
+[15:10:17] [connect] offcanvas closed
+[15:10:17] [connect] navigating back to Inventory
+[15:10:18] [connect] [UNLOCK___TOOL__RENT] re-connected — waiting 10s for codes to refresh
+[15:10:28] opening 'UNLOCK___TOOL__RENT'
+[15:10:30] [scan] [UNLOCK___TOOL__RENT] 56 sold-out row(s) (limit=1, mark_available=False)
+[15:10:30] [wait] [UNLOCK___TOOL__RENT] ANAYA@7 — sold 1:21:30.031858 ago
+[15:10:31] [wait] [UNLOCK___TOOL__RENT] JUNU@8 — sold 1:24:31.533045 ago
+[15:10:33] [wait] [UNLOCK___TOOL__RENT] PINFRP04 — sold 1:31:33.037555 ago
+[15:10:34] [wait] [UNLOCK___TOOL__RENT] LIMMA@7 — sold 1:39:34.539740 ago
+[15:10:36] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL1 — sold 1:44:36.052261 ago
+[15:10:37] [wait] [UNLOCK___TOOL__RENT] ANAYA@3 — sold 1:53:37.567026 ago
+[15:10:39] [wait] [UNLOCK___TOOL__RENT] PINFRP05 — sold 1:56:39.073266 ago
+[15:10:40] [rotating] [UNLOCK___TOOL__RENT] PINFRP08  old password = JUNXCRETRYYY  ->  new password = QPERX7V8  (age=2:02:40.581310)
+[15:10:40] [DIAG] vendor login dispatch: kind='unlocktool'
+[15:10:40] [vendor] warm-up: opening login page to satisfy Cloudflare
+[15:10:40] [vendor] warm-up: waiting for Turnstile token (up to 60s)
+[15:11:40] [vendor] warm-up: Turnstile never passed in 60s — proceeding anyway
+[15:11:43] [vendor] opening fresh tab for actual login
+[15:11:43] [vendor] goto https://unlocktool.net/post-in/
+[15:11:43] [vendor] waiting for Turnstile token (post-warmup)
+[15:11:58] [vendor] Turnstile still pending — continuing anyway
+[15:12:20] [vendor-fail] [UNLOCK___TOOL__RENT] PINFRP08: TimeoutError('Page.fill: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator("input[name=\\"username\\"]")\n')
+[15:12:22] [rotating] [UNLOCK___TOOL__RENT] JUNU@7  old password = JUNXCRETRYYY  ->  new password = 6UG3MGBA  (age=2:05:22.015337)
+[15:12:22] [DIAG] vendor login dispatch: kind='unlocktool'
+[15:12:22] [vendor] warm-up: opening login page to satisfy Cloudflare
+[15:12:22] [vendor] warm-up: waiting for Turnstile token (up to 60s)
+[15:12:34] [vendor] warm-up encountered an error (non-fatal): Exception('Page.wait_for_function: Connection closed while reading from the driver')
+[15:12:34] [vendor] opening fresh tab for actual login
+[15:12:34] [vendor-fail] [UNLOCK___TOOL__RENT] JUNU@7: Exception('BrowserContext.new_page: Connection closed while reading from the driver')
+[15:13:16] [inventory-list] found 9 inventories
+[15:13:16] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[15:13:16] [inventory-list]   - EFT-PRO
+[15:13:16] [inventory-list]   - EME TOOL RENT
+[15:13:16] [inventory-list]   - Galaxy Multi Tool
+[15:13:16] [inventory-list]   - REALME OTP
+[15:13:16] [inventory-list]   - SINGMA KEY___30MNT
+[15:13:16] [inventory-list]   - TSM TOOL
+[15:13:16] [inventory-list]   - UAT PRO
+[15:13:16] [inventory-list]   - UNLOCK___TOOL__RENT
+[15:13:23] [DIAG] admin tab url = https://pinfrp.com/admin
+[15:13:23] [plan] 1 inventory/inventories to process
+[15:13:23] opening 'UNLOCK___TOOL__RENT'
+[15:13:24] opening 'UNLOCK___TOOL__RENT'
+[15:13:26] [scan] [UNLOCK___TOOL__RENT] 55 sold-out row(s) (limit=unlimited, mark_available=False)
+[15:13:26] [wait] [UNLOCK___TOOL__RENT] ANAYA@7 — sold 1:24:26.399813 ago
+[15:13:27] [wait] [UNLOCK___TOOL__RENT] JUNU@8 — sold 1:27:27.912285 ago
+[15:13:29] [wait] [UNLOCK___TOOL__RENT] PINFRP04 — sold 1:34:29.423475 ago
+[15:13:30] [wait] [UNLOCK___TOOL__RENT] LIMMA@7 — sold 1:42:30.938979 ago
+[15:13:32] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL1 — sold 1:47:32.447061 ago
+[15:13:33] [wait] [UNLOCK___TOOL__RENT] ANAYA@3 — sold 1:56:33.957062 ago
+[15:13:35] [wait] [UNLOCK___TOOL__RENT] PINFRP05 — sold 1:59:35.469898 ago
+[15:13:36] [rotating] [UNLOCK___TOOL__RENT] PINFRP08  old password = JUNXCRETRYYY  ->  new password = QZ4QULRP  (age=2:05:36.978944)
+[15:13:36] [DIAG] vendor login dispatch: kind='unlocktool'
+[15:13:37] [vendor] goto https://unlocktool.net/post-in/
+[15:13:37] ============================================================
+[15:13:37] [vendor] ⚠️  ACTION REQUIRED
+[15:13:37] [vendor] Cloudflare is showing a verification challenge.
+[15:13:37] [vendor] Please switch to the Chrome Bot window and:
+[15:13:37] [vendor]   1. Wait for the 'Verify you are human' checkbox
+[15:13:37] [vendor]   2. Click it if it doesn't auto-solve
+[15:13:37] [vendor]   3. Wait for it to pass (green checkmark)
+[15:13:37] [vendor] The bot is waiting — no time limit.
+[15:13:37] ============================================================
+[15:14:07] [vendor] still waiting for Turnstile... (30s)
+[15:14:47] [inventory-list] found 9 inventories
+[15:14:47] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[15:14:47] [inventory-list]   - EFT-PRO
+[15:14:47] [inventory-list]   - EME TOOL RENT
+[15:14:47] [inventory-list]   - Galaxy Multi Tool
+[15:14:47] [inventory-list]   - REALME OTP
+[15:14:47] [inventory-list]   - SINGMA KEY___30MNT
+[15:14:47] [inventory-list]   - TSM TOOL
+[15:14:47] [inventory-list]   - UAT PRO
+[15:14:47] [inventory-list]   - UNLOCK___TOOL__RENT
+[15:14:53] [DIAG] admin tab url = https://pinfrp.com/admin
+[15:14:53] [plan] 1 inventory/inventories to process
+[15:14:53] opening 'UNLOCK___TOOL__RENT'
+[15:14:54] opening 'UNLOCK___TOOL__RENT'
+[15:14:56] [scan] [UNLOCK___TOOL__RENT] 55 sold-out row(s) (limit=unlimited, mark_available=False)
+[15:14:56] [wait] [UNLOCK___TOOL__RENT] ANAYA@7 — sold 1:25:56.617917 ago
+[15:14:58] [wait] [UNLOCK___TOOL__RENT] JUNU@8 — sold 1:28:58.132089 ago
+[15:14:59] [wait] [UNLOCK___TOOL__RENT] PINFRP04 — sold 1:35:59.648416 ago
+[15:15:01] [wait] [UNLOCK___TOOL__RENT] LIMMA@7 — sold 1:44:01.156502 ago
+[15:15:02] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL1 — sold 1:49:02.668181 ago
+[15:15:04] [wait] [UNLOCK___TOOL__RENT] ANAYA@3 — sold 1:58:04.182321 ago
+[15:15:05] [rotating] [UNLOCK___TOOL__RENT] PINFRP05  old password = JUNXCRETRYYY  ->  new password = 2P7UNJYD  (age=2:01:05.685643)
+[15:15:05] [DIAG] vendor login dispatch: kind='unlocktool'
+[15:15:05] [vendor] goto https://unlocktool.net/post-in/
+[15:15:06] ============================================================
+[15:15:06] [vendor] ⚠️  ACTION REQUIRED
+[15:15:06] [vendor] Cloudflare is showing a verification challenge.
+[15:15:06] [vendor] Please switch to the Chrome Bot window and:
+[15:15:06] [vendor]   1. Wait for the 'Verify you are human' checkbox
+[15:15:06] [vendor]   2. Click it if it doesn't auto-solve
+[15:15:06] [vendor]   3. Wait for it to pass (green checkmark)
+[15:15:06] [vendor] The bot is waiting — no time limit.
+[15:15:06] ============================================================
+[15:15:47] [inventory-list] found 9 inventories
+[15:15:47] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[15:15:47] [inventory-list]   - EFT-PRO
+[15:15:47] [inventory-list]   - EME TOOL RENT
+[15:15:47] [inventory-list]   - Galaxy Multi Tool
+[15:15:47] [inventory-list]   - REALME OTP
+[15:15:47] [inventory-list]   - SINGMA KEY___30MNT
+[15:15:47] [inventory-list]   - TSM TOOL
+[15:15:47] [inventory-list]   - UAT PRO
+[15:15:47] [inventory-list]   - UNLOCK___TOOL__RENT

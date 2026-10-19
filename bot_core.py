@@ -54,9 +54,6 @@ VENDOR_CONFIGS = {
 
 # ============================================================
 # REMOTE SERVICE MAPPING
-# Maps each inventory name → the exact remote service title
-# (from the table cell text) that must be connected when the
-# inventory runs out of available codes.
 # ============================================================
 REMOTE_SERVICE_MAP = {
     "Android Multi Tool[AMT]__RENT":     "AMT ( Android Multi Tool ) 2 Hours ❇️ Fast (24x7)",
@@ -181,12 +178,15 @@ class Rotator:
 
     async def _ensure_remote_connected(self, admin_page, inv: str,
                                        hold: dt.timedelta) -> bool:
-        """
-        If `inv` has 0 available codes but has at least one sold-out row
-        whose age >= hold, trigger the Remote Services re-connect flow.
-        """
+        """If `inv` has 0 available codes but has expired sold-out rows, reconnect."""
+        if self.stop_flag:
+            return False
+
         # ---- 1. Check available count ----
         await self._open_inventory(admin_page, inv)
+        if self.stop_flag:
+            await self._close_modal(admin_page)
+            return False
         try:
             avail_txt = await admin_page.locator(
                 "#viewInventoryContent #availableCount"
@@ -210,6 +210,9 @@ class Rotator:
             rows = []
         finally:
             await self._close_modal(admin_page)
+
+        if self.stop_flag:
+            return False
 
         if not rows:
             self.log(f"[connect] [{inv}] available=0 but no sold-out rows — nothing to do")
@@ -247,8 +250,7 @@ class Rotator:
         await admin_page.click('.pc-link[data-dom="load-remote-service"]')
         await admin_page.wait_for_selector("#service_list_table tbody tr", timeout=15000)
 
-        # 3b. Click the <td> that contains the remote service NAME.
-        #     This opens the offcanvas panel on the right.
+        # 3b. Click the <td> containing the remote service name
         self.log(f"[connect] clicking remote service name cell: {remote_title!r}")
         td = admin_page.locator(
             f'#service_list_table tbody td.text-left:text-is("{remote_title}")'
@@ -265,11 +267,10 @@ class Rotator:
         await td.scroll_into_view_if_needed()
         await td.click()
 
-        # Wait for the offcanvas detail panel to appear
         await admin_page.wait_for_selector('button[data-section="connect"]', timeout=15000)
         self.log("[connect] offcanvas opened")
 
-        # 3c. Click the "Connect" section button
+        # 3c. Click "Connect" section button
         self.log("[connect] clicking Connect section button")
         await admin_page.click('button[data-section="connect"]', timeout=10000)
 
@@ -278,9 +279,9 @@ class Rotator:
         try:
             await admin_page.click('button#inventory-tab', timeout=5000)
         except Exception:
-            pass  # already active
+            pass
 
-        # 3e. Open the Choose Inventory dropdown and pick the matching inventory
+        # 3e. Choose inventory in dropdown
         self.log(f"[connect] choosing inventory in dropdown: {inv}")
         try:
             await admin_page.click('#select2-inventory-id-container', timeout=8000)
@@ -295,24 +296,22 @@ class Rotator:
         await admin_page.press('input.select2-search__field', 'Enter')
         self.log(f"[connect] inventory '{inv}' chosen")
 
-        # 3f. Click the final "Connect" button
+        # 3f. Click final Connect button
         self.log("[connect] clicking final Connect button")
         await admin_page.click('button#add-custom-price-button', timeout=10000)
         self.log(f"[connect] remote service re-connected for [{inv}]")
 
-        # 3g. Close the offcanvas — click the X close button
+        # 3g. Close the offcanvas
         self.log("[connect] closing offcanvas")
         try:
             await admin_page.click(
                 'button.btn-close[data-bs-dismiss="offcanvas"]',
                 timeout=8000,
             )
-            # wait for the offcanvas to animate out
             await asyncio.sleep(0.5)
             self.log("[connect] offcanvas closed")
         except Exception as e:
             self.log(f"[connect] close button click failed (non-fatal): {e!r}")
-            # try pressing Escape as a fallback
             try:
                 await admin_page.keyboard.press("Escape")
             except Exception:
@@ -608,25 +607,59 @@ class Rotator:
     # ---------------- UNLOCK Tool ----------------
 
     async def _vendor_login_unlocktool(self, ctx, cfg, email, password):
+        """
+        Two-phase login with manual Cloudflare handling.
+        Phase 1: open login page, wait INDEFINITELY for Turnstile to pass
+                 (user must click the checkbox if it doesn't auto-solve).
+        Phase 2: fill credentials, submit, wait for dashboard.
+        """
         page = await ctx.new_page()
-        page.set_default_timeout(20000)
+        page.set_default_timeout(30000)
         try:
             self.log(f"[vendor] goto {cfg['login_url']}")
             await page.goto(cfg["login_url"], wait_until="domcontentloaded", timeout=30000)
 
-            self.log("[vendor] waiting for Turnstile token")
-            try:
-                await page.wait_for_function(
-                    """() => {
-                        const el = document.querySelector('input[name="cf-turnstile-response"]');
-                        return el && el.value && el.value.length > 20;
-                    }""",
-                    timeout=20000,
-                )
-                self.log("[vendor] Turnstile OK")
-            except PWTimeout:
-                self.log("[vendor] Turnstile not detected — continuing")
+            self.log("=" * 60)
+            self.log("[vendor] ⚠️  ACTION REQUIRED")
+            self.log("[vendor] Cloudflare is showing a verification challenge.")
+            self.log("[vendor] Please switch to the Chrome Bot window and:")
+            self.log("[vendor]   1. Wait for the 'Verify you are human' checkbox")
+            self.log("[vendor]   2. Click it if it doesn't auto-solve")
+            self.log("[vendor]   3. Wait for it to pass (green checkmark)")
+            self.log("[vendor] The bot is waiting — no time limit.")
+            self.log("=" * 60)
 
+            # Wait indefinitely for the Turnstile token.
+            # We check every 2 seconds forever until it appears.
+            waited = 0
+            token_present = False
+            while not self.stop_flag:
+                try:
+                    token_present = await page.evaluate(
+                        """() => {
+                            const el = document.querySelector('input[name="cf-turnstile-response"]');
+                            return el && el.value && el.value.length > 20;
+                        }"""
+                    )
+                except Exception:
+                    # Page might have navigated or closed — retry
+                    token_present = False
+
+                if token_present:
+                    self.log(f"[vendor] ✓ Turnstile passed after {waited}s")
+                    break
+
+                if waited % 30 == 0 and waited > 0:
+                    self.log(f"[vendor] still waiting for Turnstile... ({waited}s)")
+
+                await asyncio.sleep(2)
+                waited += 2
+
+            if self.stop_flag:
+                self.log("[vendor] stop requested during Cloudflare wait — aborting")
+                raise RuntimeError("Stopped during Cloudflare wait")
+
+            # Fill credentials and submit
             await page.fill('input[name="username"]', email)
             await page.fill('input[name="password"]', password)
 
@@ -750,6 +783,10 @@ class Rotator:
 
     async def _rotate_row(self, admin_page, vendor_ctx, row, hold: dt.timedelta,
                           inv: str, mark_available: bool) -> bool:
+        if self.stop_flag:
+            self.log("[stop] aborting before rotate")
+            return False
+
         user, old_pw = parse_code(row["code"])
         if not user:
             self.log(f"[skip] unparseable: {row['code']!r}")
@@ -771,12 +808,27 @@ class Rotator:
         self.log(f"[rotating] [{inv}] {user}  old password = {old_pw}  "
                  f"->  new password = {new_pw}  (age={age})")
 
+        if self.stop_flag:
+            self.log(f"[stop] aborting rotation of {user} — before vendor change")
+            self.current_user = None
+            return False
+
         cfg = VENDOR_CONFIGS.get(inv)
 
         if cfg:
             vendor_page = None
             try:
                 vendor_page = await self._vendor_login(vendor_ctx, cfg, user, old_pw)
+
+                if self.stop_flag:
+                    self.log(f"[stop] aborting rotation of {user} — after vendor login")
+                    try:
+                        await vendor_page.close()
+                    except Exception:
+                        pass
+                    self.current_user = None
+                    return False
+
                 await self._vendor_change_password(vendor_page, cfg, old_pw, new_pw)
                 self.log(f"[vendor-pass] [{inv}] {user}  ->  "
                          f"VENDOR password set to: {new_pw}")
@@ -792,6 +844,11 @@ class Rotator:
         else:
             self.log(f"[vendor-skip] [{inv}] {user} — admin panel only")
 
+        if self.stop_flag:
+            self.log(f"[stop] aborting rotation of {user} — before admin update")
+            self.current_user = None
+            return False
+
         await self._write_new_code_in_admin(admin_page, row["id"], new_code, mark_available)
         self.log(f"[admin-pass] [{inv}] {user}  ->  "
                  f"ADMIN code set to: {new_code}")
@@ -804,7 +861,6 @@ class Rotator:
                                  mark_available: bool) -> int:
         rotated = 0
 
-        # ---- NEW: ensure remote service is connected if inventory ran dry ----
         try:
             reconnected = await self._ensure_remote_connected(admin_page, inv, hold)
             if reconnected:
@@ -813,7 +869,6 @@ class Rotator:
         except Exception as e:
             self.log(f"[connect-fail] [{inv}] {e!r}")
 
-        # ---- Existing rotation flow ----
         await self._open_inventory(admin_page, inv)
         try:
             await self._open_sold_out_tab(admin_page)
