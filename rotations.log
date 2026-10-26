@@ -1305,3 +1305,1194 @@
 [15:17:01] [connect] [Android Multi Tool[AMT]__RENT] available=5 after rotation — no need to reconnect
 [15:17:01] [done] [Android Multi Tool[AMT]__RENT] rotated 1
 [15:17:01] [all done] total 1
+[12:27:09] [inventory-list] found 9 inventories
+[12:27:09] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[12:27:09] [inventory-list]   - EFT-PRO
+[12:27:09] [inventory-list]   - EME TOOL RENT
+[12:27:09] [inventory-list]   - Galaxy Multi Tool
+[12:27:09] [inventory-list]   - REALME OTP
+[12:27:09] [inventory-list]   - SINGMA KEY___30MNT
+[12:27:09] [inventory-list]   - TSM TOOL
+[12:27:09] [inventory-list]   - UAT PRO
+[12:27:09] [inventory-list]   - UNLOCK___TOOL__RENT
+[12:27:19] [DIAG] admin tab url = https://pinfrp.com/admin
+[12:27:19] [plan] 3 inventory/inventories to process
+[12:27:19] opening 'Android Multi Tool[AMT]__RENT'
+[12:27:20] [scan] [Android Multi Tool[AMT]__RENT] 15 sold-out row(s) (limit=unlimited, mark_available=True)
+[12:27:20] [wait] [Android Multi Tool[AMT]__RENT] drive0011drive@gmail.com — sold 0:08:20.856538 ago
+[12:27:22] [wait] [Android Multi Tool[AMT]__RENT] gsmclasssupport@gmail.com — sold 0:22:22.371442 ago
+[12:27:23] [wait] [Android Multi Tool[AMT]__RENT] pin5frp@gmail.com — sold 0:26:23.876965 ago
+[12:27:25] [wait] [Android Multi Tool[AMT]__RENT] pin16frp@gmail.com — sold 0:35:25.379468 ago
+[12:27:26] [wait] [Android Multi Tool[AMT]__RENT] pin7frp@gmail.com — sold 0:38:26.890912 ago
+[12:27:28] [wait] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com — sold 0:43:28.402456 ago
+[12:27:29] [wait] [Android Multi Tool[AMT]__RENT] pin11frp@gmail.com — sold 0:45:29.917271 ago
+[12:27:31] [wait] [Android Multi Tool[AMT]__RENT] tctctc12312333@gmail.com — sold 0:51:31.429272 ago
+[12:27:32] [wait] [Android Multi Tool[AMT]__RENT] imdad9365000393@gmail.com — sold 0:54:32.943914 ago
+[12:27:34] [wait] [Android Multi Tool[AMT]__RENT] amtpinfrp@gmail.com — sold 1:03:34.459136 ago
+[12:27:35] [wait] [Android Multi Tool[AMT]__RENT] pin8frp@gmail.com — sold 1:11:35.967842 ago
+[12:27:37] [wait] [Android Multi Tool[AMT]__RENT] pin9frp@gmail.com — sold 1:17:37.480645 ago
+[12:27:38] [wait] [Android Multi Tool[AMT]__RENT] pin2frp@gmail.com — sold 1:28:38.995523 ago
+[12:27:40] [rotating] [Android Multi Tool[AMT]__RENT] pin14frp@gmail.com  old password = A5B59YHU  ->  new password = MB5WARGA  (age=2:15:40.507265)
+[12:27:40] [DIAG] vendor login dispatch: kind='amt'
+[12:27:40] [vendor] goto https://androidmultitool.com/controller/login
+[12:27:44] [vendor] Turnstile OK
+[12:27:46] [vendor] login OK: pin14frp@gmail.com
+[12:27:47] [vendor] waiting for account-page Turnstile token
+[12:27:49] [vendor] account-page Turnstile OK
+[12:27:49] [vendor] clicking Save Changes button
+[12:27:49] [vendor] Save clicked via 'button.btn.btn-icon.btn-success:has-text("Save Changes")'
+[12:27:55] [vendor-pass] [Android Multi Tool[AMT]__RENT] pin14frp@gmail.com  ->  VENDOR password set to: MB5WARGA
+[12:27:55] [admin] hard-refreshing panel to clear state before updating id=3784
+[12:27:55] [admin] waiting for sidebar to render...
+[12:27:58] [state] navigating to Inventory page via sidebar
+[12:28:01] opening 'Android Multi Tool[AMT]__RENT'
+[12:28:05] [admin] waiting 2s before clicking submit for id=3784
+[12:28:08] [admin] Successfully updated id=3784
+[12:28:08] [admin-pass] [Android Multi Tool[AMT]__RENT] pin14frp@gmail.com  ->  ADMIN code set to: 🆔 pin14frp@gmail.com 🔑 MB5WARGA
+[12:28:08] [ok] [Android Multi Tool[AMT]__RENT] pin14frp@gmail.com rotated (mark_available=True)
+[12:28:09] [rotating] [Android Multi Tool[AMT]__RENT] pin4frp@gmail.com  old password = 8MQGKA36  ->  new password = QCZ4CKRQ  (age=14:46:09.979437)
+[12:28:09] [DIAG] vendor login dispatch: kind='amt'
+[12:28:10] [vendor] goto https://androidmultitool.com/controller/login
+[12:28:12] [vendor] Turnstile OK
+[12:28:34] [vendor-fail] [Android Multi Tool[AMT]__RENT] pin4frp@gmail.com: TimeoutError('Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator("a[href=\'https://androidmultitool.com/controller/account/\']") to be visible\n')
+[12:28:35] [done] [Android Multi Tool[AMT]__RENT] rotated 1
+[12:28:35] opening 'Galaxy Multi Tool'
+[12:28:37] [scan] [Galaxy Multi Tool] 1 sold-out row(s) (limit=unlimited, mark_available=True)
+[12:28:37] [wait] [Galaxy Multi Tool] pin6frp@gmail.com — sold 1:21:37.402902 ago
+[12:28:38] [done] [Galaxy Multi Tool] rotated 0
+[12:28:38] opening 'UNLOCK___TOOL__RENT'
+[12:28:40] [scan] [UNLOCK___TOOL__RENT] 41 sold-out row(s) (limit=unlimited, mark_available=True)
+[12:28:40] [wait] [UNLOCK___TOOL__RENT] JUNU@10 — sold 0:00:40.898209 ago
+[12:28:42] [wait] [UNLOCK___TOOL__RENT] PINFRP@1 — sold 0:00:42.411584 ago
+[12:28:43] [wait] [UNLOCK___TOOL__RENT] ANAYA@3 — sold 0:10:43.920930 ago
+[12:28:45] [wait] [UNLOCK___TOOL__RENT] JUNU@2 — sold 0:11:45.434683 ago
+[12:28:46] [wait] [UNLOCK___TOOL__RENT] LIMMA@9 — sold 0:13:46.942483 ago
+[12:28:48] [wait] [UNLOCK___TOOL__RENT] LIMMA@2 — sold 0:23:48.449255 ago
+[12:28:49] [wait] [UNLOCK___TOOL__RENT] PINFRP@2 — sold 0:23:49.957590 ago
+[12:28:51] [wait] [UNLOCK___TOOL__RENT] JUNU@3 — sold 0:25:51.469295 ago
+[12:28:52] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL7 — sold 0:26:52.980263 ago
+[12:28:54] [wait] [UNLOCK___TOOL__RENT] PINFRP@4 — sold 0:29:54.494355 ago
+[12:28:55] [wait] [UNLOCK___TOOL__RENT] PINFRP@5 — sold 0:29:55.997715 ago
+[12:28:57] [wait] [UNLOCK___TOOL__RENT] PINFRP@3 — sold 0:34:57.507170 ago
+[12:28:59] [wait] [UNLOCK___TOOL__RENT] PINFRP08 — sold 0:36:59.011216 ago
+[12:29:00] [wait] [UNLOCK___TOOL__RENT] PINFRP010 — sold 0:40:00.514281 ago
+[12:29:02] [wait] [UNLOCK___TOOL__RENT] PINFRP09 — sold 0:46:02.026467 ago
+[12:29:03] [wait] [UNLOCK___TOOL__RENT] LIMMA@3 — sold 0:49:03.533567 ago
+[12:29:05] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL3 — sold 0:51:05.041136 ago
+[12:29:06] [wait] [UNLOCK___TOOL__RENT] ANAYA@8 — sold 0:58:06.551025 ago
+[12:29:08] [wait] [UNLOCK___TOOL__RENT] PINFRP06 — sold 0:59:08.064475 ago
+[12:29:09] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL8 — sold 1:01:09.568934 ago
+[12:29:11] [wait] [UNLOCK___TOOL__RENT] RENT0TOP — sold 1:01:11.080110 ago
+[12:29:12] [wait] [UNLOCK___TOOL__RENT] PINFRP03 — sold 1:06:12.591129 ago
+[12:29:14] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL9 — sold 1:06:14.096702 ago
+[12:29:15] [wait] [UNLOCK___TOOL__RENT] RENT79 — sold 1:08:15.610470 ago
+[12:29:17] [wait] [UNLOCK___TOOL__RENT] JUNU@9 — sold 1:28:17.119128 ago
+[12:29:18] [wait] [UNLOCK___TOOL__RENT] JUNU@7 — sold 1:28:18.628193 ago
+[12:29:20] [wait] [UNLOCK___TOOL__RENT] JUNU@5 — sold 1:33:20.136813 ago
+[12:29:21] [wait] [UNLOCK___TOOL__RENT] JUNU@6 — sold 1:38:21.643654 ago
+[12:29:23] [wait] [UNLOCK___TOOL__RENT] ANAYA@4 — sold 1:53:23.154870 ago
+[12:29:24] [wait] [UNLOCK___TOOL__RENT] LIMMA@10 — sold 1:54:24.670013 ago
+[12:29:26] [wait] [UNLOCK___TOOL__RENT] RENT01x — sold 2:08:26.183771 ago
+[12:29:27] [wait] [UNLOCK___TOOL__RENT] JUNU@1 — sold 2:14:27.699655 ago
+[12:29:29] [wait] [UNLOCK___TOOL__RENT] ANAYA@6 — sold 2:15:29.207821 ago
+[12:29:30] [wait] [UNLOCK___TOOL__RENT] PINFRP01 — sold 2:20:30.720995 ago
+[12:29:32] [wait] [UNLOCK___TOOL__RENT] LIMMA@6 — sold 2:25:32.223318 ago
+[12:29:33] [wait] [UNLOCK___TOOL__RENT] ANAYA@2 — sold 2:46:33.739309 ago
+[12:29:35] [wait] [UNLOCK___TOOL__RENT] PINFRP07 — sold 2:52:35.255212 ago
+[12:29:36] [wait] [UNLOCK___TOOL__RENT] ANAYA@10 — sold 2:58:36.768322 ago
+[12:29:38] [wait] [UNLOCK___TOOL__RENT] JUNU@4 — sold 3:06:38.278658 ago
+[12:29:39] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL2 — sold 3:44:39.783768 ago
+[12:29:41] [wait] [UNLOCK___TOOL__RENT] ANAYA@1 — sold 5:09:41.288345 ago
+[12:29:42] [done] [UNLOCK___TOOL__RENT] rotated 0
+[12:29:42] [connect] starting end-of-run inventory reconnection for 1 tool(s)...
+[12:29:42] opening 'Android Multi Tool[AMT]__RENT'
+[12:29:44] [connect] [Android Multi Tool[AMT]__RENT] available=13 after rotation — no need to reconnect
+[12:29:44] [all done] total 1
+[12:29:44] [loop] sleeping 5.0 min
+[12:31:57] [inventory-list] found 9 inventories
+[12:31:57] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[12:31:57] [inventory-list]   - EFT-PRO
+[12:31:57] [inventory-list]   - EME TOOL RENT
+[12:31:57] [inventory-list]   - Galaxy Multi Tool
+[12:31:57] [inventory-list]   - REALME OTP
+[12:31:57] [inventory-list]   - SINGMA KEY___30MNT
+[12:31:57] [inventory-list]   - TSM TOOL
+[12:31:57] [inventory-list]   - UAT PRO
+[12:31:57] [inventory-list]   - UNLOCK___TOOL__RENT
+[12:31:58] [inventory-list] found 9 inventories
+[12:31:58] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[12:31:58] [inventory-list]   - EFT-PRO
+[12:31:58] [inventory-list]   - EME TOOL RENT
+[12:31:58] [inventory-list]   - Galaxy Multi Tool
+[12:31:58] [inventory-list]   - REALME OTP
+[12:31:58] [inventory-list]   - SINGMA KEY___30MNT
+[12:31:58] [inventory-list]   - TSM TOOL
+[12:31:58] [inventory-list]   - UAT PRO
+[12:31:58] [inventory-list]   - UNLOCK___TOOL__RENT
+[12:32:06] [DIAG] admin tab url = https://pinfrp.com/admin
+[12:32:06] [plan] 3 inventory/inventories to process
+[12:32:06] opening 'Android Multi Tool[AMT]__RENT'
+[12:32:08] [scan] [Android Multi Tool[AMT]__RENT] 15 sold-out row(s) (limit=unlimited, mark_available=True)
+[12:32:08] [wait] [Android Multi Tool[AMT]__RENT] borneo6665@gmail.com — sold 0:05:08.113071 ago
+[12:32:09] [wait] [Android Multi Tool[AMT]__RENT] drive0011drive@gmail.com — sold 0:13:09.617640 ago
+[12:32:11] [wait] [Android Multi Tool[AMT]__RENT] gsmclasssupport@gmail.com — sold 0:27:11.128343 ago
+[12:32:12] [wait] [Android Multi Tool[AMT]__RENT] pin5frp@gmail.com — sold 0:31:12.637660 ago
+[12:32:14] [wait] [Android Multi Tool[AMT]__RENT] pin16frp@gmail.com — sold 0:40:14.151024 ago
+[12:32:15] [wait] [Android Multi Tool[AMT]__RENT] pin7frp@gmail.com — sold 0:43:15.664145 ago
+[12:32:17] [wait] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com — sold 0:48:17.181176 ago
+[12:32:18] [wait] [Android Multi Tool[AMT]__RENT] pin11frp@gmail.com — sold 0:50:18.689082 ago
+[12:32:20] [wait] [Android Multi Tool[AMT]__RENT] tctctc12312333@gmail.com — sold 0:56:20.199309 ago
+[12:32:21] [wait] [Android Multi Tool[AMT]__RENT] imdad9365000393@gmail.com — sold 0:59:21.705287 ago
+[12:32:23] [wait] [Android Multi Tool[AMT]__RENT] amtpinfrp@gmail.com — sold 1:08:23.214362 ago
+[12:32:24] [wait] [Android Multi Tool[AMT]__RENT] pin8frp@gmail.com — sold 1:16:24.729033 ago
+[12:32:26] [wait] [Android Multi Tool[AMT]__RENT] pin9frp@gmail.com — sold 1:22:26.238024 ago
+[12:32:27] [wait] [Android Multi Tool[AMT]__RENT] pin2frp@gmail.com — sold 1:33:27.739850 ago
+[12:32:29] [rotating] [Android Multi Tool[AMT]__RENT] pin4frp@gmail.com  old password = 8MQGKA36  ->  new password = 6YYDLSYH  (age=14:50:29.242781)
+[12:32:29] [DIAG] vendor login dispatch: kind='amt'
+[12:32:29] [vendor] goto https://androidmultitool.com/controller/login
+[12:32:32] [vendor] Turnstile OK
+[12:32:59] [vendor-fail] [Android Multi Tool[AMT]__RENT] pin4frp@gmail.com: TimeoutError('Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator("a[href=\'https://androidmultitool.com/controller/account/\']") to be visible\n')
+[12:33:00] [done] [Android Multi Tool[AMT]__RENT] rotated 0
+[12:33:00] opening 'Galaxy Multi Tool'
+[12:33:01] [scan] [Galaxy Multi Tool] 1 sold-out row(s) (limit=unlimited, mark_available=True)
+[12:33:01] [wait] [Galaxy Multi Tool] pin6frp@gmail.com — sold 1:26:01.881496 ago
+[12:33:03] [done] [Galaxy Multi Tool] rotated 0
+[12:33:03] opening 'UNLOCK___TOOL__RENT'
+[12:33:05] [scan] [UNLOCK___TOOL__RENT] 42 sold-out row(s) (limit=unlimited, mark_available=True)
+[12:33:05] [wait] [UNLOCK___TOOL__RENT] LIMMA@7 — sold 0:01:05.434979 ago
+[12:33:06] [wait] [UNLOCK___TOOL__RENT] JUNU@10 — sold 0:05:06.937832 ago
+[12:33:08] [wait] [UNLOCK___TOOL__RENT] PINFRP@1 — sold 0:05:08.449257 ago
+[12:33:09] [wait] [UNLOCK___TOOL__RENT] ANAYA@3 — sold 0:15:09.952184 ago
+[12:33:11] [wait] [UNLOCK___TOOL__RENT] JUNU@2 — sold 0:16:11.460870 ago
+[12:33:12] [wait] [UNLOCK___TOOL__RENT] LIMMA@9 — sold 0:18:12.963918 ago
+[12:33:14] [wait] [UNLOCK___TOOL__RENT] LIMMA@2 — sold 0:28:14.466566 ago
+[12:33:15] [wait] [UNLOCK___TOOL__RENT] PINFRP@2 — sold 0:28:15.972280 ago
+[12:33:17] [wait] [UNLOCK___TOOL__RENT] JUNU@3 — sold 0:30:17.482463 ago
+[12:33:18] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL7 — sold 0:31:18.985734 ago
+[12:33:20] [wait] [UNLOCK___TOOL__RENT] PINFRP@4 — sold 0:34:20.495555 ago
+[12:33:22] [wait] [UNLOCK___TOOL__RENT] PINFRP@5 — sold 0:34:22.019694 ago
+[12:33:23] [wait] [UNLOCK___TOOL__RENT] PINFRP@3 — sold 0:39:23.536834 ago
+[12:33:25] [wait] [UNLOCK___TOOL__RENT] PINFRP08 — sold 0:41:25.042357 ago
+[12:33:26] [wait] [UNLOCK___TOOL__RENT] PINFRP010 — sold 0:44:26.549226 ago
+[12:33:28] [wait] [UNLOCK___TOOL__RENT] PINFRP09 — sold 0:50:28.054171 ago
+[12:33:29] [wait] [UNLOCK___TOOL__RENT] LIMMA@3 — sold 0:53:29.570075 ago
+[12:33:31] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL3 — sold 0:55:31.081166 ago
+[12:33:32] [wait] [UNLOCK___TOOL__RENT] ANAYA@8 — sold 1:02:32.603155 ago
+[12:33:34] [wait] [UNLOCK___TOOL__RENT] PINFRP06 — sold 1:03:34.106943 ago
+[12:33:35] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL8 — sold 1:05:35.613512 ago
+[12:33:37] [wait] [UNLOCK___TOOL__RENT] RENT0TOP — sold 1:05:37.121935 ago
+[12:33:38] [wait] [UNLOCK___TOOL__RENT] PINFRP03 — sold 1:10:38.632892 ago
+[12:33:40] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL9 — sold 1:10:40.151483 ago
+[12:33:41] [wait] [UNLOCK___TOOL__RENT] RENT79 — sold 1:12:41.665295 ago
+[12:33:43] [wait] [UNLOCK___TOOL__RENT] JUNU@9 — sold 1:32:43.174939 ago
+[12:33:44] [wait] [UNLOCK___TOOL__RENT] JUNU@7 — sold 1:32:44.678700 ago
+[12:33:46] [wait] [UNLOCK___TOOL__RENT] JUNU@5 — sold 1:37:46.181902 ago
+[12:33:47] [wait] [UNLOCK___TOOL__RENT] JUNU@6 — sold 1:42:47.689898 ago
+[12:33:49] [wait] [UNLOCK___TOOL__RENT] ANAYA@4 — sold 1:57:49.193603 ago
+[12:33:50] [wait] [UNLOCK___TOOL__RENT] LIMMA@10 — sold 1:58:50.699531 ago
+[12:33:52] [wait] [UNLOCK___TOOL__RENT] RENT01x — sold 2:12:52.210210 ago
+[12:33:53] [wait] [UNLOCK___TOOL__RENT] JUNU@1 — sold 2:18:53.717664 ago
+[12:33:55] [wait] [UNLOCK___TOOL__RENT] ANAYA@6 — sold 2:19:55.221645 ago
+[12:33:56] [wait] [UNLOCK___TOOL__RENT] PINFRP01 — sold 2:24:56.726445 ago
+[12:33:58] [wait] [UNLOCK___TOOL__RENT] LIMMA@6 — sold 2:29:58.229611 ago
+[12:33:59] [wait] [UNLOCK___TOOL__RENT] ANAYA@2 — sold 2:50:59.732944 ago
+[12:34:01] [wait] [UNLOCK___TOOL__RENT] PINFRP07 — sold 2:57:01.237233 ago
+[12:34:02] [wait] [UNLOCK___TOOL__RENT] ANAYA@10 — sold 3:03:02.752880 ago
+[12:34:04] [wait] [UNLOCK___TOOL__RENT] JUNU@4 — sold 3:11:04.256088 ago
+[12:34:05] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL2 — sold 3:49:05.771237 ago
+[12:34:07] [wait] [UNLOCK___TOOL__RENT] ANAYA@1 — sold 5:14:07.283262 ago
+[12:34:08] [done] [UNLOCK___TOOL__RENT] rotated 0
+[12:34:08] [connect] starting end-of-run inventory reconnection for 3 tool(s)...
+[12:34:08] [connect] [Android Multi Tool[AMT]__RENT] force connecting remote service...
+[12:34:08] [connect] navigating to Services List -> Remote
+[12:34:10] [connect] clicking remote service name cell: 'AMT ( Android Multi Tool ) 2 Hours ❇️ Fast (24x7)'
+[12:34:10] [connect] offcanvas opened
+[12:34:10] [connect] clicking Connect section button
+[12:34:11] [connect] opening Connect Inventory tab
+[12:34:11] [connect] choosing inventory in dropdown: Android Multi Tool[AMT]__RENT
+[12:34:11] [connect] inventory 'Android Multi Tool[AMT]__RENT' chosen
+[12:34:11] [connect] clicking final Connect button
+[12:34:11] [connect] remote service re-connected for [Android Multi Tool[AMT]__RENT]
+[12:34:11] [connect] closing offcanvas
+[12:34:12] [connect] offcanvas closed
+[12:34:12] [connect] navigating back to Inventory
+[12:34:13] [connect] [Android Multi Tool[AMT]__RENT] re-connected — waiting 10s for codes to refresh
+[12:34:23] [connect] [Galaxy Multi Tool] force connecting remote service...
+[12:34:23] [connect] navigating to Services List -> Remote
+[12:34:24] [connect] clicking remote service name cell: 'Galaxy Multi Tool-{RENT 2 Hours}'
+[12:34:24] [connect] offcanvas opened
+[12:34:24] [connect] clicking Connect section button
+[12:34:25] [connect] opening Connect Inventory tab
+[12:34:25] [connect] choosing inventory in dropdown: Galaxy Multi Tool
+[12:34:25] [connect] inventory 'Galaxy Multi Tool' chosen
+[12:34:25] [connect] clicking final Connect button
+[12:34:25] [connect] remote service re-connected for [Galaxy Multi Tool]
+[12:34:25] [connect] closing offcanvas
+[12:34:26] [connect] offcanvas closed
+[12:34:26] [connect] navigating back to Inventory
+[12:34:27] [connect] [Galaxy Multi Tool] re-connected — waiting 10s for codes to refresh
+[12:34:37] [connect] [UNLOCK___TOOL__RENT] force connecting remote service...
+[12:34:37] [connect] navigating to Services List -> Remote
+[12:34:38] [connect] clicking remote service name cell: 'UNLOCKTOOL LOGIN - 6hrs'
+[12:34:38] [connect] offcanvas opened
+[12:34:38] [connect] clicking Connect section button
+[12:34:39] [connect] opening Connect Inventory tab
+[12:34:39] [connect] choosing inventory in dropdown: UNLOCK___TOOL__RENT
+[12:34:39] [connect] inventory 'UNLOCK___TOOL__RENT' chosen
+[12:34:39] [connect] clicking final Connect button
+[12:34:39] [connect] remote service re-connected for [UNLOCK___TOOL__RENT]
+[12:34:39] [connect] closing offcanvas
+[12:34:40] [connect] offcanvas closed
+[12:34:40] [connect] navigating back to Inventory
+[12:34:41] [connect] [UNLOCK___TOOL__RENT] re-connected — waiting 10s for codes to refresh
+[12:34:51] [all done] total 0
+[12:34:51] [loop] sleeping 5.0 min
+[12:44:15] [inventory-list] found 9 inventories
+[12:44:15] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[12:44:15] [inventory-list]   - EFT-PRO
+[12:44:15] [inventory-list]   - EME TOOL RENT
+[12:44:15] [inventory-list]   - Galaxy Multi Tool
+[12:44:15] [inventory-list]   - REALME OTP
+[12:44:15] [inventory-list]   - SINGMA KEY___30MNT
+[12:44:15] [inventory-list]   - TSM TOOL
+[12:44:15] [inventory-list]   - UAT PRO
+[12:44:15] [inventory-list]   - UNLOCK___TOOL__RENT
+[12:48:19] [inventory-list] found 9 inventories
+[12:48:19] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[12:48:19] [inventory-list]   - EFT-PRO
+[12:48:19] [inventory-list]   - EME TOOL RENT
+[12:48:19] [inventory-list]   - Galaxy Multi Tool
+[12:48:19] [inventory-list]   - REALME OTP
+[12:48:19] [inventory-list]   - SINGMA KEY___30MNT
+[12:48:19] [inventory-list]   - TSM TOOL
+[12:48:19] [inventory-list]   - UAT PRO
+[12:48:19] [inventory-list]   - UNLOCK___TOOL__RENT
+[12:48:20] [inventory-list] found 9 inventories
+[12:48:20] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[12:48:20] [inventory-list]   - EFT-PRO
+[12:48:20] [inventory-list]   - EME TOOL RENT
+[12:48:20] [inventory-list]   - Galaxy Multi Tool
+[12:48:20] [inventory-list]   - REALME OTP
+[12:48:20] [inventory-list]   - SINGMA KEY___30MNT
+[12:48:20] [inventory-list]   - TSM TOOL
+[12:48:20] [inventory-list]   - UAT PRO
+[12:48:20] [inventory-list]   - UNLOCK___TOOL__RENT
+[12:48:28] [DIAG] admin tab url = https://pinfrp.com/admin
+[12:48:28] [plan] 3 inventory/inventories to process
+[12:48:28] opening 'Android Multi Tool[AMT]__RENT'
+[12:48:30] [scan] [Android Multi Tool[AMT]__RENT] 21 sold-out row(s) (limit=unlimited, mark_available=True)
+[12:48:30] [wait] [Android Multi Tool[AMT]__RENT] pin3frp@gmail.com — sold 0:06:30.184804 ago
+[12:48:31] [wait] [Android Multi Tool[AMT]__RENT] pinfrp0011@gmail.com — sold 0:06:31.688177 ago
+[12:48:33] [wait] [Android Multi Tool[AMT]__RENT] teamvieweremail09@gmail.com — sold 0:07:33.198224 ago
+[12:48:34] [wait] [Android Multi Tool[AMT]__RENT] pin15frp@gmail.com — sold 0:09:34.700528 ago
+[12:48:36] [wait] [Android Multi Tool[AMT]__RENT] pin12frp@gmail.com — sold 0:10:36.208227 ago
+[12:48:37] [wait] [Android Multi Tool[AMT]__RENT] txtv444@gmail.com — sold 0:16:37.718761 ago
+[12:48:39] [wait] [Android Multi Tool[AMT]__RENT] borneo6665@gmail.com — sold 0:21:39.223958 ago
+[12:48:40] [wait] [Android Multi Tool[AMT]__RENT] drive0011drive@gmail.com — sold 0:29:40.734801 ago
+[12:48:42] [wait] [Android Multi Tool[AMT]__RENT] gsmclasssupport@gmail.com — sold 0:43:42.244225 ago
+[12:48:43] [wait] [Android Multi Tool[AMT]__RENT] pin5frp@gmail.com — sold 0:47:43.753314 ago
+[12:48:45] [wait] [Android Multi Tool[AMT]__RENT] pin16frp@gmail.com — sold 0:56:45.267579 ago
+[12:48:46] [wait] [Android Multi Tool[AMT]__RENT] pin7frp@gmail.com — sold 0:59:46.771479 ago
+[12:48:48] [wait] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com — sold 1:04:48.277122 ago
+[12:48:49] [wait] [Android Multi Tool[AMT]__RENT] pin11frp@gmail.com — sold 1:06:49.788487 ago
+[12:48:51] [wait] [Android Multi Tool[AMT]__RENT] tctctc12312333@gmail.com — sold 1:12:51.304605 ago
+[12:48:52] [wait] [Android Multi Tool[AMT]__RENT] imdad9365000393@gmail.com — sold 1:15:52.812761 ago
+[12:48:54] [wait] [Android Multi Tool[AMT]__RENT] amtpinfrp@gmail.com — sold 1:24:54.318090 ago
+[12:48:55] [wait] [Android Multi Tool[AMT]__RENT] pin8frp@gmail.com — sold 1:32:55.821496 ago
+[12:48:57] [wait] [Android Multi Tool[AMT]__RENT] pin9frp@gmail.com — sold 1:38:57.331267 ago
+[12:48:58] [wait] [Android Multi Tool[AMT]__RENT] pin2frp@gmail.com — sold 1:49:58.842681 ago
+[12:49:00] [rotating] [Android Multi Tool[AMT]__RENT] pin4frp@gmail.com  old password = 8MQGKA36  ->  new password = M64YNA2S  (age=15:07:00.352240)
+[12:49:00] [DIAG] vendor login dispatch: kind='amt'
+[12:49:00] [vendor] goto https://androidmultitool.com/controller/login
+[12:49:04] [vendor] Turnstile OK
+[12:49:25] [vendor-fail] [Android Multi Tool[AMT]__RENT] pin4frp@gmail.com: TimeoutError('Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator("a[href=\'https://androidmultitool.com/controller/account/\']") to be visible\n')
+[12:49:26] [done] [Android Multi Tool[AMT]__RENT] rotated 0
+[12:49:26] opening 'Galaxy Multi Tool'
+[12:49:28] [scan] [Galaxy Multi Tool] 1 sold-out row(s) (limit=unlimited, mark_available=True)
+[12:49:28] [wait] [Galaxy Multi Tool] pin6frp@gmail.com — sold 1:42:28.016393 ago
+[12:49:29] [done] [Galaxy Multi Tool] rotated 0
+[12:49:29] opening 'UNLOCK___TOOL__RENT'
+[12:49:31] [scan] [UNLOCK___TOOL__RENT] 49 sold-out row(s) (limit=unlimited, mark_available=True)
+[12:49:31] [wait] [UNLOCK___TOOL__RENT] PINFRP05 — sold 0:01:31.625505 ago
+[12:49:33] [wait] [UNLOCK___TOOL__RENT] ANAYA@5 — sold 0:02:33.127906 ago
+[12:49:34] [wait] [UNLOCK___TOOL__RENT] LIMMA@5 — sold 0:09:34.639522 ago
+[12:49:36] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL6 — sold 0:09:36.144830 ago
+[12:49:37] [wait] [UNLOCK___TOOL__RENT] ANAYA@9 — sold 0:13:37.657498 ago
+[12:49:39] [wait] [UNLOCK___TOOL__RENT] LIMMA@8 — sold 0:14:39.162163 ago
+[12:49:40] [wait] [UNLOCK___TOOL__RENT] ANAYA@7 — sold 0:16:40.669285 ago
+[12:49:42] [wait] [UNLOCK___TOOL__RENT] LIMMA@7 — sold 0:17:42.183021 ago
+[12:49:43] [wait] [UNLOCK___TOOL__RENT] JUNU@10 — sold 0:21:43.695481 ago
+[12:49:45] [wait] [UNLOCK___TOOL__RENT] PINFRP@1 — sold 0:21:45.202591 ago
+[12:49:46] [wait] [UNLOCK___TOOL__RENT] ANAYA@3 — sold 0:31:46.715079 ago
+[12:49:48] [wait] [UNLOCK___TOOL__RENT] JUNU@2 — sold 0:32:48.230214 ago
+[12:49:49] [wait] [UNLOCK___TOOL__RENT] LIMMA@9 — sold 0:34:49.739894 ago
+[12:49:51] [wait] [UNLOCK___TOOL__RENT] LIMMA@2 — sold 0:44:51.252314 ago
+[12:49:52] [wait] [UNLOCK___TOOL__RENT] PINFRP@2 — sold 0:44:52.761040 ago
+[12:49:54] [wait] [UNLOCK___TOOL__RENT] JUNU@3 — sold 0:46:54.266273 ago
+[12:49:55] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL7 — sold 0:47:55.776415 ago
+[12:49:57] [wait] [UNLOCK___TOOL__RENT] PINFRP@4 — sold 0:50:57.293477 ago
+[12:49:58] [wait] [UNLOCK___TOOL__RENT] PINFRP@5 — sold 0:50:58.801375 ago
+[12:50:00] [wait] [UNLOCK___TOOL__RENT] PINFRP@3 — sold 0:56:00.304546 ago
+[12:50:01] [wait] [UNLOCK___TOOL__RENT] PINFRP08 — sold 0:58:01.816323 ago
+[12:50:03] [wait] [UNLOCK___TOOL__RENT] PINFRP010 — sold 1:01:03.327841 ago
+[12:50:04] [wait] [UNLOCK___TOOL__RENT] PINFRP09 — sold 1:07:04.843503 ago
+[12:50:06] [wait] [UNLOCK___TOOL__RENT] LIMMA@3 — sold 1:10:06.352765 ago
+[12:50:07] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL3 — sold 1:12:07.862100 ago
+[12:50:09] [wait] [UNLOCK___TOOL__RENT] ANAYA@8 — sold 1:19:09.368198 ago
+[12:50:10] [wait] [UNLOCK___TOOL__RENT] PINFRP06 — sold 1:20:10.882555 ago
+[12:50:12] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL8 — sold 1:22:12.396616 ago
+[12:50:13] [wait] [UNLOCK___TOOL__RENT] RENT0TOP — sold 1:22:13.907363 ago
+[12:50:15] [wait] [UNLOCK___TOOL__RENT] PINFRP03 — sold 1:27:15.414364 ago
+[12:50:16] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL9 — sold 1:27:16.918254 ago
+[12:50:18] [wait] [UNLOCK___TOOL__RENT] RENT79 — sold 1:29:18.420841 ago
+[12:50:19] [wait] [UNLOCK___TOOL__RENT] JUNU@9 — sold 1:49:19.922401 ago
+[12:50:21] [wait] [UNLOCK___TOOL__RENT] JUNU@7 — sold 1:49:21.437022 ago
+[12:50:22] [wait] [UNLOCK___TOOL__RENT] JUNU@5 — sold 1:54:22.940056 ago
+[12:50:24] [wait] [UNLOCK___TOOL__RENT] JUNU@6 — sold 1:59:24.442803 ago
+[12:50:25] [wait] [UNLOCK___TOOL__RENT] ANAYA@4 — sold 2:14:25.961247 ago
+[12:50:27] [wait] [UNLOCK___TOOL__RENT] LIMMA@10 — sold 2:15:27.474524 ago
+[12:50:28] [wait] [UNLOCK___TOOL__RENT] RENT01x — sold 2:29:28.981426 ago
+[12:50:30] [wait] [UNLOCK___TOOL__RENT] JUNU@1 — sold 2:35:30.490211 ago
+[12:50:32] [wait] [UNLOCK___TOOL__RENT] ANAYA@6 — sold 2:36:32.002215 ago
+[12:50:33] [wait] [UNLOCK___TOOL__RENT] PINFRP01 — sold 2:41:33.512262 ago
+[12:50:35] [wait] [UNLOCK___TOOL__RENT] LIMMA@6 — sold 2:46:35.019295 ago
+[12:50:36] [wait] [UNLOCK___TOOL__RENT] ANAYA@2 — sold 3:07:36.535402 ago
+[12:50:38] [wait] [UNLOCK___TOOL__RENT] PINFRP07 — sold 3:13:38.044718 ago
+[12:50:39] [wait] [UNLOCK___TOOL__RENT] ANAYA@10 — sold 3:19:39.548351 ago
+[12:50:41] [wait] [UNLOCK___TOOL__RENT] JUNU@4 — sold 3:27:41.063889 ago
+[12:50:42] [wait] [UNLOCK___TOOL__RENT] PINFRPTOOL2 — sold 4:05:42.580388 ago
+[12:50:44] [wait] [UNLOCK___TOOL__RENT] ANAYA@1 — sold 5:30:44.081665 ago
+[12:50:45] [done] [UNLOCK___TOOL__RENT] rotated 0
+[12:50:45] [connect] checking status and connecting active inventories...
+[12:50:45] [connect] [Android Multi Tool[AMT]__RENT] is Active — proceeding to connect
+[12:50:45] [connect] [Android Multi Tool[AMT]__RENT] connecting remote service...
+[12:50:45] [connect] navigating to Services List -> Remote
+[12:50:46] [connect] clicking remote service name cell: 'AMT ( Android Multi Tool ) 2 Hours ❇️ Fast (24x7)'
+[12:50:47] [connect] offcanvas opened
+[12:50:47] [connect] clicking Connect section button
+[12:50:47] [connect] opening Connect Inventory tab
+[12:50:47] [connect] choosing inventory in dropdown: Android Multi Tool[AMT]__RENT
+[12:50:48] [connect] inventory 'Android Multi Tool[AMT]__RENT' chosen
+[12:50:48] [connect] clicking final Connect button
+[12:50:48] [connect] remote service re-connected for [Android Multi Tool[AMT]__RENT]
+[12:50:48] [connect] closing offcanvas
+[12:50:49] [connect] offcanvas closed
+[12:50:49] [connect] navigating back to Inventory
+[12:50:50] [connect] [Android Multi Tool[AMT]__RENT] re-connected — waiting 10s for codes to refresh
+[12:51:00] [connect] [Galaxy Multi Tool] is Active — proceeding to connect
+[12:51:00] [connect] [Galaxy Multi Tool] connecting remote service...
+[12:51:00] [connect] navigating to Services List -> Remote
+[12:51:01] [connect] clicking remote service name cell: 'Galaxy Multi Tool-{RENT 2 Hours}'
+[12:51:01] [connect] offcanvas opened
+[12:51:01] [connect] clicking Connect section button
+[12:51:01] [connect] opening Connect Inventory tab
+[12:51:02] [connect] choosing inventory in dropdown: Galaxy Multi Tool
+[12:51:02] [connect] inventory 'Galaxy Multi Tool' chosen
+[12:51:02] [connect] clicking final Connect button
+[12:51:02] [connect] remote service re-connected for [Galaxy Multi Tool]
+[12:51:02] [connect] closing offcanvas
+[12:51:03] [connect] offcanvas closed
+[12:51:03] [connect] navigating back to Inventory
+[12:51:04] [connect] [Galaxy Multi Tool] re-connected — waiting 10s for codes to refresh
+[12:51:14] [connect] [UNLOCK___TOOL__RENT] is Active — proceeding to connect
+[12:51:14] [connect] [UNLOCK___TOOL__RENT] connecting remote service...
+[12:51:14] [connect] navigating to Services List -> Remote
+[12:51:15] [connect] clicking remote service name cell: 'UNLOCKTOOL LOGIN - 6hrs'
+[12:51:15] [connect] offcanvas opened
+[12:51:15] [connect] clicking Connect section button
+[12:51:15] [connect] opening Connect Inventory tab
+[12:51:16] [connect] choosing inventory in dropdown: UNLOCK___TOOL__RENT
+[12:51:16] [connect] inventory 'UNLOCK___TOOL__RENT' chosen
+[12:51:16] [connect] clicking final Connect button
+[12:51:16] [connect] remote service re-connected for [UNLOCK___TOOL__RENT]
+[12:51:16] [connect] closing offcanvas
+[12:51:17] [connect] offcanvas closed
+[12:51:17] [connect] navigating back to Inventory
+[12:51:18] [connect] [UNLOCK___TOOL__RENT] re-connected — waiting 10s for codes to refresh
+[12:51:28] [all done] total 0
+[12:51:28] [loop] sleeping 5.0 min
+[16:18:51] [inventory-list] found 9 inventories
+[16:18:51] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[16:18:51] [inventory-list]   - EFT-PRO
+[16:18:51] [inventory-list]   - EME TOOL RENT
+[16:18:51] [inventory-list]   - Galaxy Multi Tool
+[16:18:51] [inventory-list]   - REALME OTP
+[16:18:51] [inventory-list]   - SINGMA KEY___30MNT
+[16:18:51] [inventory-list]   - TSM TOOL
+[16:18:51] [inventory-list]   - UAT PRO
+[16:18:51] [inventory-list]   - UNLOCK___TOOL__RENT
+[16:28:10] [inventory-list] found 9 inventories
+[16:28:10] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[16:28:10] [inventory-list]   - EFT-PRO
+[16:28:10] [inventory-list]   - EME TOOL RENT
+[16:28:10] [inventory-list]   - Galaxy Multi Tool
+[16:28:10] [inventory-list]   - REALME OTP
+[16:28:10] [inventory-list]   - SINGMA KEY___30MNT
+[16:28:10] [inventory-list]   - TSM TOOL
+[16:28:10] [inventory-list]   - UAT PRO
+[16:28:10] [inventory-list]   - UNLOCK___TOOL__RENT
+[16:28:11] [inventory-list] found 9 inventories
+[16:28:11] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[16:28:11] [inventory-list]   - EFT-PRO
+[16:28:11] [inventory-list]   - EME TOOL RENT
+[16:28:11] [inventory-list]   - Galaxy Multi Tool
+[16:28:11] [inventory-list]   - REALME OTP
+[16:28:11] [inventory-list]   - SINGMA KEY___30MNT
+[16:28:11] [inventory-list]   - TSM TOOL
+[16:28:11] [inventory-list]   - UAT PRO
+[16:28:11] [inventory-list]   - UNLOCK___TOOL__RENT
+[16:28:53] [DIAG] admin tab url = https://pinfrp.com/admin
+[16:28:53] [plan] 1 inventory/inventories to process
+[16:28:53] opening 'Android Multi Tool[AMT]__RENT'
+[16:28:55] [scan] [Android Multi Tool[AMT]__RENT] 22 sold-out row(s) (limit=1, mark_available=False)
+[16:28:55] [rotating] [Android Multi Tool[AMT]__RENT] amtpinfrp@gmail.com  old password = NEWSWM6H  ->  new password = CJMX3ZAK  (age=0:10:55.369430)
+[16:28:55] [DIAG] vendor login dispatch: kind='amt'
+[16:28:55] [vendor] goto https://androidmultitool.com/controller/login
+[16:28:56] [vendor] already logged in — redirect detected at 'https://androidmultitool.com/controller/dashboard/'. Logging out.
+[16:28:58] [vendor] re-navigating to login page after logout
+[16:29:02] [vendor] Turnstile OK
+[16:29:03] [vendor] login OK: amtpinfrp@gmail.com
+[16:29:03] [vendor] waiting for account-page Turnstile token
+[16:29:06] [vendor] account-page Turnstile OK
+[16:29:06] [vendor] clicking Save Changes button
+[16:29:06] [vendor] Save clicked via 'button.btn.btn-icon.btn-success:has-text("Save Changes")'
+[16:29:11] [vendor-pass] [Android Multi Tool[AMT]__RENT] amtpinfrp@gmail.com  ->  VENDOR password set to: CJMX3ZAK
+[16:29:11] [admin] hard-refreshing panel to clear state before updating id=55
+[16:29:12] [admin] waiting for sidebar to render...
+[16:29:15] [state] navigating to Inventory page via sidebar
+[16:29:17] opening 'Android Multi Tool[AMT]__RENT'
+[16:29:21] [admin] waiting 2s before clicking submit for id=55
+[16:29:25] [admin] Successfully updated id=55
+[16:29:25] [admin-pass] [Android Multi Tool[AMT]__RENT] amtpinfrp@gmail.com  ->  ADMIN code set to: 🆔 amtpinfrp@gmail.com 🔑 CJMX3ZAK
+[16:29:25] [ok] [Android Multi Tool[AMT]__RENT] amtpinfrp@gmail.com rotated (mark_available=False)
+[16:29:26] [limit] [Android Multi Tool[AMT]__RENT] reached 1 rotation(s)
+[16:29:26] [done] [Android Multi Tool[AMT]__RENT] rotated 1
+[16:29:26] [connect] checking status and connecting active inventories...
+[16:29:26] [connect] [Android Multi Tool[AMT]__RENT] is Active — proceeding to connect
+[16:29:26] [connect] [Android Multi Tool[AMT]__RENT] connecting remote service...
+[16:29:26] [connect] navigating to Services List -> Remote
+[16:29:28] [connect] clicking remote service name cell: 'AMT ( Android Multi Tool ) 2 Hours ❇️ Fast (24x7)'
+[16:29:28] [connect] offcanvas opened
+[16:29:28] [connect] clicking Connect section button
+[16:29:29] [connect] opening Connect Inventory tab
+[16:29:29] [connect] choosing inventory in dropdown: Android Multi Tool[AMT]__RENT
+[16:29:29] [connect] inventory 'Android Multi Tool[AMT]__RENT' chosen
+[16:29:29] [connect] clicking final Connect button
+[16:29:29] [connect] remote service re-connected for [Android Multi Tool[AMT]__RENT]
+[16:29:29] [connect] closing offcanvas
+[16:29:30] [connect] offcanvas closed
+[16:29:30] [connect] navigating back to Inventory
+[16:29:31] [connect] [Android Multi Tool[AMT]__RENT] re-connected — waiting 10s for codes to refresh
+[16:29:41] [all done] total 1
+[11:38:24] [inventory-list] found 10 inventories
+[11:38:24] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[11:38:24] [inventory-list]   - EFT-PRO
+[11:38:24] [inventory-list]   - EME TOOL RENT
+[11:38:24] [inventory-list]   - Galaxy Multi Tool
+[11:38:24] [inventory-list]   - MRST
+[11:38:24] [inventory-list]   - REALME OTP
+[11:38:24] [inventory-list]   - SINGMA KEY___30MNT
+[11:38:24] [inventory-list]   - TSM TOOL
+[11:38:24] [inventory-list]   - UAT PRO
+[11:38:24] [inventory-list]   - UNLOCK___TOOL__RENT
+[11:38:37] [DIAG] admin tab url = https://pinfrp.com/admin
+[11:38:37] [plan] 1 inventory/inventories to process
+[11:38:37] opening 'Galaxy Multi Tool'
+[11:38:38] [scan] [Galaxy Multi Tool] 3 sold-out row(s) (limit=unlimited, mark_available=False)
+[11:38:38] [wait] [Galaxy Multi Tool] pin4frp@gmail.com — sold 1:58:38.619828 ago
+[11:38:40] [rotating] [Galaxy Multi Tool] pin5frp@gmail.com  old password = KWU3QB2Z  ->  new password = NL3XRFHX  (age=2:10:40.132653)
+[11:38:40] [DIAG] vendor login dispatch: kind='galaxy'
+[11:38:40] [vendor] goto https://galaxyunlock.in/login
+[11:38:41] [vendor] login OK: pin5frp@gmail.com
+[11:38:41] [vendor] navigating to account page
+[11:38:51] [vendor] waiting for Security tab
+[11:38:51] [vendor] clicking Security tab
+[11:38:51] [vendor] clicking Change Password
+[11:39:01] [vendor-fail] [Galaxy Multi Tool] pin5frp@gmail.com: TimeoutError('Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator("button:has-text(\\"Change Password\\")")\n')
+[11:39:03] [stop] break requested
+[11:39:03] [done] [Galaxy Multi Tool] rotated 0
+[11:39:03] [connect] checking status and connecting active inventories...
+[11:39:03] [all done] total 0
+[11:39:40] [state] navigating to Inventory page
+[11:39:50] [state] navigating to Inventory page
+[11:40:14] [state] navigating to Inventory page
+[11:40:23] [inventory-list] found 10 inventories
+[11:40:23] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[11:40:23] [inventory-list]   - EFT-PRO
+[11:40:23] [inventory-list]   - EME TOOL RENT
+[11:40:23] [inventory-list]   - Galaxy Multi Tool
+[11:40:23] [inventory-list]   - MRST
+[11:40:23] [inventory-list]   - REALME OTP
+[11:40:23] [inventory-list]   - SINGMA KEY___30MNT
+[11:40:23] [inventory-list]   - TSM TOOL
+[11:40:23] [inventory-list]   - UAT PRO
+[11:40:23] [inventory-list]   - UNLOCK___TOOL__RENT
+[11:41:14] [DIAG] admin tab url = https://pinfrp.com/admin
+[11:41:14] [plan] 1 inventory/inventories to process
+[11:41:14] opening 'Galaxy Multi Tool'
+[11:41:15] [scan] [Galaxy Multi Tool] 3 sold-out row(s) (limit=1, mark_available=False)
+[11:41:15] [rotating] [Galaxy Multi Tool] pin4frp@gmail.com  old password = XPE3TU2P  ->  new password = 9NRC25AQ  (age=2:01:15.682278)
+[11:41:15] [DIAG] vendor login dispatch: kind='galaxy'
+[11:41:15] [vendor] goto https://galaxyunlock.in/login
+[11:41:16] [vendor] login OK: pin4frp@gmail.com
+[11:41:16] [vendor] navigating to account page
+[11:41:26] [vendor] waiting for Security tab
+[11:41:26] [vendor] clicking Security tab
+[11:41:26] [vendor] clicking Change Password
+[11:41:36] [vendor-fail] [Galaxy Multi Tool] pin4frp@gmail.com: TimeoutError('Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator("button:has-text(\\"Change Password\\")")\n')
+[11:41:38] [rotating] [Galaxy Multi Tool] pin5frp@gmail.com  old password = KWU3QB2Z  ->  new password = HWQ9WR4N  (age=2:13:38.040822)
+[11:41:38] [DIAG] vendor login dispatch: kind='galaxy'
+[11:41:38] [vendor] goto https://galaxyunlock.in/login
+[11:41:38] [vendor] login OK: pin5frp@gmail.com
+[11:41:38] [vendor] navigating to account page
+[11:41:48] [vendor] waiting for Security tab
+[11:41:48] [vendor] clicking Security tab
+[11:41:48] [vendor] clicking Change Password
+[11:41:58] [vendor-fail] [Galaxy Multi Tool] pin5frp@gmail.com: TimeoutError('Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator("button:has-text(\\"Change Password\\")")\n')
+[11:42:00] [rotating] [Galaxy Multi Tool] pin6frp@gmail.com  old password = 7EBWGSKF  ->  new password = R4GTAQ57  (age=22:35:00.520292)
+[11:42:00] [DIAG] vendor login dispatch: kind='galaxy'
+[11:42:00] [vendor] goto https://galaxyunlock.in/login
+[11:42:01] [vendor] login OK: pin6frp@gmail.com
+[11:42:01] [vendor] navigating to account page
+[11:42:11] [vendor] waiting for Security tab
+[11:42:11] [vendor] clicking Security tab
+[11:42:11] [vendor] clicking Change Password
+[11:42:21] [vendor-fail] [Galaxy Multi Tool] pin6frp@gmail.com: TimeoutError('Page.click: Timeout 10000ms exceeded.\nCall log:\n  - waiting for locator("button:has-text(\\"Change Password\\")")\n')
+[11:42:22] [done] [Galaxy Multi Tool] rotated 0
+[11:42:22] [connect] checking status and connecting active inventories...
+[11:42:22] [all done] total 0
+[11:47:54] [state] navigating to Inventory page
+[11:47:58] [inventory-list] found 10 inventories
+[11:47:58] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[11:47:58] [inventory-list]   - EFT-PRO
+[11:47:58] [inventory-list]   - EME TOOL RENT
+[11:47:58] [inventory-list]   - Galaxy Multi Tool
+[11:47:58] [inventory-list]   - MRST
+[11:47:58] [inventory-list]   - REALME OTP
+[11:47:58] [inventory-list]   - SINGMA KEY___30MNT
+[11:47:58] [inventory-list]   - TSM TOOL
+[11:47:58] [inventory-list]   - UAT PRO
+[11:47:58] [inventory-list]   - UNLOCK___TOOL__RENT
+[11:48:18] [DIAG] admin tab url = https://pinfrp.com/admin
+[11:48:18] [plan] 1 inventory/inventories to process
+[11:48:18] opening 'Galaxy Multi Tool'
+[11:48:18] [inventory-fail] 'Galaxy Multi Tool': Error('Locator.scroll_into_view_if_needed: Element is not attached to the DOM\nCall log:\n  - attempting scroll into view action\n    - waiting for element to be stable\n')
+[11:48:18] [connect] checking status and connecting active inventories...
+[11:48:18] [connect] [Galaxy Multi Tool] is Active — proceeding to connect
+[11:48:18] [connect] [Galaxy Multi Tool] connecting remote service...
+[11:48:18] [connect] navigating to Services List -> Remote
+[11:48:19] [connect] clicking remote service name cell: 'Galaxy Multi Tool-{RENT 2 Hours}'
+[11:48:19] [connect] offcanvas opened
+[11:48:19] [connect] clicking Connect section button
+[11:48:20] [connect] opening Connect Inventory tab
+[11:48:20] [connect] choosing inventory in dropdown: Galaxy Multi Tool
+[11:48:20] [connect] inventory 'Galaxy Multi Tool' chosen
+[11:48:20] [connect] clicking final Connect button
+[11:48:20] [connect] remote service re-connected for [Galaxy Multi Tool]
+[11:48:20] [connect] closing offcanvas
+[11:48:21] [connect] offcanvas closed
+[11:48:21] [connect] navigating back to Inventory
+[11:48:22] [connect] [Galaxy Multi Tool] re-connected — waiting 10s for codes to refresh
+[11:48:32] [all done] total 0
+[11:48:41] [DIAG] admin tab url = https://pinfrp.com/admin
+[11:48:41] [plan] 1 inventory/inventories to process
+[11:48:41] opening 'Galaxy Multi Tool'
+[11:48:42] [scan] [Galaxy Multi Tool] 3 sold-out row(s) (limit=1, mark_available=True)
+[11:48:42] [rotating] [Galaxy Multi Tool] pin4frp@gmail.com  old password = XPE3TU2P  ->  new password = CGR4MPQM  (age=2:08:42.604916)
+[11:48:42] [DIAG] vendor login dispatch: kind='galaxy'
+[11:48:42] [vendor] goto https://galaxyunlock.in/login
+[11:48:43] [vendor] submit button text = 'Login'
+[11:48:45] [vendor] left login page, now at https://galaxyunlock.in/
+[11:48:45] [vendor] navigating to account page: https://galaxyunlock.in/account
+[11:48:49] [vendor] login OK: pin4frp@gmail.com
+[11:48:49] [vendor] on account page: https://galaxyunlock.in/account
+[11:48:59] [vendor] clicking Security tab
+[11:49:00] [vendor] security tab body[:500] = 'Toggle Menu\nGalaxy Multi Tool\nDISTRIBUTORS\nFIRMWARE FILES\nSERVER STATUS\nFUNCTIONS\nSUPPORTED MODELS\nP\nMy Account\n\nManage your profile, orders, and credits.\n\nDashboard\nProfile\nSecurity\nTool License\nOrder History\nTransactions\nCredits\nRealme OTP\nSecurity\n\nPassword\n\nManage your account access.\n\nChange Password\nForgot?\n\n2-Step Verification\n\nAdd an extra layer of security with an authenticator app.\n\nDisabled\nGalaxy Multi Tool\n\none tool unlimited possibilities\n\nLegal\nPrivacy Policy\nTerms & Conditions\nRe'
+[11:49:00] [vendor] clicking Change Password
+[11:49:00] [vendor] filling form
+[11:49:00] [vendor] waiting for Update Password to enable
+[11:49:00] [vendor] submitting password change
+[11:49:04] [vendor] logging out of Galaxy vendor
+[11:49:04] [vendor] avatar clicked
+[11:49:12] [vendor] logout step failed (non-fatal): TimeoutError('Page.wait_for_selector: Timeout 8000ms exceeded.\nCall log:\n  - waiting for locator("div[role=\\"menuitem\\"]:has-text(\\"Log out\\")") to be visible\n')
+[11:49:12] [vendor-pass] [Galaxy Multi Tool] pin4frp@gmail.com  ->  VENDOR password set to: CGR4MPQM
+[11:49:12] [admin] hard-refreshing panel to clear state before updating id=1727
+[11:49:13] [admin] waiting for sidebar to render...
+[11:49:16] [state] navigating to Inventory page via sidebar
+[11:49:18] opening 'Galaxy Multi Tool'
+[11:49:22] [admin] waiting 2s before clicking submit for id=1727
+[11:49:26] [admin] Successfully updated id=1727
+[11:49:26] [admin-pass] [Galaxy Multi Tool] pin4frp@gmail.com  ->  ADMIN code set to: 🆔 pin4frp@gmail.com 🔑 CGR4MPQM
+[11:49:26] [ok] [Galaxy Multi Tool] pin4frp@gmail.com rotated (mark_available=True)
+[11:49:27] [limit] [Galaxy Multi Tool] reached 1 rotation(s)
+[11:49:28] [done] [Galaxy Multi Tool] rotated 1
+[11:49:28] [connect] checking status and connecting active inventories...
+[11:49:28] [connect] [Galaxy Multi Tool] is Active — proceeding to connect
+[11:49:28] [connect] [Galaxy Multi Tool] connecting remote service...
+[11:49:28] [connect] navigating to Services List -> Remote
+[11:49:31] [connect] clicking remote service name cell: 'Galaxy Multi Tool-{RENT 2 Hours}'
+[11:49:32] [connect] offcanvas opened
+[11:49:32] [connect] clicking Connect section button
+[11:49:33] [connect] opening Connect Inventory tab
+[11:49:34] [connect] choosing inventory in dropdown: Galaxy Multi Tool
+[11:49:35] [connect] inventory 'Galaxy Multi Tool' chosen
+[11:49:35] [connect] clicking final Connect button
+[11:49:36] [connect] remote service re-connected for [Galaxy Multi Tool]
+[11:49:36] [connect] closing offcanvas
+[11:49:38] [connect] offcanvas closed
+[11:49:38] [connect] navigating back to Inventory
+[11:49:39] [connect] [Galaxy Multi Tool] re-connected — waiting 10s for codes to refresh
+[11:49:49] [all done] total 1
+[11:53:55] [inventory-list] found 10 inventories
+[11:53:55] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[11:53:55] [inventory-list]   - EFT-PRO
+[11:53:55] [inventory-list]   - EME TOOL RENT
+[11:53:55] [inventory-list]   - Galaxy Multi Tool
+[11:53:55] [inventory-list]   - MRST
+[11:53:55] [inventory-list]   - REALME OTP
+[11:53:55] [inventory-list]   - SINGMA KEY___30MNT
+[11:53:55] [inventory-list]   - TSM TOOL
+[11:53:55] [inventory-list]   - UAT PRO
+[11:53:55] [inventory-list]   - UNLOCK___TOOL__RENT
+[11:54:07] [DIAG] admin tab url = https://pinfrp.com/admin
+[11:54:07] [plan] 1 inventory/inventories to process
+[11:54:07] opening 'Galaxy Multi Tool'
+[11:54:08] [scan] [Galaxy Multi Tool] 2 sold-out row(s) (limit=unlimited, mark_available=True)
+[11:54:08] [rotating] [Galaxy Multi Tool] pin5frp@gmail.com  old password = KWU3QB2Z  ->  new password = MT4XD5QR  (age=2:26:08.872395)
+[11:54:08] [DIAG] vendor login dispatch: kind='galaxy'
+[11:54:08] [vendor] goto https://galaxyunlock.in/login
+[11:54:09] [vendor] submit button text = 'Login'
+[11:54:11] [vendor] left login page, now at https://galaxyunlock.in/
+[11:54:11] [vendor] navigating to account page: https://galaxyunlock.in/account
+[11:54:14] [vendor] login OK: pin5frp@gmail.com
+[11:54:14] [vendor] on account page: https://galaxyunlock.in/account
+[11:54:24] [vendor] clicking Security tab
+[11:54:24] [vendor] security tab body[:500] = 'Toggle Menu\nGalaxy Multi Tool\nDISTRIBUTORS\nFIRMWARE FILES\nSERVER STATUS\nFUNCTIONS\nSUPPORTED MODELS\nP\nMy Account\n\nManage your profile, orders, and credits.\n\nDashboard\nProfile\nSecurity\nTool License\nOrder History\nTransactions\nCredits\nRealme OTP\nSecurity\n\nPassword\n\nManage your account access.\n\nChange Password\nForgot?\n\n2-Step Verification\n\nAdd an extra layer of security with an authenticator app.\n\nDisabled\nGalaxy Multi Tool\n\none tool unlimited possibilities\n\nLegal\nPrivacy Policy\nTerms & Conditions\nRe'
+[11:54:24] [vendor] clicking Change Password
+[11:54:24] [vendor] filling form
+[11:54:24] [vendor] waiting for Update Password to enable
+[11:54:24] [vendor] submitting password change
+[11:54:29] [vendor] logging out of Galaxy vendor
+[11:54:29] [vendor] avatar clicked via 'button:has(span.rounded-full.bg-muted)'
+[11:54:29] [vendor] Log out clicked via 'div[role="menuitem"]:has(span:text-is("Log out"))'
+[11:54:30] [vendor] logout OK — on login page
+[11:54:30] [vendor-pass] [Galaxy Multi Tool] pin5frp@gmail.com  ->  VENDOR password set to: MT4XD5QR
+[11:54:30] [admin] hard-refreshing panel to clear state before updating id=1821
+[11:54:31] [admin] waiting for sidebar to render...
+[11:54:34] [state] navigating to Inventory page via sidebar
+[11:54:36] opening 'Galaxy Multi Tool'
+[11:54:40] [admin] waiting 2s before clicking submit for id=1821
+[11:54:43] [admin] Successfully updated id=1821
+[11:54:43] [admin-pass] [Galaxy Multi Tool] pin5frp@gmail.com  ->  ADMIN code set to: 🆔 pin5frp@gmail.com 🔑 MT4XD5QR
+[11:54:43] [ok] [Galaxy Multi Tool] pin5frp@gmail.com rotated (mark_available=True)
+[11:54:45] [rotating] [Galaxy Multi Tool] pin6frp@gmail.com  old password = 7EBWGSKF  ->  new password = MYPWVE3R  (age=22:47:45.395134)
+[11:54:45] [DIAG] vendor login dispatch: kind='galaxy'
+[11:54:45] [vendor] goto https://galaxyunlock.in/login
+[11:54:45] [vendor] submit button text = 'Login'
+[11:54:47] [vendor] left login page, now at https://galaxyunlock.in/
+[11:54:47] [vendor] navigating to account page: https://galaxyunlock.in/account
+[11:54:52] [vendor] login OK: pin6frp@gmail.com
+[11:54:52] [vendor] on account page: https://galaxyunlock.in/account
+[11:55:02] [vendor] clicking Security tab
+[11:55:02] [vendor] security tab body[:500] = 'Toggle Menu\nGalaxy Multi Tool\nDISTRIBUTORS\nFIRMWARE FILES\nSERVER STATUS\nFUNCTIONS\nSUPPORTED MODELS\nP\nMy Account\n\nManage your profile, orders, and credits.\n\nDashboard\nProfile\nSecurity\nTool License\nOrder History\nTransactions\nCredits\nRealme OTP\nSecurity\n\nPassword\n\nManage your account access.\n\nChange Password\nForgot?\n\n2-Step Verification\n\nAdd an extra layer of security with an authenticator app.\n\nDisabled\nGalaxy Multi Tool\n\none tool unlimited possibilities\n\nLegal\nPrivacy Policy\nTerms & Conditions\nRe'
+[11:55:02] [vendor] clicking Change Password
+[11:55:02] [vendor] filling form
+[11:55:02] [vendor] waiting for Update Password to enable
+[11:55:02] [vendor] submitting password change
+[11:55:06] [vendor] logging out of Galaxy vendor
+[11:55:07] [vendor] avatar clicked via 'button:has(span.rounded-full.bg-muted)'
+[11:55:07] [vendor] Log out clicked via 'div[role="menuitem"]:has(span:text-is("Log out"))'
+[11:55:08] [vendor] logout OK — on login page
+[11:55:08] [vendor-pass] [Galaxy Multi Tool] pin6frp@gmail.com  ->  VENDOR password set to: MYPWVE3R
+[11:55:08] [admin] hard-refreshing panel to clear state before updating id=1824
+[11:55:08] [admin] waiting for sidebar to render...
+[11:55:11] [state] navigating to Inventory page via sidebar
+[11:55:14] opening 'Galaxy Multi Tool'
+[11:55:18] [admin] waiting 2s before clicking submit for id=1824
+[11:55:21] [admin] Successfully updated id=1824
+[11:55:21] [admin-pass] [Galaxy Multi Tool] pin6frp@gmail.com  ->  ADMIN code set to: 🆔 pin6frp@gmail.com 🔑 MYPWVE3R
+[11:55:21] [ok] [Galaxy Multi Tool] pin6frp@gmail.com rotated (mark_available=True)
+[11:55:23] [done] [Galaxy Multi Tool] rotated 2
+[11:55:23] [connect] checking status and connecting active inventories...
+[11:55:23] [connect] [Galaxy Multi Tool] is Active — proceeding to connect
+[11:55:23] [connect] [Galaxy Multi Tool] connecting remote service...
+[11:55:23] [connect] navigating to Services List -> Remote
+[11:55:24] [connect] clicking remote service name cell: 'Galaxy Multi Tool-{RENT 2 Hours}'
+[11:55:24] [connect] offcanvas opened
+[11:55:24] [connect] clicking Connect section button
+[11:55:25] [connect] opening Connect Inventory tab
+[11:55:25] [connect] choosing inventory in dropdown: Galaxy Multi Tool
+[11:55:26] [connect] inventory 'Galaxy Multi Tool' chosen
+[11:55:26] [connect] clicking final Connect button
+[11:55:26] [connect] remote service re-connected for [Galaxy Multi Tool]
+[11:55:26] [connect] closing offcanvas
+[11:55:26] [connect] offcanvas closed
+[11:55:26] [connect] navigating back to Inventory
+[11:55:27] [connect] [Galaxy Multi Tool] re-connected — waiting 10s for codes to refresh
+[11:55:37] [all done] total 2
+[11:55:56] [DIAG] admin tab url = https://pinfrp.com/admin
+[11:55:57] [plan] 1 inventory/inventories to process
+[11:55:57] opening 'Android Multi Tool[AMT]__RENT'
+[11:55:58] [scan] [Android Multi Tool[AMT]__RENT] 20 sold-out row(s) (limit=1, mark_available=True)
+[11:55:58] [wait] [Android Multi Tool[AMT]__RENT] pin16frp@gmail.com — sold 0:01:58.447923 ago
+[11:55:59] [wait] [Android Multi Tool[AMT]__RENT] unlocktool0133333@gmail.com — sold 0:05:59.954826 ago
+[11:56:01] [wait] [Android Multi Tool[AMT]__RENT] imdad9365000393@gmail.com — sold 0:07:01.465458 ago
+[11:56:02] [wait] [Android Multi Tool[AMT]__RENT] tctctc12312333@gmail.com — sold 0:11:02.978553 ago
+[11:56:04] [wait] [Android Multi Tool[AMT]__RENT] pin1frp@gmail.com — sold 0:13:04.490708 ago
+[11:56:06] [wait] [Android Multi Tool[AMT]__RENT] pin14frp@gmail.com — sold 0:20:06.001451 ago
+[11:56:07] [wait] [Android Multi Tool[AMT]__RENT] teamvieweremail09@gmail.com — sold 0:32:07.508262 ago
+[11:56:09] [wait] [Android Multi Tool[AMT]__RENT] pin10frp@gmail.com — sold 0:38:09.021823 ago
+[11:56:10] [wait] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com — sold 0:39:10.524516 ago
+[11:56:12] [wait] [Android Multi Tool[AMT]__RENT] pinfrp0011@gmail.com — sold 0:39:12.038159 ago
+[11:56:13] [wait] [Android Multi Tool[AMT]__RENT] pin4frp@gmail.com — sold 0:49:13.555077 ago
+[11:56:15] [wait] [Android Multi Tool[AMT]__RENT] anayalimma@gmail.com — sold 1:03:15.070731 ago
+[11:56:16] [wait] [Android Multi Tool[AMT]__RENT] pin5frp@gmail.com — sold 1:18:16.586974 ago
+[11:56:18] [wait] [Android Multi Tool[AMT]__RENT] amtpinfrp@gmail.com — sold 1:21:18.092951 ago
+[11:56:19] [wait] [Android Multi Tool[AMT]__RENT] pin7frp@gmail.com — sold 1:34:19.601742 ago
+[11:56:21] [wait] [Android Multi Tool[AMT]__RENT] pin11frp@gmail.com — sold 1:39:21.114572 ago
+[11:56:22] [wait] [Android Multi Tool[AMT]__RENT] pin6frp@gmail.com — sold 1:41:22.623308 ago
+[11:56:24] [wait] [Android Multi Tool[AMT]__RENT] gsmclasssupport@gmail.com — sold 1:42:24.127221 ago
+[11:56:25] [wait] [Android Multi Tool[AMT]__RENT] pin12frp@gmail.com — sold 1:49:25.636140 ago
+[11:56:27] [rotating] [Android Multi Tool[AMT]__RENT] pin15frp@gmail.com  old password = HVHGJ  ->  new password = MM5AZ82J  (age=2:19:27.146372)
+[11:56:27] [DIAG] vendor login dispatch: kind='amt'
+[11:56:27] [vendor] goto https://androidmultitool.com/controller/login
+[11:56:33] [vendor] Turnstile OK
+[11:56:53] [vendor-fail] [Android Multi Tool[AMT]__RENT] pin15frp@gmail.com: TimeoutError('Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator("a[href=\'https://androidmultitool.com/controller/account/\']") to be visible\n')
+[11:56:55] [done] [Android Multi Tool[AMT]__RENT] rotated 0
+[11:56:55] [connect] checking status and connecting active inventories...
+[11:56:55] [connect] [Android Multi Tool[AMT]__RENT] is Active — proceeding to connect
+[11:56:55] [connect] [Android Multi Tool[AMT]__RENT] connecting remote service...
+[11:56:55] [connect] navigating to Services List -> Remote
+[11:56:56] [connect] clicking remote service name cell: 'AMT ( Android Multi Tool ) 2 Hours ❇️ Fast (24x7)'
+[11:56:57] [connect] offcanvas opened
+[11:56:57] [connect] clicking Connect section button
+[11:56:57] [connect] opening Connect Inventory tab
+[11:56:57] [connect] choosing inventory in dropdown: Android Multi Tool[AMT]__RENT
+[11:56:58] [connect] inventory 'Android Multi Tool[AMT]__RENT' chosen
+[11:56:58] [connect] clicking final Connect button
+[11:56:58] [connect] remote service re-connected for [Android Multi Tool[AMT]__RENT]
+[11:56:58] [connect] closing offcanvas
+[11:56:59] [connect] offcanvas closed
+[11:56:59] [connect] navigating back to Inventory
+[11:56:59] [connect] [Android Multi Tool[AMT]__RENT] re-connected — waiting 10s for codes to refresh
+[11:57:09] [all done] total 0
+[11:57:18] [DIAG] admin tab url = https://pinfrp.com/admin
+[11:57:18] [plan] 1 inventory/inventories to process
+[11:57:18] opening 'Android Multi Tool[AMT]__RENT'
+[11:57:19] [scan] [Android Multi Tool[AMT]__RENT] 20 sold-out row(s) (limit=1, mark_available=False)
+[11:57:19] [wait] [Android Multi Tool[AMT]__RENT] pin16frp@gmail.com — sold 0:03:19.642733 ago
+[11:57:21] [wait] [Android Multi Tool[AMT]__RENT] unlocktool0133333@gmail.com — sold 0:07:21.154738 ago
+[11:57:22] [wait] [Android Multi Tool[AMT]__RENT] imdad9365000393@gmail.com — sold 0:08:22.664347 ago
+[11:57:24] [wait] [Android Multi Tool[AMT]__RENT] tctctc12312333@gmail.com — sold 0:12:24.176499 ago
+[11:57:25] [wait] [Android Multi Tool[AMT]__RENT] pin1frp@gmail.com — sold 0:14:25.683005 ago
+[11:57:27] [wait] [Android Multi Tool[AMT]__RENT] pin14frp@gmail.com — sold 0:21:27.190826 ago
+[11:57:28] [wait] [Android Multi Tool[AMT]__RENT] teamvieweremail09@gmail.com — sold 0:33:28.704255 ago
+[11:57:30] [wait] [Android Multi Tool[AMT]__RENT] pin10frp@gmail.com — sold 0:39:30.219252 ago
+[11:57:31] [wait] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com — sold 0:40:31.731290 ago
+[11:57:33] [wait] [Android Multi Tool[AMT]__RENT] pinfrp0011@gmail.com — sold 0:40:33.243248 ago
+[11:57:34] [wait] [Android Multi Tool[AMT]__RENT] pin4frp@gmail.com — sold 0:50:34.753354 ago
+[11:57:36] [rotating] [Android Multi Tool[AMT]__RENT] anayalimma@gmail.com  old password = JKHGUY  ->  new password = 9MKZ72CX  (age=1:04:36.267868)
+[11:57:36] [DIAG] vendor login dispatch: kind='amt'
+[11:57:36] [vendor] goto https://androidmultitool.com/controller/login
+[11:57:40] [vendor] Turnstile OK
+[11:57:42] [vendor] login OK: anayalimma@gmail.com
+[11:57:43] [vendor] waiting for account-page Turnstile token
+[11:57:46] [vendor] account-page Turnstile OK
+[11:57:46] [vendor] clicking Save Changes button
+[11:57:46] [vendor] Save clicked via 'button.btn.btn-icon.btn-success:has-text("Save Changes")'
+[11:57:51] [vendor-pass] [Android Multi Tool[AMT]__RENT] anayalimma@gmail.com  ->  VENDOR password set to: 9MKZ72CX
+[11:57:51] [admin] hard-refreshing panel to clear state before updating id=13
+[11:58:14] [admin] waiting for sidebar to render...
+[11:58:16] [state] navigating to Inventory page via sidebar
+[11:58:19] opening 'Android Multi Tool[AMT]__RENT'
+[11:58:23] [admin] waiting 2s before clicking submit for id=13
+[11:58:26] [admin] Successfully updated id=13
+[11:58:26] [admin-pass] [Android Multi Tool[AMT]__RENT] anayalimma@gmail.com  ->  ADMIN code set to: 🆔 anayalimma@gmail.com 🔑 9MKZ72CX
+[11:58:26] [ok] [Android Multi Tool[AMT]__RENT] anayalimma@gmail.com rotated (mark_available=False)
+[11:58:28] [limit] [Android Multi Tool[AMT]__RENT] reached 1 rotation(s)
+[11:58:28] [done] [Android Multi Tool[AMT]__RENT] rotated 1
+[11:58:28] [connect] checking status and connecting active inventories...
+[11:58:28] [connect] [Android Multi Tool[AMT]__RENT] is Active — proceeding to connect
+[11:58:28] [connect] [Android Multi Tool[AMT]__RENT] connecting remote service...
+[11:58:28] [connect] navigating to Services List -> Remote
+[11:58:29] [connect] clicking remote service name cell: 'AMT ( Android Multi Tool ) 2 Hours ❇️ Fast (24x7)'
+[11:58:30] [connect] offcanvas opened
+[11:58:30] [connect] clicking Connect section button
+[11:58:30] [connect] opening Connect Inventory tab
+[11:58:30] [connect] choosing inventory in dropdown: Android Multi Tool[AMT]__RENT
+[11:58:31] [connect] inventory 'Android Multi Tool[AMT]__RENT' chosen
+[11:58:31] [connect] clicking final Connect button
+[11:58:31] [connect] remote service re-connected for [Android Multi Tool[AMT]__RENT]
+[11:58:31] [connect] closing offcanvas
+[11:58:31] [connect] offcanvas closed
+[11:58:31] [connect] navigating back to Inventory
+[11:58:32] [connect] [Android Multi Tool[AMT]__RENT] re-connected — waiting 10s for codes to refresh
+[11:58:42] [all done] total 1
+[12:07:39] [inventory-list] found 10 inventories
+[12:07:39] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[12:07:39] [inventory-list]   - EFT-PRO
+[12:07:39] [inventory-list]   - EME TOOL RENT
+[12:07:39] [inventory-list]   - Galaxy Multi Tool
+[12:07:39] [inventory-list]   - MRST
+[12:07:39] [inventory-list]   - REALME OTP
+[12:07:39] [inventory-list]   - SINGMA KEY___30MNT
+[12:07:39] [inventory-list]   - TSM TOOL
+[12:07:39] [inventory-list]   - UAT PRO
+[12:07:39] [inventory-list]   - UNLOCK___TOOL__RENT
+[12:07:40] [inventory-list] found 10 inventories
+[12:07:40] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[12:07:40] [inventory-list]   - EFT-PRO
+[12:07:40] [inventory-list]   - EME TOOL RENT
+[12:07:40] [inventory-list]   - Galaxy Multi Tool
+[12:07:40] [inventory-list]   - MRST
+[12:07:40] [inventory-list]   - REALME OTP
+[12:07:40] [inventory-list]   - SINGMA KEY___30MNT
+[12:07:40] [inventory-list]   - TSM TOOL
+[12:07:40] [inventory-list]   - UAT PRO
+[12:07:40] [inventory-list]   - UNLOCK___TOOL__RENT
+[12:07:57] [DIAG] admin tab url = https://pinfrp.com/admin
+[12:07:57] [plan] 1 inventory/inventories to process
+[12:07:57] opening 'Android Multi Tool[AMT]__RENT'
+[12:07:59] [scan] [Android Multi Tool[AMT]__RENT] 21 sold-out row(s) (limit=unlimited, mark_available=True)
+[12:07:59] [wait] [Android Multi Tool[AMT]__RENT] pin9frp@gmail.com — sold 0:01:59.538706 ago
+[12:08:01] [wait] [Android Multi Tool[AMT]__RENT] pin16frp@gmail.com — sold 0:14:01.048256 ago
+[12:08:02] [wait] [Android Multi Tool[AMT]__RENT] unlocktool0133333@gmail.com — sold 0:18:02.559016 ago
+[12:08:04] [wait] [Android Multi Tool[AMT]__RENT] imdad9365000393@gmail.com — sold 0:19:04.073664 ago
+[12:08:05] [wait] [Android Multi Tool[AMT]__RENT] tctctc12312333@gmail.com — sold 0:23:05.588443 ago
+[12:08:07] [wait] [Android Multi Tool[AMT]__RENT] pin1frp@gmail.com — sold 0:25:07.098019 ago
+[12:08:08] [wait] [Android Multi Tool[AMT]__RENT] pin14frp@gmail.com — sold 0:32:08.602064 ago
+[12:08:10] [wait] [Android Multi Tool[AMT]__RENT] teamvieweremail09@gmail.com — sold 0:44:10.113962 ago
+[12:08:11] [wait] [Android Multi Tool[AMT]__RENT] pin10frp@gmail.com — sold 0:50:11.625560 ago
+[12:08:13] [wait] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com — sold 0:51:13.135602 ago
+[12:08:14] [wait] [Android Multi Tool[AMT]__RENT] pinfrp0011@gmail.com — sold 0:51:14.637648 ago
+[12:08:16] [wait] [Android Multi Tool[AMT]__RENT] pin4frp@gmail.com — sold 1:01:16.150311 ago
+[12:08:17] [wait] [Android Multi Tool[AMT]__RENT] anayalimma@gmail.com — sold 1:15:17.664523 ago
+[12:08:19] [wait] [Android Multi Tool[AMT]__RENT] pin5frp@gmail.com — sold 1:30:19.166491 ago
+[12:08:20] [wait] [Android Multi Tool[AMT]__RENT] amtpinfrp@gmail.com — sold 1:33:20.668781 ago
+[12:08:22] [wait] [Android Multi Tool[AMT]__RENT] pin7frp@gmail.com — sold 1:46:22.176638 ago
+[12:08:23] [wait] [Android Multi Tool[AMT]__RENT] pin11frp@gmail.com — sold 1:51:23.691736 ago
+[12:08:25] [wait] [Android Multi Tool[AMT]__RENT] pin6frp@gmail.com — sold 1:53:25.193488 ago
+[12:08:26] [wait] [Android Multi Tool[AMT]__RENT] gsmclasssupport@gmail.com — sold 1:54:26.703095 ago
+[12:08:28] [rotating] [Android Multi Tool[AMT]__RENT] pin12frp@gmail.com  old password = HJFVHGJ  ->  new password = 5NSC9L6R  (age=2:01:28.211267)
+[12:08:28] [DIAG] vendor login dispatch: kind='amt'
+[12:08:28] [vendor] goto https://androidmultitool.com/controller/login
+[12:08:32] [vendor] Turnstile OK
+[12:08:33] [vendor] login OK: pin12frp@gmail.com
+[12:08:34] [vendor] solving account-page Turnstile via Peak...
+[12:08:34] [vendor] account-page Turnstile solve failed: PeakError('No Turnstile sitekey found on the page. Is the widget loaded? You can pass sitekey=... explicitly.') — continuing
+[12:08:34] [vendor] clicking Save Changes button
+[12:08:34] [vendor] Save clicked via 'button.btn.btn-icon.btn-success:has-text("Save Changes")'
+[12:08:39] [vendor-pass] [Android Multi Tool[AMT]__RENT] pin12frp@gmail.com  ->  VENDOR password set to: 5NSC9L6R
+[12:08:39] [admin] hard-refreshing panel to clear state before updating id=2936
+[12:08:40] [admin] waiting for sidebar to render...
+[12:08:43] [state] navigating to Inventory page via sidebar
+[12:08:45] opening 'Android Multi Tool[AMT]__RENT'
+[12:08:49] [admin] waiting 2s before clicking submit for id=2936
+[12:08:52] [admin] Successfully updated id=2936
+[12:08:52] [admin-pass] [Android Multi Tool[AMT]__RENT] pin12frp@gmail.com  ->  ADMIN code set to: 🆔 pin12frp@gmail.com 🔑 5NSC9L6R
+[12:08:52] [ok] [Android Multi Tool[AMT]__RENT] pin12frp@gmail.com rotated (mark_available=True)
+[12:08:54] [rotating] [Android Multi Tool[AMT]__RENT] pin15frp@gmail.com  old password = HVHGJ  ->  new password = M7X8XD6V  (age=2:31:54.378987)
+[12:08:54] [DIAG] vendor login dispatch: kind='amt'
+[12:08:54] [vendor] goto https://androidmultitool.com/controller/login
+[12:08:55] [vendor] already logged in — redirect detected at 'https://androidmultitool.com/controller/dashboard/'. Logging out.
+[12:08:58] [vendor] re-navigating to login page after logout
+[12:09:01] [vendor] Turnstile OK
+[12:09:05] [vendor-fail] [Android Multi Tool[AMT]__RENT] pin15frp@gmail.com: Exception('Page.wait_for_selector: Connection closed while reading from the driver')
+[12:10:39] [DIAG] admin tab url = https://pinfrp.com/admin
+[12:10:39] [plan] 1 inventory/inventories to process
+[12:10:39] opening 'Android Multi Tool[AMT]__RENT'
+[12:10:40] [scan] [Android Multi Tool[AMT]__RENT] 21 sold-out row(s) (limit=1, mark_available=True)
+[12:10:40] [wait] [Android Multi Tool[AMT]__RENT] pin8frp@gmail.com — sold 0:01:40.994758 ago
+[12:10:42] [wait] [Android Multi Tool[AMT]__RENT] pin9frp@gmail.com — sold 0:04:42.499236 ago
+[12:10:44] [wait] [Android Multi Tool[AMT]__RENT] pin16frp@gmail.com — sold 0:16:44.009078 ago
+[12:10:45] [wait] [Android Multi Tool[AMT]__RENT] unlocktool0133333@gmail.com — sold 0:20:45.518700 ago
+[12:10:47] [wait] [Android Multi Tool[AMT]__RENT] imdad9365000393@gmail.com — sold 0:21:47.032626 ago
+[12:10:48] [wait] [Android Multi Tool[AMT]__RENT] tctctc12312333@gmail.com — sold 0:25:48.539368 ago
+[12:10:50] [wait] [Android Multi Tool[AMT]__RENT] pin1frp@gmail.com — sold 0:27:50.051763 ago
+[12:10:51] [wait] [Android Multi Tool[AMT]__RENT] pin14frp@gmail.com — sold 0:34:51.555928 ago
+[12:10:53] [wait] [Android Multi Tool[AMT]__RENT] teamvieweremail09@gmail.com — sold 0:46:53.058445 ago
+[12:10:54] [wait] [Android Multi Tool[AMT]__RENT] pin10frp@gmail.com — sold 0:52:54.561494 ago
+[12:10:56] [wait] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com — sold 0:53:56.071335 ago
+[12:10:57] [wait] [Android Multi Tool[AMT]__RENT] pinfrp0011@gmail.com — sold 0:53:57.587655 ago
+[12:10:59] [wait] [Android Multi Tool[AMT]__RENT] pin4frp@gmail.com — sold 1:03:59.102365 ago
+[12:11:00] [wait] [Android Multi Tool[AMT]__RENT] anayalimma@gmail.com — sold 1:18:00.616016 ago
+[12:11:02] [wait] [Android Multi Tool[AMT]__RENT] pin5frp@gmail.com — sold 1:33:02.129004 ago
+[12:11:03] [wait] [Android Multi Tool[AMT]__RENT] amtpinfrp@gmail.com — sold 1:36:03.638520 ago
+[12:11:05] [wait] [Android Multi Tool[AMT]__RENT] pin7frp@gmail.com — sold 1:49:05.140895 ago
+[12:11:06] [wait] [Android Multi Tool[AMT]__RENT] pin11frp@gmail.com — sold 1:54:06.654917 ago
+[12:11:08] [wait] [Android Multi Tool[AMT]__RENT] pin6frp@gmail.com — sold 1:56:08.156500 ago
+[12:11:09] [wait] [Android Multi Tool[AMT]__RENT] gsmclasssupport@gmail.com — sold 1:57:09.671188 ago
+[12:11:11] [rotating] [Android Multi Tool[AMT]__RENT] pin15frp@gmail.com  old password = HVHGJ  ->  new password = Z2WNPZC8  (age=2:34:11.185208)
+[12:11:11] [DIAG] vendor login dispatch: kind='amt'
+[12:11:11] [vendor] goto https://androidmultitool.com/controller/login
+[12:11:14] [vendor] Turnstile OK
+[12:11:37] [vendor-fail] [Android Multi Tool[AMT]__RENT] pin15frp@gmail.com: TimeoutError('Page.wait_for_selector: Timeout 20000ms exceeded.\nCall log:\n  - waiting for locator("a[href=\'https://androidmultitool.com/controller/account/\']") to be visible\n')
+[12:11:38] [done] [Android Multi Tool[AMT]__RENT] rotated 0
+[12:11:38] [connect] checking status and connecting active inventories...
+[12:11:38] [connect] [Android Multi Tool[AMT]__RENT] is Active — proceeding to connect
+[12:11:38] [connect] [Android Multi Tool[AMT]__RENT] connecting remote service...
+[12:11:38] [connect] navigating to Services List -> Remote
+[12:11:40] [connect] clicking remote service name cell: 'AMT ( Android Multi Tool ) 2 Hours ❇️ Fast (24x7)'
+[12:11:40] [connect] offcanvas opened
+[12:11:40] [connect] clicking Connect section button
+[12:11:40] [connect] opening Connect Inventory tab
+[12:11:41] [connect] choosing inventory in dropdown: Android Multi Tool[AMT]__RENT
+[12:11:41] [connect] inventory 'Android Multi Tool[AMT]__RENT' chosen
+[12:11:41] [connect] clicking final Connect button
+[12:11:41] [connect] remote service re-connected for [Android Multi Tool[AMT]__RENT]
+[12:11:41] [connect] closing offcanvas
+[12:11:42] [connect] offcanvas closed
+[12:11:42] [connect] navigating back to Inventory
+[12:11:43] [connect] [Android Multi Tool[AMT]__RENT] re-connected — waiting 10s for codes to refresh
+[12:11:53] [all done] total 0
+[12:12:25] [DIAG] admin tab url = https://pinfrp.com/admin
+[12:12:25] [plan] 1 inventory/inventories to process
+[12:12:25] opening 'Android Multi Tool[AMT]__RENT'
+[12:12:26] [scan] [Android Multi Tool[AMT]__RENT] 22 sold-out row(s) (limit=1, mark_available=False)
+[12:12:26] [wait] [Android Multi Tool[AMT]__RENT] pin13frp@gmail.com — sold 0:02:26.974851 ago
+[12:12:28] [wait] [Android Multi Tool[AMT]__RENT] pin8frp@gmail.com — sold 0:03:28.486721 ago
+[12:12:29] [wait] [Android Multi Tool[AMT]__RENT] pin9frp@gmail.com — sold 0:06:29.997446 ago
+[12:12:31] [wait] [Android Multi Tool[AMT]__RENT] pin16frp@gmail.com — sold 0:18:31.512559 ago
+[12:12:33] [wait] [Android Multi Tool[AMT]__RENT] unlocktool0133333@gmail.com — sold 0:22:33.020930 ago
+[12:12:34] [wait] [Android Multi Tool[AMT]__RENT] imdad9365000393@gmail.com — sold 0:23:34.524308 ago
+[12:12:36] [wait] [Android Multi Tool[AMT]__RENT] tctctc12312333@gmail.com — sold 0:27:36.040086 ago
+[12:12:37] [wait] [Android Multi Tool[AMT]__RENT] pin1frp@gmail.com — sold 0:29:37.554994 ago
+[12:12:39] [wait] [Android Multi Tool[AMT]__RENT] pin14frp@gmail.com — sold 0:36:39.057653 ago
+[12:12:40] [wait] [Android Multi Tool[AMT]__RENT] teamvieweremail09@gmail.com — sold 0:48:40.573725 ago
+[12:12:42] [wait] [Android Multi Tool[AMT]__RENT] pin10frp@gmail.com — sold 0:54:42.087244 ago
+[12:12:43] [wait] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com — sold 0:55:43.599601 ago
+[12:12:45] [wait] [Android Multi Tool[AMT]__RENT] pinfrp0011@gmail.com — sold 0:55:45.101337 ago
+[12:12:46] [rotating] [Android Multi Tool[AMT]__RENT] pin4frp@gmail.com  old password = L8M3MXKT  ->  new password = 937EJTW7  (age=1:05:46.613048)
+[12:12:46] [DIAG] vendor login dispatch: kind='amt'
+[12:12:46] [vendor] goto https://androidmultitool.com/controller/login
+[12:12:50] [vendor] Turnstile OK
+[12:12:51] [vendor] login OK: pin4frp@gmail.com
+[12:12:52] [vendor] solving account-page Turnstile via Peak...
+[12:12:52] [vendor] account-page Turnstile solve failed: PeakError('No Turnstile sitekey found on the page. Is the widget loaded? You can pass sitekey=... explicitly.') — continuing
+[12:12:52] [vendor] clicking Save Changes button
+[12:12:52] [vendor] Save clicked via 'button.btn.btn-icon.btn-success:has-text("Save Changes")'
+[12:12:57] [vendor-pass] [Android Multi Tool[AMT]__RENT] pin4frp@gmail.com  ->  VENDOR password set to: 937EJTW7
+[12:12:57] [admin] hard-refreshing panel to clear state before updating id=887
+[12:12:58] [admin] waiting for sidebar to render...
+[12:13:01] [state] navigating to Inventory page via sidebar
+[12:13:03] opening 'Android Multi Tool[AMT]__RENT'
+[12:13:07] [admin] waiting 2s before clicking submit for id=887
+[12:13:11] [admin] Successfully updated id=887
+[12:13:11] [admin-pass] [Android Multi Tool[AMT]__RENT] pin4frp@gmail.com  ->  ADMIN code set to: 🆔 pin4frp@gmail.com 🔑 937EJTW7
+[12:13:11] [ok] [Android Multi Tool[AMT]__RENT] pin4frp@gmail.com rotated (mark_available=False)
+[12:13:12] [limit] [Android Multi Tool[AMT]__RENT] reached 1 rotation(s)
+[12:13:12] [done] [Android Multi Tool[AMT]__RENT] rotated 1
+[12:13:12] [connect] checking status and connecting active inventories...
+[12:13:12] [connect] [Android Multi Tool[AMT]__RENT] is Active — proceeding to connect
+[12:13:12] [connect] [Android Multi Tool[AMT]__RENT] connecting remote service...
+[12:13:12] [connect] navigating to Services List -> Remote
+[12:13:14] [connect] clicking remote service name cell: 'AMT ( Android Multi Tool ) 2 Hours ❇️ Fast (24x7)'
+[12:13:14] [connect] offcanvas opened
+[12:13:14] [connect] clicking Connect section button
+[12:13:15] [connect] opening Connect Inventory tab
+[12:13:15] [connect] choosing inventory in dropdown: Android Multi Tool[AMT]__RENT
+[12:13:15] [connect] inventory 'Android Multi Tool[AMT]__RENT' chosen
+[12:13:15] [connect] clicking final Connect button
+[12:13:15] [connect] remote service re-connected for [Android Multi Tool[AMT]__RENT]
+[12:13:15] [connect] closing offcanvas
+[12:13:16] [connect] offcanvas closed
+[12:13:16] [connect] navigating back to Inventory
+[12:13:17] [connect] [Android Multi Tool[AMT]__RENT] re-connected — waiting 10s for codes to refresh
+[12:13:27] [all done] total 1
+[12:17:35] [DIAG] admin tab url = https://pinfrp.com/admin
+[12:17:35] [plan] 1 inventory/inventories to process
+[12:17:35] opening 'Android Multi Tool[AMT]__RENT'
+[12:17:37] [scan] [Android Multi Tool[AMT]__RENT] 23 sold-out row(s) (limit=1, mark_available=False)
+[12:17:37] [wait] [Android Multi Tool[AMT]__RENT] borneo6665@gmail.com — sold 0:04:37.296885 ago
+[12:17:38] [wait] [Android Multi Tool[AMT]__RENT] pin13frp@gmail.com — sold 0:07:38.809672 ago
+[12:17:40] [wait] [Android Multi Tool[AMT]__RENT] pin8frp@gmail.com — sold 0:08:40.325566 ago
+[12:17:41] [wait] [Android Multi Tool[AMT]__RENT] pin9frp@gmail.com — sold 0:11:41.837483 ago
+[12:17:43] [wait] [Android Multi Tool[AMT]__RENT] pin16frp@gmail.com — sold 0:23:43.349714 ago
+[12:17:44] [wait] [Android Multi Tool[AMT]__RENT] unlocktool0133333@gmail.com — sold 0:27:44.864384 ago
+[12:17:46] [wait] [Android Multi Tool[AMT]__RENT] imdad9365000393@gmail.com — sold 0:28:46.373198 ago
+[12:17:47] [wait] [Android Multi Tool[AMT]__RENT] tctctc12312333@gmail.com — sold 0:32:47.883022 ago
+[12:17:49] [wait] [Android Multi Tool[AMT]__RENT] pin1frp@gmail.com — sold 0:34:49.395707 ago
+[12:17:50] [wait] [Android Multi Tool[AMT]__RENT] pin14frp@gmail.com — sold 0:41:50.905248 ago
+[12:17:52] [wait] [Android Multi Tool[AMT]__RENT] teamvieweremail09@gmail.com — sold 0:53:52.417397 ago
+[12:17:53] [wait] [Android Multi Tool[AMT]__RENT] pin10frp@gmail.com — sold 0:59:53.923654 ago
+[12:17:55] [rotating] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com  old password = HFK4V9KS  ->  new password = MPLX3QWX  (age=1:00:55.435743)
+[12:17:55] [DIAG] vendor login dispatch: kind='amt'
+[12:17:55] [vendor] goto https://androidmultitool.com/controller/login
+[12:17:58] [vendor] Turnstile OK
+[12:17:59] [vendor] login OK: vijichatiya45@gmail.com
+[12:17:59] [vendor] waiting for Turnstile widget to render...
+[12:18:09] [vendor] cf-turnstile-response input not found — proceeding
+[12:18:09] [vendor] solving account-page Turnstile via Peak...
+[12:18:11] [vendor] Turnstile solve failed: PeakError('Peak HTTP 401: {"success":false,"error":"invalid API key"}\n') — continuing
+[12:18:11] [vendor] invoking change_details() directly
+[12:18:12] [vendor] change_details defined = True
+[12:18:12] [vendor] cf-turnstile token prefix = '1.T_zqb8dnyVinWZZ_S7UEa33eGDLrjpaRsYHjhE'
+[12:18:12] [vendor] change_details() invoked
+[12:18:12] [vendor] waiting for server response...
+[12:18:12] [vendor] AMT popup: 'user information has been updated, please relogin to continue'
+[12:18:15] [vendor] AMT password change confirmed
+[12:18:15] [vendor] logging out of AMT
+[12:18:15] [vendor] Logout button not found — going to logout URL
+[12:18:16] [vendor] AMT logout OK — login form present
+[12:18:16] [vendor-pass] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com  ->  VENDOR password set to: MPLX3QWX
+[12:18:16] [admin] hard-refreshing panel to clear state before updating id=10
+[12:18:17] [admin] waiting for sidebar to render...
+[12:18:20] [state] navigating to Inventory page via sidebar
+[12:18:22] opening 'Android Multi Tool[AMT]__RENT'
+[12:18:27] [admin] waiting 2s before clicking submit for id=10
+[12:18:31] [admin] Successfully updated id=10
+[12:18:31] [admin-pass] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com  ->  ADMIN code set to: 🆔 vijichatiya45@gmail.com 🔑 MPLX3QWX
+[12:18:31] [ok] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com rotated (mark_available=False)
+[12:18:32] [limit] [Android Multi Tool[AMT]__RENT] reached 1 rotation(s)
+[12:18:32] [done] [Android Multi Tool[AMT]__RENT] rotated 1
+[12:18:32] [connect] checking status and connecting active inventories...
+[12:18:33] [connect] [Android Multi Tool[AMT]__RENT] is Active — proceeding to connect
+[12:18:33] [connect] [Android Multi Tool[AMT]__RENT] connecting remote service...
+[12:18:33] [connect] navigating to Services List -> Remote
+[12:18:34] [connect] clicking remote service name cell: 'AMT ( Android Multi Tool ) 2 Hours ❇️ Fast (24x7)'
+[12:18:34] [connect] offcanvas opened
+[12:18:34] [connect] clicking Connect section button
+[12:18:35] [connect] opening Connect Inventory tab
+[12:18:35] [connect] choosing inventory in dropdown: Android Multi Tool[AMT]__RENT
+[12:18:35] [connect] inventory 'Android Multi Tool[AMT]__RENT' chosen
+[12:18:35] [connect] clicking final Connect button
+[12:18:36] [connect] remote service re-connected for [Android Multi Tool[AMT]__RENT]
+[12:18:36] [connect] closing offcanvas
+[12:18:36] [connect] offcanvas closed
+[12:18:36] [connect] navigating back to Inventory
+[12:18:37] [connect] [Android Multi Tool[AMT]__RENT] re-connected — waiting 10s for codes to refresh
+[12:18:47] [all done] total 1
+[12:20:05] [DIAG] admin tab url = https://pinfrp.com/admin
+[12:20:05] [plan] 1 inventory/inventories to process
+[12:20:05] opening 'Android Multi Tool[AMT]__RENT'
+[12:20:07] [scan] [Android Multi Tool[AMT]__RENT] 0 sold-out row(s) (limit=unlimited, mark_available=True)
+[12:20:07] [done] [Android Multi Tool[AMT]__RENT] rotated 0
+[12:20:07] [connect] checking status and connecting active inventories...
+[12:20:07] [connect] [Android Multi Tool[AMT]__RENT] is Active — proceeding to connect
+[12:20:07] [connect] [Android Multi Tool[AMT]__RENT] connecting remote service...
+[12:20:07] [connect] navigating to Services List -> Remote
+[12:20:09] [connect] clicking remote service name cell: 'AMT ( Android Multi Tool ) 2 Hours ❇️ Fast (24x7)'
+[12:20:10] [connect] offcanvas opened
+[12:20:10] [connect] clicking Connect section button
+[12:20:10] [connect] opening Connect Inventory tab
+[12:20:10] [connect] choosing inventory in dropdown: Android Multi Tool[AMT]__RENT
+[12:20:10] [connect] inventory 'Android Multi Tool[AMT]__RENT' chosen
+[12:20:10] [connect] clicking final Connect button
+[12:20:10] [connect] remote service re-connected for [Android Multi Tool[AMT]__RENT]
+[12:20:10] [connect] closing offcanvas
+[12:20:11] [connect] offcanvas closed
+[12:20:11] [connect] navigating back to Inventory
+[12:20:12] [connect] [Android Multi Tool[AMT]__RENT] re-connected — waiting 10s for codes to refresh
+[12:20:22] [all done] total 0
+[12:20:39] [DIAG] admin tab url = https://pinfrp.com/admin
+[12:20:39] [plan] 1 inventory/inventories to process
+[12:20:39] opening 'Android Multi Tool[AMT]__RENT'
+[12:20:41] [scan] [Android Multi Tool[AMT]__RENT] 23 sold-out row(s) (limit=unlimited, mark_available=True)
+[12:20:41] [wait] [Android Multi Tool[AMT]__RENT] borneo6665@gmail.com — sold 0:07:41.068807 ago
+[12:20:42] [wait] [Android Multi Tool[AMT]__RENT] pin13frp@gmail.com — sold 0:10:42.580351 ago
+[12:20:44] [wait] [Android Multi Tool[AMT]__RENT] pin8frp@gmail.com — sold 0:11:44.087091 ago
+[12:20:45] [wait] [Android Multi Tool[AMT]__RENT] pin9frp@gmail.com — sold 0:14:45.602995 ago
+[12:20:47] [wait] [Android Multi Tool[AMT]__RENT] pin16frp@gmail.com — sold 0:26:47.104488 ago
+[12:20:48] [wait] [Android Multi Tool[AMT]__RENT] unlocktool0133333@gmail.com — sold 0:30:48.612806 ago
+[12:20:50] [wait] [Android Multi Tool[AMT]__RENT] imdad9365000393@gmail.com — sold 0:31:50.119864 ago
+[12:20:51] [wait] [Android Multi Tool[AMT]__RENT] tctctc12312333@gmail.com — sold 0:35:51.631759 ago
+[12:20:53] [wait] [Android Multi Tool[AMT]__RENT] pin1frp@gmail.com — sold 0:37:53.141409 ago
+[12:20:54] [wait] [Android Multi Tool[AMT]__RENT] pin14frp@gmail.com — sold 0:44:54.654367 ago
+[12:20:56] [wait] [Android Multi Tool[AMT]__RENT] teamvieweremail09@gmail.com — sold 0:56:56.164923 ago
+[12:20:57] [wait] [Android Multi Tool[AMT]__RENT] pin10frp@gmail.com — sold 1:02:57.674501 ago
+[12:20:59] [wait] [Android Multi Tool[AMT]__RENT] vijichatiya45@gmail.com — sold 1:03:59.185556 ago
+[12:21:00] [wait] [Android Multi Tool[AMT]__RENT] pinfrp0011@gmail.com — sold 1:04:00.697196 ago
+[12:21:02] [wait] [Android Multi Tool[AMT]__RENT] pin4frp@gmail.com — sold 1:14:02.201349 ago
+[12:21:03] [wait] [Android Multi Tool[AMT]__RENT] anayalimma@gmail.com — sold 1:28:03.706102 ago
+[12:21:05] [wait] [Android Multi Tool[AMT]__RENT] pin5frp@gmail.com — sold 1:43:05.215747 ago
+[12:21:06] [wait] [Android Multi Tool[AMT]__RENT] amtpinfrp@gmail.com — sold 1:46:06.718768 ago
+[12:21:08] [wait] [Android Multi Tool[AMT]__RENT] pin7frp@gmail.com — sold 1:59:08.232068 ago
+[12:21:09] [rotating] [Android Multi Tool[AMT]__RENT] pin11frp@gmail.com  old password = HGUJHYGTUJ  ->  new password = 7XTVGQSR  (age=2:04:09.741760)
+[12:21:09] [DIAG] vendor login dispatch: kind='amt'
+[12:21:09] [vendor] goto https://androidmultitool.com/controller/login
+[12:21:13] [vendor] Turnstile OK
+[12:21:14] [vendor] login OK: pin11frp@gmail.com
+[12:21:15] [vendor] waiting for Turnstile widget to render...
+[12:21:25] [vendor] cf-turnstile-response input not found — proceeding
+[12:21:25] [vendor] solving account-page Turnstile via Peak...
+[12:21:25] [vendor] Turnstile solve failed: PeakError('Peak HTTP 401: {"success":false,"error":"invalid API key"}\n') — continuing
+[12:21:25] [vendor] invoking change_details() directly
+[12:21:25] [vendor] change_details defined = True
+[12:21:25] [vendor] cf-turnstile token prefix = '1.4bVhTPP72PPf9OEG7JxVTOX78ymTL_mvV-6-5N'
+[12:21:25] [vendor] change_details() invoked
+[12:21:25] [vendor] waiting for server response...
+[12:21:26] [vendor] AMT popup: 'user information has been updated, please relogin to continue'
+[12:21:29] [vendor] AMT password change confirmed
+[12:21:29] [vendor] logging out of AMT
+[12:21:29] [vendor] Logout button not found — going to logout URL
+[12:21:30] [vendor] AMT logout OK — login form present
+[12:21:30] [vendor-pass] [Android Multi Tool[AMT]__RENT] pin11frp@gmail.com  ->  VENDOR password set to: 7XTVGQSR
+[12:21:30] [admin] hard-refreshing panel to clear state before updating id=2935
+[12:21:31] [admin] waiting for sidebar to render...
+[12:21:34] [state] navigating to Inventory page via sidebar
+[12:21:36] opening 'Android Multi Tool[AMT]__RENT'
+[12:21:40] [admin] waiting 2s before clicking submit for id=2935
+[12:21:44] [admin] Successfully updated id=2935
+[12:21:44] [admin-pass] [Android Multi Tool[AMT]__RENT] pin11frp@gmail.com  ->  ADMIN code set to: 🆔 pin11frp@gmail.com 🔑 7XTVGQSR
+[12:21:44] [ok] [Android Multi Tool[AMT]__RENT] pin11frp@gmail.com rotated (mark_available=True)
+[12:21:45] [rotating] [Android Multi Tool[AMT]__RENT] pin6frp@gmail.com  old password = 3PUKQ5WD  ->  new password = LXA9UAZH  (age=2:06:45.555335)
+[12:21:45] [DIAG] vendor login dispatch: kind='amt'
+[12:21:45] [vendor] goto https://androidmultitool.com/controller/login
+[12:21:48] [vendor] Turnstile OK
+[12:21:49] [vendor] login OK: pin6frp@gmail.com
+[12:21:50] [vendor] waiting for Turnstile widget to render...
+[12:22:00] [vendor] cf-turnstile-response input not found — proceeding
+[12:22:00] [vendor] solving account-page Turnstile via Peak...
+[12:22:00] [vendor] Turnstile solve failed: PeakError('Peak HTTP 401: {"success":false,"error":"invalid API key"}\n') — continuing
+[12:22:00] [vendor] invoking change_details() directly
+[12:22:00] [vendor] change_details defined = True
+[12:22:00] [vendor] cf-turnstile token prefix = '1.sQXUrSi3k29F7-b5fFmWeYJrizjsFteAabt5au'
+[12:22:00] [vendor] change_details() invoked
+[12:22:00] [vendor] waiting for server response...
+[12:22:01] [vendor] AMT popup: 'user information has been updated, please relogin to continue'
+[12:22:04] [vendor] AMT password change confirmed
+[12:22:04] [vendor] logging out of AMT
+[12:22:04] [vendor] Logout button not found — going to logout URL
+[12:22:05] [vendor] AMT logout OK — login form present
+[12:22:05] [vendor-pass] [Android Multi Tool[AMT]__RENT] pin6frp@gmail.com  ->  VENDOR password set to: LXA9UAZH
+[12:22:05] [admin] hard-refreshing panel to clear state before updating id=1823
+[12:22:06] [admin] waiting for sidebar to render...
+[12:22:09] [state] navigating to Inventory page via sidebar
+[12:22:11] opening 'Android Multi Tool[AMT]__RENT'
+[12:22:15] [admin] waiting 2s before clicking submit for id=1823
+[12:22:19] [admin] Successfully updated id=1823
+[12:22:19] [admin-pass] [Android Multi Tool[AMT]__RENT] pin6frp@gmail.com  ->  ADMIN code set to: 🆔 pin6frp@gmail.com 🔑 LXA9UAZH
+[12:22:19] [ok] [Android Multi Tool[AMT]__RENT] pin6frp@gmail.com rotated (mark_available=True)
+[12:22:20] [rotating] [Android Multi Tool[AMT]__RENT] gsmclasssupport@gmail.com  old password = YITIKI  ->  new password = UCMLTLTB  (age=2:08:20.555323)
+[12:22:20] [DIAG] vendor login dispatch: kind='amt'
+[12:22:20] [vendor] goto https://androidmultitool.com/controller/login
+[12:22:23] [vendor] Turnstile OK
+[12:22:24] [vendor] login OK: gsmclasssupport@gmail.com
+[12:22:25] [vendor] waiting for Turnstile widget to render...
+[12:22:35] [vendor] cf-turnstile-response input not found — proceeding
+[12:22:35] [vendor] solving account-page Turnstile via Peak...
+[12:22:35] [vendor] Turnstile solve failed: PeakError('Peak HTTP 401: {"success":false,"error":"invalid API key"}\n') — continuing
+[12:22:35] [vendor] invoking change_details() directly
+[12:22:35] [vendor] change_details defined = True
+[12:22:35] [vendor] cf-turnstile token prefix = '1.gZx-6iT2AZBjOMBg6GjVeo7fmqimtcjdEHdOyw'
+[12:22:35] [vendor] change_details() invoked
+[12:22:35] [vendor] waiting for server response...
+[12:22:36] [vendor] AMT popup: 'user information has been updated, please relogin to continue'
+[12:22:39] [vendor] AMT password change confirmed
+[12:22:39] [vendor] logging out of AMT
+[12:22:39] [vendor] Logout button not found — going to logout URL
+[12:22:40] [vendor] AMT logout OK — login form present
+[12:22:40] [vendor-pass] [Android Multi Tool[AMT]__RENT] gsmclasssupport@gmail.com  ->  VENDOR password set to: UCMLTLTB
+[12:22:40] [admin] hard-refreshing panel to clear state before updating id=679
+[12:22:40] [admin] waiting for sidebar to render...
+[12:22:43] [state] navigating to Inventory page via sidebar
+[12:22:46] opening 'Android Multi Tool[AMT]__RENT'
+[12:22:50] [admin] waiting 2s before clicking submit for id=679
+[12:22:53] [admin] Successfully updated id=679
+[12:22:53] [admin-pass] [Android Multi Tool[AMT]__RENT] gsmclasssupport@gmail.com  ->  ADMIN code set to: 🆔 gsmclasssupport@gmail.com 🔑 UCMLTLTB
+[12:22:53] [ok] [Android Multi Tool[AMT]__RENT] gsmclasssupport@gmail.com rotated (mark_available=True)
+[12:22:55] [rotating] [Android Multi Tool[AMT]__RENT] pin15frp@gmail.com  old password = HVHGJ  ->  new password = 9GKDPR6X  (age=2:45:55.119927)
+[12:22:55] [DIAG] vendor login dispatch: kind='amt'
+[12:22:55] [vendor] goto https://androidmultitool.com/controller/login
+[12:22:57] [vendor] Turnstile OK
+[12:23:14] [vendor-fail] [Android Multi Tool[AMT]__RENT] pin15frp@gmail.com: Exception('Page.wait_for_selector: Connection closed while reading from the driver')

@@ -2,6 +2,7 @@
 import asyncio, datetime as dt, re, secrets, zoneinfo
 from typing import Callable, Iterable
 from playwright.async_api import async_playwright, TimeoutError as PWTimeout
+from playwright_turnstile import solve_turnstile  # <-- new (only used in AMT password-change)
 
 CDP_URL = "http://localhost:9222"
 TZ      = zoneinfo.ZoneInfo("Asia/Kolkata")
@@ -234,47 +235,18 @@ class Rotator:
         )
 
     # ============================================================
-    # Remote service re-connect (runs AFTER rotation)
+    # Remote service re-connect logic
     # ============================================================
 
-    async def _ensure_remote_connected(self, admin_page, inv: str,
-                                       rotated_this_run: int) -> bool:
+    async def _ensure_remote_connected(self, admin_page, inv: str) -> bool:
         """
-        Re-connect the remote service to this inventory IF:
-          - we just rotated at least one row this run (evidence of demand), AND
-          - the inventory still has 0 available codes.
+        Connects the remote service to this inventory.
+        (This is only called if the inventory status is 'Active')
         """
         if self.stop_flag:
             return False
 
-        if rotated_this_run == 0:
-            return False
-
-        # ---- Check available count ----
-        await self._open_inventory(admin_page, inv)
-        if self.stop_flag:
-            await self._close_modal(admin_page)
-            return False
-        try:
-            avail_txt = await admin_page.locator(
-                "#viewInventoryContent #availableCount"
-            ).inner_text(timeout=5000)
-        except Exception:
-            avail_txt = ""
-        await self._close_modal(admin_page)
-
-        m = re.search(r"(\d+)", avail_txt or "")
-        avail_num = int(m.group(1)) if m else -1
-
-        if avail_num != 0:
-            if avail_num < 0:
-                self.log(f"[connect] [{inv}] could not read available count — skipping")
-            else:
-                self.log(f"[connect] [{inv}] available={avail_num} after rotation — no need to reconnect")
-            return False
-
-        self.log(f"[connect] [{inv}] available=0 and rotated {rotated_this_run} row(s) — "
-                 f"triggering remote service re-connect")
+        self.log(f"[connect] [{inv}] connecting remote service...")
 
         remote_title = REMOTE_SERVICE_MAP.get(inv)
         if not remote_title:
@@ -397,6 +369,48 @@ class Rotator:
             self.log(f"[vendor] goto {cfg['login_url']}")
             await page.goto(cfg["login_url"], wait_until="domcontentloaded", timeout=30000)
 
+            # ---- If already logged in (redirected to dashboard), log out first ----
+            if "/dashboard" in (page.url or ""):
+                self.log(f"[vendor] already logged in — redirect detected at {page.url!r}. Logging out.")
+                try:
+                    logout_btn = page.locator(
+                        'button[onclick*="controller/logout"]'
+                    ).first
+                    if await logout_btn.count() == 0:
+                        logout_btn = page.locator(
+                            'button:has-text("Logout")'
+                        ).first
+                    await logout_btn.scroll_into_view_if_needed()
+                    await logout_btn.click(timeout=8000)
+                except Exception as e:
+                    self.log(f"[vendor] logout click failed ({e!r}) — navigating to logout URL directly")
+                    try:
+                        await page.goto(
+                            "http://androidmultitool.com/controller/logout",
+                            wait_until="domcontentloaded",
+                            timeout=20000,
+                        )
+                    except Exception:
+                        pass
+
+                # Wait for session to clear, then force back onto the login page
+                await asyncio.sleep(2)
+                try:
+                    await page.wait_for_function(
+                        "() => !location.href.includes('/dashboard')",
+                        timeout=10000,
+                    )
+                except PWTimeout:
+                    pass
+
+                self.log("[vendor] re-navigating to login page after logout")
+                await page.goto(cfg["login_url"], wait_until="domcontentloaded", timeout=30000)
+                # If logout silently failed and we bounced back to dashboard, abort loudly
+                if "/dashboard" in (page.url or ""):
+                    raise RuntimeError(
+                        f"AMT still on dashboard after logout attempt — url={page.url!r}"
+                    )
+
             try:
                 await page.wait_for_function(
                     """() => {
@@ -449,47 +463,153 @@ class Rotator:
         await page.fill("#password", new_pw)
         await page.fill("#password_confirm", new_pw)
 
-        self.log("[vendor] waiting for account-page Turnstile token")
+        # Wait for Turnstile widget, solve it
+        self.log("[vendor] waiting for Turnstile widget to render...")
+        try:
+            await page.wait_for_selector('input[name="cf-turnstile-response"]', timeout=10000)
+        except PWTimeout:
+            self.log("[vendor] cf-turnstile-response input not found — proceeding")
+
+        self.log("[vendor] solving account-page Turnstile via Peak...")
+        try:
+            await solve_turnstile(
+                page,
+                api_key="pk_YOUR_PEAK_KEY",
+                sitekey="0x4AAAAAAA7_wuwG9YEeNZkY",
+            )
+            self.log("[vendor] account-page Turnstile token injected")
+        except Exception as e:
+            self.log(f"[vendor] Turnstile solve failed: {e!r} — continuing")
+
+        # ---- Invoke change_details() directly (bypasses click interception) ----
+        self.log("[vendor] invoking change_details() directly")
+        try:
+            try:
+                await page.evaluate("$('#loading').hide()")
+            except Exception:
+                pass
+
+            has_fn = await page.evaluate("typeof change_details === 'function'")
+            self.log(f"[vendor] change_details defined = {has_fn}")
+            if not has_fn:
+                raise RuntimeError("change_details() is not defined")
+
+            token_val = await page.evaluate(
+                """() => {
+                    const el = document.querySelector('input[name="cf-turnstile-response"]');
+                    return el ? el.value.slice(0, 40) : '<no input>';
+                }"""
+            )
+            self.log(f"[vendor] cf-turnstile token prefix = {token_val!r}")
+
+            await page.evaluate("change_details()")
+            self.log("[vendor] change_details() invoked")
+        except Exception as e:
+            self.log(f"[vendor] JS invoke failed ({e!r}) — trying forced click")
+            try:
+                await page.locator('button[onclick*="change_details"]').click(force=True, timeout=5000)
+                self.log("[vendor] forced click succeeded")
+            except Exception as e2:
+                self.log(f"[vendor] forced click also failed: {e2!r}")
+                raise
+
+        # ---- Wait for outcome ----
+        self.log("[vendor] waiting for server response...")
+        change_ok = False
         try:
             await page.wait_for_function(
                 """() => {
-                    const el = document.querySelector('input[name="cf-turnstile-response"]');
-                    return el && el.value && el.value.length > 20;
+                    const loading = document.querySelector('#loading');
+                    if (loading && loading.style.display !== 'none') return false;
+                    const swal = document.querySelector('.swal2-popup');
+                    if (swal && swal.offsetParent !== null) return true;
+                    const p = document.querySelector('#password');
+                    if (p && p.value === '') return true;
+                    return false;
                 }""",
                 timeout=15000,
             )
-            self.log("[vendor] account-page Turnstile OK")
-        except PWTimeout:
-            self.log("[vendor] account-page Turnstile not solved — clicking anyway")
 
-        self.log("[vendor] clicking Save Changes button")
-        clicked = False
-        for sel in [
-            'button.btn.btn-icon.btn-success:has-text("Save Changes")',
-            'button[onclick*="change_details"]',
-            'button:has-text("Save Changes")',
-        ]:
+            popup_text = ""
             try:
-                btn = page.locator(sel).first
-                await btn.scroll_into_view_if_needed()
-                await btn.click(timeout=5000)
-                clicked = True
-                self.log(f"[vendor] Save clicked via {sel!r}")
-                break
+                popup = page.locator(".swal2-popup").first
+                if await popup.count() and await popup.is_visible():
+                    popup_text = (await popup.inner_text(timeout=2000)).lower()
+                    self.log(f"[vendor] AMT popup: {popup_text!r}")
             except Exception:
-                continue
+                pass
 
-        if not clicked:
-            self.log("[vendor] button click failed — invoking change_details() as fallback")
-            await page.evaluate(
-                "typeof change_details === 'function' ? change_details() : null"
+            if any(w in popup_text for w in ("success", "updated", "changed", "saved")):
+                change_ok = True
+            elif any(w in popup_text for w in ("error", "fail", "invalid", "captcha", "turnstile", "verification")):
+                change_ok = False
+            else:
+                try:
+                    pw_val = await page.locator("#password").input_value()
+                    if pw_val == "":
+                        change_ok = True
+                except Exception:
+                    pass
+
+            try:
+                await page.click('.swal2-confirm', timeout=3000)
+            except Exception:
+                pass
+        except PWTimeout:
+            self.log("[vendor] no confirmation signal within 15s")
+
+        if not change_ok:
+            await page.screenshot(path=f"amt_change_unconfirmed_{new_pw}.png")
+            raise RuntimeError(
+                "AMT password change could not be confirmed — check "
+                f"amt_change_unconfirmed_{new_pw}.png. Likely Turnstile rejection."
             )
+        self.log("[vendor] AMT password change confirmed")
 
-        await asyncio.sleep(5)
         try:
             await page.screenshot(path=f"vendor_after_save_{new_pw}.png")
         except Exception:
             pass
+
+        # ---- Log out of AMT ----
+        self.log("[vendor] logging out of AMT")
+        try:
+            clicked_logout = False
+            for sel in [
+                'button[onclick*="controller/logout"]',
+                'button:has-text("Logout")',
+                'button.btn.btn-primary:has(i.fa-right-from-bracket)',
+            ]:
+                try:
+                    btn = page.locator(sel).first
+                    if await btn.count() == 0:
+                        continue
+                    await btn.scroll_into_view_if_needed()
+                    await btn.click(timeout=5000)
+                    clicked_logout = True
+                    self.log(f"[vendor] AMT Logout clicked via {sel!r}")
+                    break
+                except Exception:
+                    continue
+
+            if not clicked_logout:
+                self.log("[vendor] Logout button not found — going to logout URL")
+                try:
+                    await page.goto(
+                        "http://androidmultitool.com/controller/logout",
+                        wait_until="domcontentloaded",
+                        timeout=20000,
+                    )
+                except Exception:
+                    pass
+
+            try:
+                await page.wait_for_selector("#password", timeout=8000)
+                self.log("[vendor] AMT logout OK — login form present")
+            except PWTimeout:
+                self.log(f"[vendor] AMT logout — current url: {page.url} (could not confirm)")
+        except Exception as e:
+            self.log(f"[vendor] AMT logout failed (non-fatal): {e!r}")
 
     # ---------------- Galaxy Multi Tool ----------------
 
@@ -499,20 +619,76 @@ class Rotator:
         try:
             self.log(f"[vendor] goto {cfg['login_url']}")
             await page.goto(cfg["login_url"], wait_until="domcontentloaded", timeout=30000)
+
+            # Make sure we're actually ON the login form before submitting
+            await page.wait_for_selector("#email", timeout=15000)
+            await page.wait_for_selector("#password", timeout=15000)
+
             await page.fill("#email", email)
             await page.fill("#password", password)
-            await page.click('form button[type="submit"]:has-text("Login")')
+
+            # Log what the submit button actually says (helps diagnose text mismatches)
+            btn = page.locator('form button[type="submit"]').first
+            if await btn.count() == 0:
+                btn = page.locator(
+                    'button:has-text("Login"), button:has-text("Sign in"), button:has-text("Log in")'
+                ).first
+            try:
+                btn_text = (await btn.inner_text()).strip()
+            except Exception:
+                btn_text = "<unknown>"
+            self.log(f"[vendor] submit button text = {btn_text!r}")
+
+            await btn.click()
+
+            # Wait until we actually leave the login form (URL changes AND #password is gone)
+            try:
+                await page.wait_for_function(
+                    "() => location.pathname !== '/login' && !document.querySelector('#password')",
+                    timeout=20000,
+                )
+            except PWTimeout:
+                await page.screenshot(path=f"galaxy_login_still_on_form_{email}.png")
+                body_snip = ""
+                try:
+                    body_snip = (await page.locator("body").inner_text(timeout=2000))[:300]
+                except Exception:
+                    pass
+                raise RuntimeError(
+                    f"Galaxy login did not leave the form. url={page.url!r} "
+                    f"body[:300]={body_snip!r}"
+                )
+
+            self.log(f"[vendor] left login page, now at {page.url}")
+
+            # ---- REAL AUTH CHECK: go to /account and confirm Security tab renders ----
+            self.log(f"[vendor] navigating to account page: {cfg['account_url']}")
+            await page.goto(cfg["account_url"], wait_until="domcontentloaded", timeout=30000)
+
+            if "/login" in (page.url or ""):
+                await page.screenshot(path=f"galaxy_account_bounce_{email}.png")
+                raise RuntimeError(
+                    f"Galaxy bounced /account -> /login: session not established. url={page.url!r}"
+                )
 
             try:
                 await page.wait_for_selector(
-                    'button[aria-haspopup="menu"], a[href="/account"]',
-                    timeout=25000,
+                    'button[role="tab"]:has-text("Security")', timeout=15000
                 )
-                self.log(f"[vendor] login OK: {email}")
-                return page
             except PWTimeout:
-                await page.screenshot(path=f"vendor_login_fail_{email}.png")
-                raise RuntimeError(f"Galaxy login failed. url={page.url!r}")
+                await page.screenshot(path=f"galaxy_no_security_tab_{email}.png")
+                body_snip = ""
+                try:
+                    body_snip = (await page.locator("body").inner_text(timeout=2000))[:400]
+                except Exception:
+                    pass
+                raise RuntimeError(
+                    f"Galaxy /account did not show Security tab — login silently rejected. "
+                    f"url={page.url!r} body[:400]={body_snip!r}"
+                )
+
+            self.log(f"[vendor] login OK: {email}")
+            return page
         except Exception:
             try:
                 await page.close()
@@ -521,58 +697,42 @@ class Rotator:
             raise
 
     async def _vendor_change_galaxy(self, page, cfg, old_pw, new_pw):
-        self.log("[vendor] navigating to account page")
-        await page.goto(cfg["account_url"], wait_until="domcontentloaded", timeout=30000)
+        # _vendor_login_galaxy already navigated to /account and verified the Security tab
+        self.log(f"[vendor] on account page: {page.url}")
+
         try:
             await page.wait_for_load_state("networkidle", timeout=10000)
         except PWTimeout:
             pass
 
-        self.log("[vendor] waiting for Security tab")
-        try:
-            await page.wait_for_selector(
-                'button[role="tab"]:has-text("Security")', timeout=10000
-            )
-        except PWTimeout:
-            self.log("[vendor] Security tab not visible — burger fallback")
-            try:
-                await page.screenshot(path="galaxy_pre_burger.png")
-            except Exception:
-                pass
-
-            opened = False
-            for sel in [
-                'button[aria-controls*="radix"]:has(svg.lucide-menu)',
-                'button:has(span.sr-only:text("Toggle Menu"))',
-                'button:has(svg.lucide-menu)',
-                'header button[aria-haspopup="dialog"]',
-                'header button[aria-haspopup="menu"]',
-            ]:
-                try:
-                    await page.click(sel, timeout=3000)
-                    opened = True
-                    self.log(f"[vendor] burger clicked via {sel!r}")
-                    break
-                except Exception:
-                    continue
-            if not opened:
-                try:
-                    await page.screenshot(path="galaxy_burger_fail.png")
-                except Exception:
-                    pass
-                raise RuntimeError("could not open burger menu")
-
-            await page.wait_for_selector("a[href='/account']", timeout=8000)
-            await page.click("a[href='/account']")
-            await page.wait_for_selector(
-                'button[role="tab"]:has-text("Security")', timeout=15000
-            )
-
         self.log("[vendor] clicking Security tab")
         await page.click('button[role="tab"]:has-text("Security")')
+        await page.wait_for_timeout(500)  # let the tab content mount
+
+        # Log what's on the Security tab so future failures are diagnosable
+        try:
+            body_snip = (await page.locator("body").inner_text(timeout=2000))[:500]
+            self.log(f"[vendor] security tab body[:500] = {body_snip!r}")
+        except Exception:
+            pass
 
         self.log("[vendor] clicking Change Password")
-        await page.click('button:has-text("Change Password")', timeout=10000)
+        try:
+            await page.wait_for_selector('button:has-text("Change Password")', timeout=8000)
+            await page.click('button:has-text("Change Password")')
+        except PWTimeout:
+            # Fallback: maybe it's a link, or different casing
+            try:
+                await page.click(
+                    'button:has-text("Change password"), a:has-text("Change Password")',
+                    timeout=5000,
+                )
+            except Exception:
+                await page.screenshot(path="galaxy_change_pw_missing.png")
+                raise RuntimeError(
+                    "Change Password button not found on Security tab — "
+                    "check galaxy_change_pw_missing.png"
+                )
 
         self.log("[vendor] filling form")
         await page.wait_for_selector("#current-pass", timeout=10000)
@@ -621,26 +781,79 @@ class Rotator:
         # ---- Log out of the Galaxy vendor site before returning to admin ----
         self.log("[vendor] logging out of Galaxy vendor")
         try:
-            avatar_sel = 'header button[aria-haspopup="menu"]'
-            try:
-                await page.wait_for_selector(avatar_sel, timeout=8000)
-                await page.click(avatar_sel)
-            except Exception:
-                fallback = 'header span.flex.h-full.w-full.items-center.justify-center.rounded-full'
-                await page.wait_for_selector(fallback, timeout=5000)
-                await page.click(fallback)
-            self.log("[vendor] avatar clicked")
+            # 1) Open the avatar dropdown.
+            #    The avatar is the span with classes
+            #    "flex h-full w-full items-center justify-center rounded-full bg-muted".
+            #    It lives inside a trigger button, but the span itself is the visible node.
+            avatar_selectors = [
+                'button:has(span.rounded-full.bg-muted)',
+                'button:has(span:has-text("P"))',
+                'header button[aria-haspopup="menu"]',
+                'button[aria-haspopup="menu"]',
+                'span.flex.h-full.w-full.items-center.justify-center.rounded-full.bg-muted',
+                'span.flex.h-full.w-full.items-center.justify-center.rounded-full',
+            ]
+            opened = False
+            for sel in avatar_selectors:
+                try:
+                    loc = page.locator(sel).first
+                    if await loc.count() == 0:
+                        continue
+                    await loc.scroll_into_view_if_needed()
+                    await loc.click(timeout=5000)
+                    opened = True
+                    self.log(f"[vendor] avatar clicked via {sel!r}")
+                    break
+                except Exception:
+                    continue
 
-            logout_sel = 'div[role="menuitem"]:has-text("Log out")'
-            await page.wait_for_selector(logout_sel, timeout=8000)
-            await page.click(logout_sel)
-            self.log("[vendor] Log out clicked")
+            if not opened:
+                try:
+                    await page.screenshot(path="galaxy_logout_avatar_fail.png")
+                except Exception:
+                    pass
+                raise RuntimeError("could not open avatar menu for logout")
 
+            # 2) Click the "Log out" menu item.
+            #    Radix renders <div role="menuitem"> with a <span>Log out</span>.
+            #    Match on the span text and click the menuitem that contains it.
+            logout_selectors = [
+                'div[role="menuitem"]:has(span:text-is("Log out"))',
+                'div[role="menuitem"]:has-text("Log out")',
+                '[role="menuitem"]:has-text("Log out")',
+                'text="Log out"',
+            ]
+            clicked = False
+            for sel in logout_selectors:
+                try:
+                    item = page.locator(sel).first
+                    await item.wait_for(state="visible", timeout=6000)
+                    await item.scroll_into_view_if_needed()
+                    await item.click(timeout=5000)
+                    clicked = True
+                    self.log(f"[vendor] Log out clicked via {sel!r}")
+                    break
+                except Exception:
+                    continue
+
+            if not clicked:
+                try:
+                    await page.screenshot(path="galaxy_logout_menuitem_fail.png")
+                except Exception:
+                    pass
+                raise RuntimeError("could not click 'Log out' menu item")
+
+            # 3) Confirm we're actually logged out.
             try:
                 await page.wait_for_url("**/login**", timeout=10000)
                 self.log("[vendor] logout OK — on login page")
             except PWTimeout:
-                self.log(f"[vendor] logout — current url: {page.url}")
+                # Fallback: a login form appearing also counts as logged out
+                try:
+                    await page.wait_for_selector("#password", timeout=5000)
+                    self.log(f"[vendor] logout OK — login form present. url={page.url}")
+                except PWTimeout:
+                    self.log(f"[vendor] logout — current url: {page.url} (could not confirm)")
         except Exception as e:
             self.log(f"[vendor] logout step failed (non-fatal): {e!r}")
 
@@ -660,12 +873,13 @@ class Rotator:
             self.log("[vendor]   1. Wait for the 'Verify you are human' checkbox")
             self.log("[vendor]   2. Click it if it doesn't auto-solve")
             self.log("[vendor]   3. Wait for it to pass (green checkmark)")
-            self.log("[vendor] The bot is waiting — no time limit.")
+            self.log("[vendor] The bot is waiting — 2 minute limit.")
             self.log("=" * 60)
 
             waited = 0
             token_present = False
-            while not self.stop_flag:
+            # MAX 120 seconds wait
+            while waited < 120 and not self.stop_flag:
                 try:
                     token_present = await page.evaluate(
                         """() => {
@@ -681,10 +895,14 @@ class Rotator:
                     break
 
                 if waited % 30 == 0 and waited > 0:
-                    self.log(f"[vendor] still waiting for Turnstile... ({waited}s)")
+                    self.log(f"[vendor] still waiting for Turnstile... ({waited}s / 120s)")
 
                 await asyncio.sleep(2)
                 waited += 2
+
+            if not token_present:
+                self.log("[vendor] Turnstile wait timed out (2 minutes). Skipping this tool.")
+                raise RuntimeError("UNLOCK Tool Cloudflare timed out after 2 minutes")
 
             if self.stop_flag:
                 self.log("[vendor] stop requested during Cloudflare wait — aborting")
@@ -902,7 +1120,7 @@ class Rotator:
                                  mark_available: bool) -> int:
         rotated = 0
 
-        # ---- 1. ROTATE FIRST ----
+        # ---- 1. ROTATE ----
         await self._open_inventory(admin_page, inv)
         try:
             await self._open_sold_out_tab(admin_page)
@@ -927,15 +1145,7 @@ class Rotator:
         finally:
             await self._close_modal(admin_page)
 
-        # ---- 2. THEN check if a remote re-connect is needed ----
-        try:
-            reconnected = await self._ensure_remote_connected(admin_page, inv, rotated)
-            if reconnected:
-                self.log(f"[connect] [{inv}] re-connected — waiting 10s for codes to refresh")
-                await asyncio.sleep(10)
-        except Exception as e:
-            self.log(f"[connect-fail] [{inv}] {e!r}")
-
+        # NOTE: Inventory connection is NO LONGER done here. It is done at the very end of run_once.
         return rotated
 
     async def run_once(self, targets: Iterable) -> int:
@@ -980,5 +1190,49 @@ class Rotator:
                     self.log(f"[done] [{inv}] rotated {n}")
                 except Exception as e:
                     self.log(f"[inventory-fail] {inv!r}: {e!r}")
+
+            # ---- 2. FINAL STEP: CHECK STATUS & RECONNECT ACTIVE INVENTORIES ----
+            self.log(f"[connect] checking status and connecting active inventories...")
+            
+            # Ensure we are on the main inventory table before reading statuses
+            await self._ensure_on_inventory_page(admin_page)
+            await admin_page.wait_for_selector("#inventory_table tbody tr", timeout=15000)
+            
+            for t in expanded:
+                inv_to_connect = t["name"]
+                if self.stop_flag:
+                    break
+                
+                # Find the table row for this inventory
+                row_locator = admin_page.locator(
+                    "#inventory_table tbody tr",
+                    has=admin_page.locator(f"td:text-is('{inv_to_connect}')")
+                ).first
+                
+                if await row_locator.count() == 0:
+                    self.log(f"[connect] [{inv_to_connect}] row not found on main page — skipping")
+                    continue
+                    
+                # Extract the status text (e.g., "Active" or "Empty")
+                try:
+                    # The status is in the last <td> as a badge
+                    status_text = await row_locator.locator("td").last.inner_text()
+                    status_text = status_text.strip()
+                except Exception as e:
+                    self.log(f"[connect] [{inv_to_connect}] could not read status: {e}")
+                    continue
+                
+                if "Active" in status_text:
+                    self.log(f"[connect] [{inv_to_connect}] is Active — proceeding to connect")
+                    try:
+                        reconnected = await self._ensure_remote_connected(admin_page, inv_to_connect)
+                        if reconnected:
+                            self.log(f"[connect] [{inv_to_connect}] re-connected — waiting 10s for codes to refresh")
+                            await asyncio.sleep(10)
+                    except Exception as e:
+                        self.log(f"[connect-fail] [{inv_to_connect}] {e!r}")
+                else:
+                    self.log(f"[connect] [{inv_to_connect}] is Empty — skipping connection")
+
             self.log(f"[all done] total {total}")
             return total
