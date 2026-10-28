@@ -49,6 +49,13 @@ VENDOR_CONFIGS = {
         "account_url":  "https://unlocktool.net/password-change/",
     },
 
+    # ---- TFM Tool ----
+    "TFM--TOOL": {
+        "kind":        "tfm",
+        "login_url":   "https://beta.tfmtool.com/auth/login",
+        "account_url": "https://beta.tfmtool.com/dashboard/profile",
+    },
+
     # Others — added as their vendor HTML comes in
 }
 
@@ -64,12 +71,33 @@ REMOTE_SERVICE_MAP = {
     "UNLOCK___TOOL__RENT":               "UNLOCKTOOL LOGIN - 6hrs",
     "UNLOCK___TOOL__RENTDEMO":           "UNLOCKTOOL LOGIN - 6hrs",
     "EFT-PRO":                           "EFT-PRO__RENT{30-45MNT}",
+    "TFM--TOOL":                         "TFM Tool Pro 2 Hours ❇️ Fast (24x7",
 }
 
 
 def gen_password() -> str:
     alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
     return "".join(secrets.choice(alphabet) for _ in range(8))
+
+
+def gen_password_tfm() -> str:
+    """
+    TFM-specific password generator.
+    TFM policy: at least 8 chars, with uppercase, lowercase and a digit.
+    Uses secrets for cryptographic randomness and avoids ambiguous chars.
+    Guarantees at least one of each required class, then shuffles.
+    """
+    upper = "ABCDEFGHJKLMNPQRSTUVWXYZ"
+    lower = "abcdefghjkmnpqrstuvwxyz"
+    digit = "23456789"
+    pool  = upper + lower + digit
+    chars = [
+        secrets.choice(upper),
+        secrets.choice(lower),
+        secrets.choice(digit),
+    ] + [secrets.choice(pool) for _ in range(5)]
+    secrets.SystemRandom().shuffle(chars)
+    return "".join(chars)
 
 
 def parse_ts(s: str) -> dt.datetime:
@@ -348,6 +376,8 @@ class Rotator:
             return await self._vendor_login_galaxy(ctx, cfg, email, password)
         if kind == "unlocktool":
             return await self._vendor_login_unlocktool(ctx, cfg, email, password)
+        if kind == "tfm":
+            return await self._vendor_login_tfm(ctx, cfg, email, password)
         raise RuntimeError(f"unknown vendor kind: {kind!r}")
 
     async def _vendor_change_password(self, page, cfg: dict, old_pw: str, new_pw: str):
@@ -358,6 +388,8 @@ class Rotator:
             return await self._vendor_change_galaxy(page, cfg, old_pw, new_pw)
         if kind == "unlocktool":
             return await self._vendor_change_unlocktool(page, cfg, old_pw, new_pw)
+        if kind == "tfm":
+            return await self._vendor_change_tfm(page, cfg, old_pw, new_pw)
         raise RuntimeError(f"unknown vendor kind: {kind!r}")
 
     # ---------------- Android Multi Tool ----------------
@@ -1025,6 +1057,258 @@ class Rotator:
         except Exception as e:
             self.log(f"[vendor] logout step failed (non-fatal): {e!r}")
 
+    # ---------------- TFM Tool ----------------
+
+    async def _vendor_login_tfm(self, ctx, cfg, email, password):
+        page = await ctx.new_page()
+        page.set_default_timeout(20000)
+        try:
+            self.log(f"[vendor] goto {cfg['login_url']}")
+            await page.goto(cfg["login_url"], wait_until="domcontentloaded", timeout=30000)
+
+            # Wait for the login form to render (Nuxt SPA hydration)
+            await page.wait_for_selector('input[name="email"]', timeout=20000)
+            await page.wait_for_selector('input[name="password"]', timeout=20000)
+
+            # TFM's Turnstile auto-solves on load. Wait for the hidden token to be populated.
+            self.log("[vendor] waiting for Turnstile token...")
+            try:
+                await page.wait_for_function(
+                    """() => {
+                        const el = document.querySelector('input[name="cf-turnstile-response"]');
+                        return el && el.value && el.value.length > 20;
+                    }""",
+                    timeout=20000,
+                )
+                self.log("[vendor] TFM Turnstile OK")
+            except PWTimeout:
+                self.log("[vendor] TFM Turnstile not detected — continuing anyway")
+
+            # Fill credentials (values may be pre-populated in the SSR payload
+            # but playwright .fill() replaces them cleanly).
+            await page.fill('input[name="email"]', email)
+            await page.fill('input[name="password"]', password)
+
+            # Find the submit button — it's the big primary "Log in" button
+            self.log("[vendor] submitting login")
+            btn = page.locator('form button[type="submit"]').first
+            if await btn.count() == 0:
+                btn = page.locator('button[type="submit"]:has-text("Log in")').first
+            await btn.scroll_into_view_if_needed()
+            await btn.click()
+
+            # Wait until we actually leave /auth/login AND the login form is gone.
+            try:
+                await page.wait_for_function(
+                    """() => !location.pathname.startsWith('/auth/login')
+                            && !document.querySelector('input[name="password"]')""",
+                    timeout=25000,
+                )
+            except PWTimeout:
+                await page.screenshot(path=f"tfm_login_still_on_form_{email}.png")
+                body = ""
+                try:
+                    body = (await page.locator("body").inner_text(timeout=2000))[:400]
+                except Exception:
+                    pass
+                raise RuntimeError(
+                    f"TFM login did not leave /auth/login. url={page.url!r} body[:400]={body!r}"
+                )
+
+            self.log(f"[vendor] TFM left login page, now at {page.url}")
+
+            # ---- REAL AUTH CHECK: go to profile and confirm avatar menu button exists ----
+            self.log(f"[vendor] navigating to profile: {cfg['account_url']}")
+            await page.goto(cfg["account_url"], wait_until="domcontentloaded", timeout=30000)
+
+            if "/auth/login" in (page.url or ""):
+                await page.screenshot(path=f"tfm_profile_bounce_{email}.png")
+                raise RuntimeError(
+                    f"TFM bounced /dashboard/profile -> /auth/login: session not established. "
+                    f"url={page.url!r}"
+                )
+
+            # The avatar button in the header is a strong "logged in" signal.
+            try:
+                await page.wait_for_selector(
+                    'button:has(span.rounded-full) svg, '
+                    'button[type="button"]:has(span.rounded-full.border-border-subtle)',
+                    timeout=15000,
+                )
+            except PWTimeout:
+                await page.screenshot(path=f"tfm_no_avatar_{email}.png")
+                body = ""
+                try:
+                    body = (await page.locator("body").inner_text(timeout=2000))[:500]
+                except Exception:
+                    pass
+                raise RuntimeError(
+                    f"TFM /dashboard/profile did not show avatar menu — login silently rejected. "
+                    f"url={page.url!r} body[:500]={body!r}"
+                )
+
+            self.log(f"[vendor] login OK: {email}")
+            return page
+        except Exception:
+            try:
+                await page.close()
+            except Exception:
+                pass
+            raise
+
+    async def _vendor_change_tfm(self, page, cfg, old_pw, new_pw):
+        # _vendor_login_tfm already navigated to /dashboard/profile
+        self.log(f"[vendor] on profile page: {page.url}")
+
+        try:
+            try:
+                await page.wait_for_load_state("networkidle", timeout=10000)
+            except PWTimeout:
+                pass
+
+            self.log("[vendor] clicking Change password button")
+            try:
+                await page.wait_for_selector(
+                    'button:has-text("Change password")', timeout=10000
+                )
+                await page.click('button:has-text("Change password")')
+            except PWTimeout:
+                await page.screenshot(path="tfm_change_pw_missing.png")
+                raise RuntimeError(
+                    "Change password button not found on TFM profile — "
+                    "check tfm_change_pw_missing.png"
+                )
+
+            self.log("[vendor] waiting for Change password modal")
+            await page.wait_for_selector("#modal-current-password", timeout=15000)
+            await page.wait_for_selector("#modal-new-password",     timeout=15000)
+            await page.wait_for_selector("#modal-confirm-password", timeout=15000)
+
+            self.log("[vendor] filling form")
+            await page.fill("#modal-current-password", old_pw)
+            await page.fill("#modal-new-password",     new_pw)
+            await page.fill("#modal-confirm-password", new_pw)
+
+            self.log("[vendor] clicking Update password")
+            submit_sel = 'button:has-text("Update password")'
+            try:
+                await page.wait_for_selector(submit_sel, timeout=8000)
+                await page.click(submit_sel)
+            except Exception as e:
+                self.log(f"[vendor] Update password click failed ({e!r}) — forcing")
+                await page.locator(submit_sel).first.click(force=True, timeout=5000)
+
+            # Wait for the modal to close — TFM's success behaviour. If it
+            # doesn't close, just log and move on; the admin-panel update is
+            # what matters, and the finally below always logs out.
+            self.log("[vendor] waiting for modal to close...")
+            try:
+                await page.wait_for_function(
+                    """() => !document.querySelector('#modal-current-password')""",
+                    timeout=25000,
+                )
+                self.log("[vendor] TFM password change confirmed (modal closed)")
+            except PWTimeout:
+                self.log("[vendor] modal did not close within 25s — "
+                         "proceeding to admin update anyway")
+        finally:
+            # ---- Always log out of TFM before returning to admin ----
+            await self._tfm_logout(page, cfg)
+
+    async def _tfm_logout(self, page, cfg):
+        """Robust TFM logout. Called from the finally of _vendor_change_tfm
+        so it runs whether the password change succeeded or not."""
+        self.log("[vendor] logging out of TFM")
+        try:
+            # 1) Make sure we're on the profile page (SPA may have navigated)
+            if "/dashboard/profile" not in (page.url or ""):
+                self.log(f"[vendor] re-navigating to profile for logout: {page.url}")
+                try:
+                    await page.goto(cfg["account_url"],
+                                    wait_until="domcontentloaded", timeout=20000)
+                except Exception:
+                    pass
+
+            # 2) Click the exact avatar button in the header
+            self.log("[vendor] clicking TFM avatar button")
+            avatar_btn = page.locator(
+                'header button[type="button"]:has(span.rounded-full)'
+            ).first
+            if await avatar_btn.count() == 0:
+                avatar_btn = page.locator(
+                    'button[type="button"]:has(span.rounded-full)'
+                ).first
+            if await avatar_btn.count() == 0:
+                try:
+                    await page.screenshot(path="tfm_logout_avatar_fail.png")
+                except Exception:
+                    pass
+                raise RuntimeError("TFM avatar button not found")
+
+            await avatar_btn.scroll_into_view_if_needed()
+            await avatar_btn.click(timeout=6000)
+
+            # 3) Wait for the "Log out" row to render, then click it
+            self.log("[vendor] waiting for Log out menu row to appear")
+            logout_candidates = [
+                'div.cursor-pointer:has-text("Log out")',
+                'div.cursor-pointer:has(svg):has-text("Log out")',
+                'div:has(svg):has-text("Log out")',
+                'div[role="menuitem"]:has-text("Log out")',
+                '[role="menuitem"]:has-text("Log out")',
+            ]
+            clicked = False
+            for sel in logout_candidates:
+                try:
+                    item = page.locator(sel).first
+                    await item.wait_for(state="visible", timeout=8000)
+                    await item.scroll_into_view_if_needed()
+                    await item.click(timeout=5000)
+                    clicked = True
+                    self.log(f"[vendor] TFM Log out clicked via {sel!r}")
+                    break
+                except Exception as e:
+                    self.log(f"[vendor] logout selector {sel!r} failed: {e!r}")
+                    continue
+
+            if not clicked:
+                try:
+                    await page.screenshot(path="tfm_logout_menuitem_fail.png")
+                except Exception:
+                    pass
+                raise RuntimeError("could not click TFM 'Log out' menu item")
+
+            # 4) Confirm logout
+            self.log("[vendor] waiting for login form after logout")
+            try:
+                await page.wait_for_function(
+                    """() => location.pathname.startsWith('/auth/login')
+                            || !!document.querySelector('input[name="password"]')""",
+                    timeout=15000,
+                )
+                self.log(f"[vendor] TFM logout OK — url={page.url}")
+                return
+            except PWTimeout:
+                pass
+
+            # 5) Force-navigate to login page as last resort
+            try:
+                await page.goto(cfg["login_url"],
+                                wait_until="domcontentloaded", timeout=15000)
+                await page.wait_for_selector('input[name="password"]', timeout=8000)
+                self.log("[vendor] TFM logout OK (forced re-nav) — login form present")
+                return
+            except Exception as e:
+                self.log(f"[vendor] TFM logout — forced re-nav failed: {e!r}")
+
+            try:
+                await page.screenshot(path="tfm_logout_unconfirmed.png")
+            except Exception:
+                pass
+            self.log(f"[vendor] TFM logout — current url: {page.url} (could not confirm)")
+        except Exception as e:
+            self.log(f"[vendor] TFM logout step failed (non-fatal): {e!r}")
+
     # ============================================================
     # Orchestration
     # ============================================================
@@ -1050,8 +1334,14 @@ class Rotator:
             self.log(f"[wait] [{inv}] {user} — sold {age} ago")
             return False
 
-        new_pw   = gen_password()
+        cfg = VENDOR_CONFIGS.get(inv)
+        is_tfm = bool(cfg and cfg.get("kind") == "tfm")
+
+        # TFM has its own stricter password policy. Other vendors keep the
+        # existing generator unchanged.
+        new_pw = gen_password_tfm() if is_tfm else gen_password()
         new_code = f"🆔 {user} 🔑 {new_pw}"
+
         self.current_user = user
         self.log(f"[rotating] [{inv}] {user}  old password = {old_pw}  "
                  f"->  new password = {new_pw}  (age={age})")
@@ -1060,8 +1350,6 @@ class Rotator:
             self.log(f"[stop] aborting rotation of {user} — before vendor change")
             self.current_user = None
             return False
-
-        cfg = VENDOR_CONFIGS.get(inv)
 
         if cfg:
             vendor_page = None
