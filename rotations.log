@@ -2887,3 +2887,111 @@
 [16:48:10] [connect] navigating back to Inventory
 [16:48:10] [connect] [TFM--TOOL] re-connected — waiting 10s for codes to refresh
 [16:48:20] [all done] total 1
+[17:00:55] [inventory-list] found 11 inventories
+[17:00:55] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[17:00:55] [inventory-list]   - EFT-PRO
+[17:00:55] [inventory-list]   - EME TOOL RENT
+[17:00:55] [inventory-list]   - Galaxy Multi Tool
+[17:00:55] [inventory-list]   - MRST
+[17:00:55] [inventory-list]   - REALME OTP
+[17:00:55] [inventory-list]   - SINGMA KEY___30MNT
+[17:00:55] [inventory-list]   - TFM--TOOL
+[17:00:55] [inventory-list]   - TSM TOOL
+[17:00:55] [inventory-list]   - UAT PRO
+[17:00:55] [inventory-list]   - UNLOCK___TOOL__RENT
+[17:01:11] [DIAG] admin tab url = https://pinfrp.com/admin
+[17:01:11] [plan] 1 inventory/inventories to process
+[17:01:11] opening 'TFM--TOOL'
+[17:01:12] [scan] [TFM--TOOL] 2 sold-out row(s) (limit=1, mark_available=False)
+[17:01:12] [rotating] [TFM--TOOL] pin1frp@gmail.com  old password = ydRs2eEf  ->  new password = NG2BPzv5  (age=0:01:12.839380)
+[17:01:12] [DIAG] vendor login dispatch: kind='tfm'
+[17:01:12] [vendor] goto https://beta.tfmtool.com/auth/login
+[17:01:13] [vendor] waiting for Turnstile token...
+[17:01:17] [vendor] TFM Turnstile OK
+[17:01:17] [vendor] submitting login
+[17:01:18] [vendor] TFM left login page, now at https://beta.tfmtool.com/dashboard
+[17:01:18] [vendor] navigating to profile: https://beta.tfmtool.com/dashboard/profile
+[17:01:19] [vendor] login OK: pin1frp@gmail.com
+[17:01:19] [vendor] on profile page: https://beta.tfmtool.com/dashboard/profile
+[17:01:19] [vendor] clicking Change password button
+[17:01:19] [vendor] waiting for Change password modal
+[17:01:19] [vendor] filling form
+[17:01:19] [vendor] clicking Update password
+[17:01:20] [vendor] waiting for modal to close...
+[17:01:20] [vendor] TFM password change confirmed (modal closed)
+[17:01:20] [vendor] logging out of TFM
+[17:01:20] [vendor] clicking TFM avatar button
+[17:01:21] [vendor] waiting for Log out menu row to appear
+[17:01:21] [vendor] TFM Log out clicked via 'div.cursor-pointer:has-text("Log out")'
+[17:01:21] [vendor] waiting for login form after logout
+[17:01:21] [vendor] TFM logout OK — url=https://beta.tfmtool.com/auth/login
+[17:01:21] [vendor-pass] [TFM--TOOL] pin1frp@gmail.com  ->  VENDOR password set to: NG2BPzv5
+[17:01:21] [admin] hard-refreshing panel to clear state before updating id=4054
+[17:01:22] [admin] waiting for sidebar to render...
+[17:01:24] [state] navigating to Inventory page via sidebar
+[17:01:31] opening 'TFM--TOOL'
+[17:01:35] [admin] waiting 2s before clicking submit for id=4054
+[17:01:40] [admin] Successfully updated id=4054
+[17:01:40] [admin-pass] [TFM--TOOL] pin1frp@gmail.com  ->  ADMIN code set to: 🆔 pin1frp@gmail.com 🔑 NG2BPzv5
+[17:01:40] [ok] [TFM--TOOL] pin1frp@gmail.com rotated (mark_available=False)
+[17:01:41] [limit] [TFM--TOOL] reached 1 rotation(s)
+[17:01:41] [done] [TFM--TOOL] rotated 1
+[17:01:41] [connect] checking status and connecting active inventories...
+[17:01:41] [connect] [TFM--TOOL] is Empty — skipping connection
+[17:01:42] [all done] total 1
+[17:02:25] [DIAG] admin tab url = https://pinfrp.com/admin
+[17:02:25] [plan] 1 inventory/inventories to process
+[17:02:25] opening 'TFM--TOOL'
+[17:02:26] [scan] [TFM--TOOL] 2 sold-out row(s) (limit=2, mark_available=False)
+[17:02:26] [rotating] [TFM--TOOL] pin1frp@gmail.com  old password = NG2BPzv5  ->  new password = zXqT498q  (age=0:02:26.601214)
+[17:02:26] [DIAG] vendor login dispatch: kind='tfm'
+[17:02:26] [vendor] goto https://beta.tfmtool.com/auth/login
+[17:02:27] [vendor] waiting for Turnstile token...
+[17:02:30] [vendor] TFM Turnstile OK
+[17:02:30] [vendor] submitting login
+[17:02:31] [vendor] TFM left login page, now at https://beta.tfmtool.com/dashboard
+[17:02:31] [vendor] navigating to profile: https://beta.tfmtool.com/dashboard/profile
+[17:02:32] [vendor] login OK: pin1frp@gmail.com
+[17:02:32] [vendor] on profile page: https://beta.tfmtool.com/dashboard/profile
+[17:02:32] [vendor] clicking Change password button
+[17:02:32] [vendor] waiting for Change password modal
+[17:02:32] [vendor] filling form
+[17:02:32] [vendor] clicking Update password
+[17:02:32] [vendor] waiting for modal to close...
+[17:02:33] [vendor] TFM password change confirmed (modal closed)
+[17:02:33] [vendor] logging out of TFM
+[17:02:33] [vendor] clicking TFM avatar button
+[17:02:33] [vendor] waiting for Log out menu row to appear
+[17:02:34] [vendor] TFM Log out clicked via 'div.cursor-pointer:has-text("Log out")'
+[17:02:34] [vendor] waiting for login form after logout
+[17:02:34] [vendor] TFM logout OK — url=https://beta.tfmtool.com/auth/login
+[17:02:34] [vendor-pass] [TFM--TOOL] pin1frp@gmail.com  ->  VENDOR password set to: zXqT498q
+[17:02:34] [admin] hard-refreshing panel to clear state before updating id=4054
+[17:02:35] [admin] waiting for sidebar to render...
+[17:02:38] [state] navigating to Inventory page via sidebar
+[17:02:40] opening 'TFM--TOOL'
+[17:02:44] [admin] waiting 2s before clicking submit for id=4054
+[17:02:47] [admin] Successfully updated id=4054
+[17:02:47] [admin-pass] [TFM--TOOL] pin1frp@gmail.com  ->  ADMIN code set to: 🆔 pin1frp@gmail.com 🔑 zXqT498q
+[17:02:47] [ok] [TFM--TOOL] pin1frp@gmail.com rotated (mark_available=False)
+[17:02:49] [rotating] [TFM--TOOL] pin2frp@gmail.com  old password = kM7vX5YM  ->  new password = VT8d9ugt  (age=0:02:49.378320)
+[17:02:49] [DIAG] vendor login dispatch: kind='tfm'
+[17:02:49] [vendor] goto https://beta.tfmtool.com/auth/login
+[17:02:50] [vendor] waiting for Turnstile token...
+[17:02:52] [vendor] TFM Turnstile OK
+[17:02:52] [vendor] submitting login
+[17:03:00] [vendor-fail] [TFM--TOOL] pin2frp@gmail.com: TargetClosedError('Page.wait_for_function: Target page, context or browser has been closed')
+[17:03:02] [inventory-fail] 'TFM--TOOL': TargetClosedError('Locator.count: Target page, context or browser has been closed')
+[17:03:02] [connect] checking status and connecting active inventories...
+[16:06:40] [inventory-list] found 11 inventories
+[16:06:40] [inventory-list]   - Android Multi Tool[AMT]__RENT
+[16:06:40] [inventory-list]   - EFT-PRO
+[16:06:40] [inventory-list]   - EME TOOL RENT
+[16:06:40] [inventory-list]   - Galaxy Multi Tool
+[16:06:40] [inventory-list]   - MRST
+[16:06:40] [inventory-list]   - REALME OTP
+[16:06:40] [inventory-list]   - SINGMA KEY___30MNT
+[16:06:40] [inventory-list]   - TFM--TOOL
+[16:06:40] [inventory-list]   - TSM TOOL
+[16:06:40] [inventory-list]   - UAT PRO
+[16:06:40] [inventory-list]   - UNLOCK___TOOL__RENT
